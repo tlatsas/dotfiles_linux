@@ -1,0 +1,89 @@
+# set the bash prompt
+#
+#
+# layout:
+# 
+#   ┌─( hostname )────( working direcory )
+#   └─( username ) >>>
+
+#
+#  colors
+#
+txtrst='\[\e[0m\]'    # Text Reset
+txtblu='\[\e[0;34m\]' # Blue
+txtcyn='\[\e[0;36m\]' # Cyan
+txtred='\[\e[0;31m\]' # Red
+txtgrn='\[\e[0;32m\]' # Green
+txtylw='\[\e[0;33m\]' # Yellow
+txtmag='\[\e[0;35m\]' # magenta
+bldred='\[\e[1;31m\]' # Red Bold
+bldgrn='\[\e[1;32m\]' # Green Bold
+
+#
+#  machine hostnames
+#
+DESKTOP="desktop"
+SERVER="server"
+LAPTOP="laptop"
+
+
+#
+#  set a default prompt just in case
+#
+
+PS1='[\u@\h:\w]\$ '
+
+
+#
+#  select prompts based on user and then based on hostname
+#
+
+if [ `id -u` != "0" ]
+then
+
+    #
+    #  normal user prompts
+    #
+
+    case `hostname` in
+        ${DESKTOP}) 
+            # --[ desktop ]--
+            PS1="\n$txtblu┌─( \h )────($txtcyn \w $txtblu) \n$txtblu└─( $txtgrn\u $txtblu) >$txtgrn>$bldgrn> $txtrst"
+            ;;
+
+        ${SERVER})
+            # --[ server ]--
+            PS1="\n$txtred┌─( \h )────($txtcyn \w $txtred) \n$txtred└─( $txtgrn\u $txtred) >$txtgrn>$bldgrn> $txtrst"
+            ;;
+
+        ${LAPTOP})
+            # --[ laptop ]--
+            PS1="\n$txtmag┌─( \h )────($txtcyn \w $txtmag) \n$txtmag└─( $txtgrn\u $txtmag) >$txtgrn>$bldgrn> $txtrst"
+            ;;
+
+    esac
+else
+
+    #
+    #  root prompts
+    #
+
+    case `hostname` in
+        ${DESKTOP})
+            # --[ desktop ]--
+            PS1="\n$txtblu┌─( \h )────($txtcyn \w $txtblu) \n$txtblu└─( $txtred\u $txtblu) >$txtred>$bldred> $txtrst"
+            ;;
+
+        ${SERVER})
+            # --[ server ]--
+            PS1="\n$txtred┌─( \h )────($txtcyn \w $txtred) \n$txtred└─( $txtred\u $txtred) >>$bldred> $txtrst"
+            ;;
+
+        ${LAPTOP})        
+            # --[ laptop ]--
+            PS1="\n$txtmag┌─( \h )────($txtcyn \w $txtmag) \n$txtmag└─( $txtred\u $txtmag) >$txtred>$bldred> $txtrst"
+            ;;
+
+    esac
+fi
+
