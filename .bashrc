@@ -70,6 +70,3 @@ fi
 
 # export vim editor
 export EDITOR="/usr/bin/vim"
-
-# use gnome style with LibreOffice
-#export OOO_FORCE_DESKTOP=gnome
