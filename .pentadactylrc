@@ -1,0 +1,10 @@
+" ====================
+"  pentadactyl config
+" ====================
+
+loadplugins '\.(js|penta)$'
+group user
+
+set guioptions=Cs
+
+" vim: set ft=pentadactyl:
