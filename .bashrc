@@ -37,9 +37,7 @@ else
 fi
 
 # enable bash completion in interactive shells
-if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
-fi
+[[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # set the prompt
 if [ -f $HOME/.bash_prompt ]; then
@@ -64,9 +62,7 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 export PATH=$PATH:/usr/local/bin
 
 # set less colors for man pages
-if [ -f $HOME/.less_colors ];then
-    . $HOME/.less_colors
-fi
+[[ -f $HOME/.less_colors ]] && source $HOME/.less_colors
 
 # export vim editor
 export EDITOR="/usr/bin/vim"
