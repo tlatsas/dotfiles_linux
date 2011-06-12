@@ -7,7 +7,7 @@
 
 
 # conky window
-own_window  yes
+own_window yes
 double_buffer yes
 own_window_type override
 own_window_transparent no
@@ -35,4 +35,4 @@ if_up_strictness address
 
 # conkybar
 TEXT
-cpu ${color e0e0e0}${cpu cpu1}%${color} ː ${color e0e0e0}${cpu cpu2}%${color}  ⠶  mem ${color e0e0e0}${mem}${color}  ⠶  cpu ${color e0e0e0}${hwmon 0 temp 1}°C${color}  hdd ${color e0e0e0}${hddtemp /dev/sda}°C${color}  vga ${color e0e0e0}${nvidia temp}°C${color}  ⠶  bat ${color e0e0e0}${battery_percent}%${color}  ⠶  /home ${color e0e0e0}${fs_free /home}${color} /var ${color e0e0e0}${fs_free /var}${color} / ${color e0e0e0}${fs_free /}${color}  ⠶  ${color e0e0e0}${time %k:%M}${color} ː ${color e0e0e0}${time %d %b %Y}${color}  ⠶  ↪ ${color e0e0e0}${uptime}${color}${if_up eth0}  ⠶  eth0 ${color e0e0e0}${upspeed eth0}${color}↑  ${color e0e0e0}${downspeed eth0}${color}↓${endif}${if_up wlan0}  ⠶  wlan0 ${color e0e0e0}${upspeed wlan0}${color}↑  ${color e0e0e0}${downspeed wlan0}${color}↓${endif}
+cpu ${color e0e0e0}${cpu cpu1}%${color} ː ${color e0e0e0}${cpu cpu2}%${color}  ⠶  mem ${color e0e0e0}${mem}${color}  ⠶  cpu ${color e0e0e0}${hwmon 0 temp 1}°C${color}  hdd ${color e0e0e0}${hddtemp /dev/sda}°C${color}  vga ${color e0e0e0}${nvidia temp}°C${color}  ⠶  bat ${color e0e0e0}${battery_percent}%${color}  ⠶  /home ${color e0e0e0}${fs_free /home}${color} /var ${color e0e0e0}${fs_free /var}${color} / ${color e0e0e0}${fs_free /}${color}  ⠶  ↪ ${color e0e0e0}${uptime}${color}${if_up eth0}  ⠶  eth0 ${color e0e0e0}${upspeed eth0}${color}↑  ${color e0e0e0}${downspeed eth0}${color}↓${endif}${if_up wlan0}  ⠶  wlan0 ${color e0e0e0}${upspeed wlan0}${color}↑  ${color e0e0e0}${downspeed wlan0}${color}↓${endif}
