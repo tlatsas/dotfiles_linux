@@ -1,0 +1,32 @@
+# one-liner conky info bar -- dzen2 version
+
+# requires conky compiled with nvidia & hddtemp support
+# size : 1366x(font-size)
+
+# vim: set binary:
+
+# options for use with dzen2
+background no
+out_to_console yes
+out_to_x no
+
+# conky window
+own_window yes
+double_buffer yes
+own_window_type override
+own_window_transparent no
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager
+
+# appearance
+draw_borders no
+draw_shades no
+
+# update
+update_interval 1
+
+# misc
+if_up_strictness address
+
+# conkybar
+TEXT
+cpu ^fg(\#e0e0e0)${cpu cpu1}%^fg() ː ^fg(\#e0e0e0)${cpu cpu2}%^fg()  ⠶  mem ^fg(\#e0e0e0)${mem}^fg()  ⠶  cpu ^fg(\#e0e0e0)${hwmon 0 temp 1}°C^fg()  hdd ^fg(\#e0e0e0)${hddtemp /dev/sda}°C^fg()  vga ^fg(\#e0e0e0)${nvidia temp}°C^fg()  ⠶  bat ^fg(\#e0e0e0)${battery_percent}%^fg()  ⠶  /home ^fg(\#e0e0e0)${fs_free /home}^fg() /var ^fg(\#e0e0e0)${fs_free /var}^fg() / ^fg(\#e0e0e0)${fs_free /}^fg()  ⠶  ↪ ^fg(\#e0e0e0)${uptime}^fg()${if_up eth0}  ⠶  eth0 ^fg(\#e0e0e0)${upspeed eth0}^fg()↑  ^fg(\#e0e0e0)${downspeed eth0}^fg()↓${endif}${if_up wlan0}  ⠶  wlan0 ^fg(\#e0e0e0)${upspeed wlan0}^fg()↑  ^fg(\#e0e0e0)${downspeed wlan0}^fg()↓${endif}
