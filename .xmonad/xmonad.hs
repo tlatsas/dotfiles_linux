@@ -11,6 +11,7 @@ import qualified Data.Map           as M
 
 
 main = do
+    spawn "sh ${HOME}/.xmonad/autostart.sh"
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig { manageHook = manageDocks <+> manageHook defaultConfig
             , layoutHook = avoidStruts  $  layoutHook defaultConfig
