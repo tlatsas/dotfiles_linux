@@ -43,12 +43,17 @@ URxvt*foreground:           #dcdcdc
 URxvt*dynamicColors:        on
 URxvt*visualBell:           false
 URxvt*urgentOnBell:         false
+! urxvt perl
+URxvt*perl-ext-common:      default,matcher,searchable-scrollback,url-select
 URxvt*perl-lib:             /usr/lib/urxvt/perl/
-URxvt*perl-ext-common:      default,matcher,searchable-scrollback
 URxvt*urlLauncher:          /usr/bin/firefox
+! clickable URLs
 URxvt*matcher.button:       1
 URxvt*matcher.pattern.1:    \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-URxvt*keysym.C-u: perl:     matcher
+URxvt*keysym.C-u:           perl:matcher
+! Yankable URLs
+URxvt*keysym.M-u:           perl:url-select:select_next
+URxvt*undelineURLs:         true
 
 !
 ! urxvt palette

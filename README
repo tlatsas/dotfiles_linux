@@ -14,5 +14,6 @@ setup
 * unclutter
 * xscreensaver
 * rxvt-unicode (with 256 color support)
+* urxvt-url-select
 * autocutsel
 * keychain
