@@ -1,9 +1,6 @@
 # Check for an interactive session
 [ -z "$PS1" ] && return
 
-# set terminal to rxvt 256 colors
-export TERM=rxvt-256color
-
 # export gtkrc so qt applications are aware
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
