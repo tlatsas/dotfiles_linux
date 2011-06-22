@@ -1,2 +1,18 @@
 dotfiles and configurations
 for sharing and backup
+
+
+setup
+=====
+
+* xmonad (darcs version)
+* xmobar
+* trayer
+* conky (with nvidia support)
+* dzen2 (with xft font support)
+* feh
+* unclutter
+* xscreensaver
+* rxvt-unicode (with 256 color support)
+* autocutsel
+* keychain
