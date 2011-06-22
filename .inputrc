@@ -12,3 +12,7 @@ $endif
 "\e[5D": backward-word
 "\e\e[C": forward-word
 "\e\e[D": backward-word
+
+# ctrl home/end
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
