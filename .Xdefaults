@@ -24,9 +24,10 @@ Xcursor*size:       10
 URxvt*font:                 xft:Terminus:pixelsize=10:antialias=false
 URxvt*termName:             rxvt-256color
 URxvt*imLocale:             en_US.UTF-8
-URxvt*loginShell:           true
+URxvt*loginShell:           false
 URxvt*saveLines:            32767
 URxvt*scrollBar:            false
+URxvt*buffered:             true
 URxvt*secondaryScroll:      true
 URxvt*cursorBlink:          true
 URxvt*cursorColor:          #dcdcdc
