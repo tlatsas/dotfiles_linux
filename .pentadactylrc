@@ -7,4 +7,6 @@ group user
 
 set guioptions=Cs
 
+colorscheme desert
+
 " vim: set ft=pentadactyl:
