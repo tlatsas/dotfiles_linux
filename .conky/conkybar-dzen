@@ -26,6 +26,8 @@ update_interval 1
 
 # misc
 if_up_strictness address
+cpu_avg_samples 2
+net_avg_samples 2
 
 # conkybar
 TEXT
