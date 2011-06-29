@@ -5,7 +5,8 @@ for sharing and backup
 setup
 =====
 
-* xmonad (darcs version)
+* xmonad (darcs)
+* xmonad-contrib (darcs)
 * xmobar
 * trayer
 * conky (with nvidia support)
