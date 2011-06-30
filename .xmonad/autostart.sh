@@ -42,4 +42,4 @@ trayer  --edge bottom \
 sh $HOME/.conky/dzenconkybar.sh &
 
 # start pcmanfm in daemon mode (automatic devicee mounting)
-pcmanfm -d &
+#pcmanfm -d &
