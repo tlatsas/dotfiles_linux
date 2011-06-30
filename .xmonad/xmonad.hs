@@ -82,8 +82,11 @@ myManageHook = composeAll . concat $
                 [[isFullscreen                      --> doFullFloat
                 , className =? "Xmessage"           --> doCenterFloat
                 , className =? "Gimp"               --> doShift "9:other"
+                -- chat
                 , className =? "Pidgin"             --> doShift "3:chat"
                 , className =? "Skype"              --> doShift "3:chat"
+                , className =? "Emesene.py"         --> doShift "3:chat"
+                , className =? "Gajim.py"           --> doShift "3:chat"
                 , className =? "Thunderbird"        --> doShift "4:mail"
                 , className =? "MPlayer"            --> doShift "5:media"
                 , className =? "SMPlayer"           --> doShift "5:media"
@@ -105,15 +108,22 @@ myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWor
         full = noBorders Full
 
         --Im Layout
-        imLayout = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (tiled ||| reflectTiled ||| Grid) where
+        imLayout = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ withIM ratio emeseneRoster $ withIM ratio gajimRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (Grid ||| tiled ||| reflectTiled) where
                 chatLayout = Grid
                 ratio = (1%9)
-                skypeRatio = (1%8)
+                -- pidgin
                 pidginRoster = And (ClassName "Pidgin") (Role "buddy_list")
+                -- skype
+                skypeRatio = (1%8)
                 skypeRoster = (ClassName "Skype") `And`
                                (Not (Title "Options")) `And`
                                (Not (Role "Chats")) `And`
                                (Not (Role "CallWindowForm"))
+                -- emesene
+                emeseneRoster = And (ClassName "Emesene.py") (Title "emesene")
+                -- gajim
+                gajimRoster = And (ClassName "Gajim.py") (Role "roster")
+
 
         webL = avoidStruts $ full ||| simpleTabbed ||| tiled ||| reflectHoriz tiled
 
@@ -131,7 +141,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch a terminal
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
-    -- launch gmrun
+    -- launch dmenu
     , ((modm .|. shiftMask, xK_p     ), spawn myLauncher)
 
     -- close focused window
