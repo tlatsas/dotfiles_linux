@@ -97,6 +97,22 @@ myManageHook = composeAll . concat $
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
                 ]]
 
+-- custom theme for shell
+myXPConfig = defaultXPConfig
+    {
+        --font = "-*-terminus-*-*-*-*-10-*-*-*-*-*-*-u"
+        font = "xft:Sans Mono:size=8"
+        , fgColor = "#9fbc00"
+        , bgColor = "#232323"
+        , bgHLight = "#9fbc00"
+        , fgHLight = "#141414"
+        , promptBorderWidth = 0
+        , position = Bottom
+        , historySize = 512
+        , showCompletionOnTab = True
+        , historyFilter = deleteConsecutive
+    }
+
 -- layout
 myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWorkspace "5:media" fullL $ onWorkspace "9:other" gimpLayout $ standardLayouts
     where
@@ -143,6 +159,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch dmenu
     , ((modm .|. shiftMask, xK_p     ), spawn myLauncher)
+
+    -- prompt
+    , ((modm,               xK_p     ), shellPrompt myXPConfig)
 
     -- close focused window
     , ((modm .|. shiftMask, xK_c     ), kill)
