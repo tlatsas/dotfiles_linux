@@ -3,6 +3,7 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 import System.Exit
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet    as W
 import qualified Data.Map           as M
@@ -222,6 +223,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer-osd.sh up")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer-osd.sh down")
+    , ((0, xF86XK_AudioMute), spawn "amixer-osd.sh toggle")
+
     ]
     ++
 
