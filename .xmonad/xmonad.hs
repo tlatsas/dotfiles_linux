@@ -224,10 +224,17 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer-osd.sh up")
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer-osd.sh down")
-    , ((0, xF86XK_AudioMute), spawn "amixer-osd.sh toggle")
+    -- Manage volume
+    -- for amixer-osd see: https://github.com/tlatsas/scripts
+    , ((0, xF86XK_AudioRaiseVolume),    spawn "amixer-osd.sh up")
+    , ((0, xF86XK_AudioLowerVolume),    spawn "amixer-osd.sh down")
+    , ((0, xF86XK_AudioMute),           spawn "amixer-osd.sh toggle")
 
+    -- Control MPD from ncmpcpp
+    , ((0, xF86XK_AudioPlay),           spawn "ncmpcpp toggle")
+    , ((0, xF86XK_AudioStop),           spawn "ncmpcpp stop")
+    , ((0, xF86XK_AudioPrev),           spawn "ncmpcpp prev")
+    , ((0, xF86XK_AudioNext),           spawn "ncmpcpp next")
     ]
     ++
 
