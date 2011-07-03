@@ -40,7 +40,6 @@ import Data.List (isInfixOf)
 
 
 main = do
-    spawn "sh ${HOME}/.xmonad/autostart.sh"
     xmproc <- spawnPipe "xmobar"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig { manageHook = myManageHook <+> manageDocks
             , layoutHook = myLayoutHook
