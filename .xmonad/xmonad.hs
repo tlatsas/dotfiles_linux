@@ -43,7 +43,6 @@ main = do
     spawn "sh ${HOME}/.xmonad/autostart.sh"
     xmproc <- spawnPipe "xmobar"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig { manageHook = myManageHook <+> manageDocks
-            --, layoutHook = avoidStruts  $  layoutHook defaultConfig
             , layoutHook = myLayoutHook
             , logHook = dynamicLogWithPP xmobarPP { ppOutput = hPutStrLn xmproc, ppTitle = xmobarColor "green" "" . shorten 60 }
             , terminal = myTerminal
@@ -101,7 +100,6 @@ myManageHook = composeAll . concat $
 -- custom theme for shell
 myXPConfig = defaultXPConfig
     {
-        --font = "-*-terminus-*-*-*-*-10-*-*-*-*-*-*-u"
         font = "xft:Sans Mono:size=8"
         , fgColor = "#9fbc00"
         , bgColor = "#232323"
