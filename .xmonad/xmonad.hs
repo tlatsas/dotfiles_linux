@@ -114,10 +114,20 @@ myXPConfig = defaultXPConfig
         , historyFilter = deleteConsecutive
     }
 
+-- custom theme for tabs
+myTabConfig = defaultTheme
+    {
+        inactiveColor = "#232323"
+        , inactiveBorderColor = "#232323"
+        , activeColor = "#232323"
+        , activeBorderColor = "#9fbc00"
+        , activeTextColor = "#9fbc00"
+    }
+
 -- layout
 myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWorkspace "5:media" fullL $ onWorkspace "9:other" gimpLayout $ standardLayouts
     where
-        standardLayouts = avoidStruts $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| simpleTabbed)
+        standardLayouts = avoidStruts $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
 
         --Layouts
         tiled = smartBorders (ResizableTall 1 (2/100) (1/2) [])
@@ -142,7 +152,7 @@ myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWor
                 gajimRoster = And (ClassName "Gajim.py") (Role "roster")
 
 
-        webL = avoidStruts $ full ||| simpleTabbed ||| tiled ||| reflectHoriz tiled
+        webL = avoidStruts $ (full ||| tiled ||| reflectHoriz tiled ||| tabbed shrinkText myTabConfig)
 
         gimpLayout = withIM (0.11) (Role "gimp-toolbox") $
                 reflectHoriz $
