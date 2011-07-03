@@ -13,7 +13,6 @@ gtk-icon-theme-name = "Faenza-Darkest"
 style "font"
 {
     font_name = "Sans 8"
-# include rc style for the xfce4-notes-plugin
 }
 widget_class "*" style "font"
 gtk-font-name = "Sans 8"
