@@ -8,7 +8,7 @@
 xrdb $HOME/.Xdefaults
 
 # set background
-source $HOME/.fehbg &
+nitrogen --restore &
 
 # hide mouse when idle
 unclutter -grab -idle 3 &
