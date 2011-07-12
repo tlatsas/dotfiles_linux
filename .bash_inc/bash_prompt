@@ -5,64 +5,88 @@
 #   ┌─( hostname )────( working direcory )
 #   └─( username ) >>>
 
-#--[ colors ]
-txtrst='\[\e[0m\]'    # Text Reset
-txtblu='\[\e[0;34m\]' # Blue
-txtcyn='\[\e[0;36m\]' # Cyan
-txtred='\[\e[0;31m\]' # Red
-txtgrn='\[\e[0;32m\]' # Green
-txtylw='\[\e[0;33m\]' # Yellow
-txtmag='\[\e[0;35m\]' # magenta
-bldred='\[\e[1;31m\]' # Red Bold
-bldgrn='\[\e[1;32m\]' # Green Bold
+function _set_prompt() {
+  # color parameters
+  #
+  # ${1} : lines
+  # ${2} : hostname (\h)
+  # ${3} : current path (\w)
+  # ${4} : username (\u)
+  # ${5} : 1st arrow
+  # ${6} : 2nd arrow
+  # ${7} : 3rd arrow
+  # ${8} : color reset code
+  PS1="\n${1}┌─( \h )────(${3} \w ${1}) ${2}\n${1}└─( ${4}\u ${1}) \
+${5}>${6}>${7}> ${8}"
+}
 
-#--[ hostnames ]
-DESKTOP="desktop"
-SERVER="server"
-LAPTOP="laptop"
+function bash_prompt() {
+  # colors
+  local txtrst='\[\e[0m\]'    # Text Reset
+  local txtblu='\[\e[0;34m\]' # Blue
+  local txtcyn='\[\e[0;36m\]' # Cyan
+  local txtred='\[\e[0;31m\]' # Red
+  local txtgrn='\[\e[0;32m\]' # Green
+  local txtylw='\[\e[0;33m\]' # Yellow
+  local txtmag='\[\e[0;35m\]' # magenta
+  local bldred='\[\e[1;31m\]' # Red Bold
+  local bldgrn='\[\e[1;32m\]' # Green Bold
+
+  # hostnames
+  local _desktop="desktop"
+  local _server="server"
+  local _laptop="laptop"
+
+  # set colors based on hostnames
+  case $(hostname) in
+    ${_desktop})
+      local _lines=${txtblu}
+      local _hostname=${_lines}
+      local _cpath=${txtcyn}
+      local _arrow1=${_lines}
+      ;;
+
+    ${_laptop})
+      local _lines=${txtmag}
+      local _hostname=${_lines}
+      local _cpath=${txtcyn}
+      local _arrow1=${_lines}
+      ;;
+
+    ${_server})
+      local _lines=${txtred}
+      local _hostname=${_lines}
+      local _cpath=${txtcyn}
+      local _arrow1=${_lines}
+      ;;
+
+    *)
+      local _lines=${txtylw}
+      local _hostname=${_lines}
+      local _cpath=${txtcyn}
+      local _arrow1=${_lines}
+  esac
+
+  # between users and root prompt arrows and username colors change
+  if [[ $(id -u) -eq 0 ]]; then
+    local _username=${txtred}
+    local _arrow2=${txtred}
+    local _arrow3=${bldred}
+  else
+    local _username=${txtgrn}
+    local _arrow2=${txtgrn}
+    local _arrow3=${bldgrn}
+  fi
+
+  # set fancy the prompt
+  _set_prompt ${_lines} ${_hostname} ${_cpath} ${_username} \
+${_arrow1} ${_arrow2} ${_arrow3} ${txtrst}
+}
 
 # set a default prompt just in case
 PS1='[\u@\h:\w]\$ '
 
+# now set the fancy one
+bash_prompt
 
-# select prompts based on user and then based on hostname
-if [ `id -u` != "0" ]
-then
-    # normal user prompts
-    case `hostname` in
-        ${DESKTOP}) 
-            # desktop
-            PS1="\n$txtblu┌─( \h )────($txtcyn \w $txtblu) \n$txtblu└─( $txtgrn\u $txtblu) >$txtgrn>$bldgrn> $txtrst"
-            ;;
-
-        ${SERVER})
-            # server
-            PS1="\n$txtred┌─( \h )────($txtcyn \w $txtred) \n$txtred└─( $txtgrn\u $txtred) >$txtgrn>$bldgrn> $txtrst"
-            ;;
-
-        ${LAPTOP})
-            # laptop
-            PS1="\n$txtmag┌─( \h )────($txtcyn \w $txtmag) \n$txtmag└─( $txtgrn\u $txtmag) >$txtgrn>$bldgrn> $txtrst"
-            ;;
-
-    esac
-else
-    # root prompts
-    case `hostname` in
-        ${DESKTOP})
-            # desktop
-            PS1="\n$txtblu┌─( \h )────($txtcyn \w $txtblu) \n$txtblu└─( $txtred\u $txtblu) >$txtred>$bldred> $txtrst"
-            ;;
-
-        ${SERVER})
-            # server
-            PS1="\n$txtred┌─( \h )────($txtcyn \w $txtred) \n$txtred└─( $txtred\u $txtred) >>$bldred> $txtrst"
-            ;;
-
-        ${LAPTOP})        
-            # laptop
-            PS1="\n$txtmag┌─( \h )────($txtcyn \w $txtmag) \n$txtmag└─( $txtred\u $txtmag) >$txtred>$bldred> $txtrst"
-            ;;
-
-    esac
-fi
+# vim: ts=2 sw=2 sts=2 et:
