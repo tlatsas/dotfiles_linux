@@ -1,7 +1,7 @@
 # fancy bash prompt
 
 # layout:
-# 
+#
 #   ┌─( hostname )────( working direcory )
 #   └─( username ) >>>
 
@@ -78,7 +78,7 @@ function bash_prompt() {
     local _arrow3=${bldgrn}
   fi
 
-  # set fancy the prompt
+  # set prompt
   _set_prompt ${_lines} ${_hostname} ${_cpath} ${_username} \
 ${_arrow1} ${_arrow2} ${_arrow3} ${txtrst}
 }
