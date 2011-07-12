@@ -20,7 +20,8 @@ alias du='du -ch'
 alias pss='ps axu'
 
 # Archlinux specific aliases
-alias pacman='pacman-color'
+alias pman='pacman-color'
+alias pacman='/usr/bin/pacman'
 alias aur-update='yaourt -Su --aur'
 
 # grep colors
