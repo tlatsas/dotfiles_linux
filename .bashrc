@@ -27,8 +27,8 @@ alias aur-update='yaourt -Su --aur'
 export GREP_COLOR="0;33"
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
-if [ -f $HOME/.ls_colors ]; then
-    eval $( dircolors -b $HOME/.ls_colors )
+if [ -f $HOME/.bash_inc/LS_COLORS ]; then
+    eval $( dircolors -b $HOME/.bash_inc/LS_COLORS )
 else
     eval $( dircolors -b )
 fi
@@ -37,8 +37,8 @@ fi
 [[ -f /etc/bash_completion ]] && source /etc/bash_completion
 
 # set the prompt
-if [ -f $HOME/.bash_prompt ]; then
-  . $HOME/.bash_prompt
+if [ -f $HOME/.bash_inc/bash_prompt ]; then
+  . $HOME/.bash_inc/bash_prompt
 else
   PS1='[\u@\h:\w]\$ '
 fi
@@ -59,7 +59,7 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 export PATH=$PATH:/usr/local/bin
 
 # set less colors for man pages
-[[ -f $HOME/.less_colors ]] && source $HOME/.less_colors
+[[ -f $HOME/.bash_inc/less_colors ]] && source $HOME/.bash_inc/less_colors
 
 # export vim editor
 export EDITOR="/usr/bin/vim"
