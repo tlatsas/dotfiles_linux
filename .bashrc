@@ -26,7 +26,7 @@ alias aur-update='yaourt -Su --aur'
 # grep colors
 export GREP_COLOR="0;33"
 
-# use LS_COLORS from: https://github.com/trapd00r/LS_COLORS.git
+# use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [ -f $HOME/.ls_colors ]; then
     eval $( dircolors -b $HOME/.ls_colors )
 else
