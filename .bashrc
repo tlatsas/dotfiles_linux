@@ -56,8 +56,9 @@ complete -cf pgrep
 # set the terminal title prompt
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
-# append /usr/local/bin to PATH
-export PATH=$PATH:/usr/local/bin
+# manage paths
+export GEM_HOME=${HOME}/.gems-local
+export PATH=${PATH}:/usr/local/bin:${HOME}/.bin:${GEM_HOME}/bin
 
 # set less colors for man pages
 [[ -f $HOME/.bash_inc/less_colors ]] && source $HOME/.bash_inc/less_colors
