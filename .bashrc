@@ -43,7 +43,7 @@ export PATH=${PATH}:/usr/local/bin:${HOME}/.bin:${GEM_HOME}/bin
 
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
 #  use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
-if [ -f $HOME/.bash_inc/LS_COLORS ]; then
+if [[ -f $HOME/.bash_inc/LS_COLORS ]]; then
     eval $( dircolors -b $HOME/.bash_inc/LS_COLORS )
 else
     eval $( dircolors -b )
@@ -56,7 +56,7 @@ fi
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
 # set the prompt
-if [ -f $HOME/.bash_inc/bash_prompt ]; then
+if [[ -f $HOME/.bash_inc/bash_prompt ]]; then
   . $HOME/.bash_inc/bash_prompt
 else
   PS1='[\u@\h:\w]\$ '
