@@ -65,3 +65,6 @@ export PATH=${PATH}:/usr/local/bin:${HOME}/.bin:${GEM_HOME}/bin
 
 # export vim editor
 export EDITOR="/usr/bin/vim"
+
+# gtk look for libreoffice
+export OOO_FORCE_DESKTOP="gnome"
