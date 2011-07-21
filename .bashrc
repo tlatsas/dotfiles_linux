@@ -1,5 +1,5 @@
-# Check for an interactive session
-[ -z "$PS1" ] && return
+# If not running interactively, don't do anything (scp, rcp)
+[[ $- != *i* ]] && return
 
 
 #--[ Aliases ]-----------------------------------------------------------------
