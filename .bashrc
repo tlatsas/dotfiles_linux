@@ -3,6 +3,7 @@
 
 
 #--[ Aliases ]-----------------------------------------------------------------
+
 # navigate
 alias ls='ls --color=auto'
 alias ll='ls -lh'
@@ -30,25 +31,27 @@ alias aur-update='yaourt -Su --aur'
 
 
 #--[ Exports ]-----------------------------------------------------------------
-#  grep colors
+
+# grep colors
 export GREP_COLOR="0;33"
 
-#  export gtkrc so qt applications are aware
+# export gtkrc so qt applications are aware
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
-#  export vim editor
+# export vim editor
 export EDITOR="/usr/bin/vim"
 
-#  gtk look for libreoffice
+# gtk look for libreoffice
 export OOO_FORCE_DESKTOP="gnome"
 
-#  manage paths
+# manage paths
 export GEM_HOME=${HOME}/.gems-local
 export PATH=${PATH}:/usr/local/bin:${HOME}/.bin:${GEM_HOME}/bin
 
 
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
-#  use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
+
+# use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [[ -f $HOME/.bash_inc/LS_COLORS ]]; then
     eval $( dircolors -b $HOME/.bash_inc/LS_COLORS )
 else
