@@ -64,11 +64,18 @@ fi
 # set the terminal title prompt
 PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
-# set the prompt
-if [[ -f $HOME/.bash_inc/bash_prompt ]]; then
-  . $HOME/.bash_inc/bash_prompt
+# prompt
+if [[ "$TERM" = "linux" ]];then
+    # awesome colors and simple prompt in virtual console
+    [[ -f $HOME/.bash_inc/vt ]] && source $HOME/.bash_inc/vt
+    PS1='(\l) [\u@\h:\w]\$ '
 else
-  PS1='[\u@\h:\w]\$ '
+    # fancy prompt
+    if [[ -f $HOME/.bash_inc/bash_prompt ]]; then
+      . $HOME/.bash_inc/bash_prompt
+    else
+      PS1='[\u@\h:\w]\$ '
+    fi
 fi
 
 # set less colors for man pages
