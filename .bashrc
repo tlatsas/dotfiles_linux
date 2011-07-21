@@ -3,21 +3,27 @@
 
 
 #--[ Aliases ]-----------------------------------------------------------------
+# navigate
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
 alias lt='ls -lhrt' # sort by date
-alias cls='clear'
 alias ..='cd ..'
+
+# more usability
 alias grep='grep --color=auto'
 alias diff='colordiff'
-alias diffy='colordiff -y --suppress-common-lines'
 alias less='less -R'
 alias ping='ping -c 5'
 alias du='du -ch'
-alias pss='ps axu'
 
-#  archlinux stuff
+# custom stuff
+alias diffy='colordiff -y --suppress-common-lines'
+alias cls='clear'
+alias pss='ps aux'
+alias nwspace='egrep -v "^$|^#"'
+
+# archlinux stuff
 alias pman='pacman-color'
 alias pacman='/usr/bin/pacman'
 alias aur-update='yaourt -Su --aur'
