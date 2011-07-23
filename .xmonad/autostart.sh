@@ -45,5 +45,6 @@ sh $HOME/.conky/dzenconkybar.sh &
 # start pcmanfm in daemon mode (automatic devicee mounting)
 #pcmanfm -d &
 
-# start mpd as unpriviledged user
-mpd ~/.mpd/mpd.conf > /dev/null 2>&1
+# start mpd as unpriviledged user if not already running
+pgrep -x -u $(whoami) 'mpd' > /dev/null
+[[ $? -eq '0' ]] && mpd ~/.mpd/mpd.conf > /dev/null 2>&1
