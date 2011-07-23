@@ -32,11 +32,12 @@ trayer  --edge bottom \
         --SetDockType true \
         --SetPartialStrut true \
         --expand false \
-        --width 10 \
+        --widthtype pixel \
+        --width 137 \
         --transparent true \
         --alpha 0 \
         --tint 0x232323 \
-        --height 12 &
+        --height 17 &
 
 # start conky top bar using dzen2
 sh $HOME/.conky/dzenconkybar.sh &
