@@ -1,17 +1,15 @@
-dotfiles and configurations
-for sharing and backup
+dot..dot..dotfiles!
 
 
-setup
-=====
-
+my setup
+========
 * xmonad (darcs)
 * xmonad-contrib (darcs)
 * xmobar
 * trayer
 * conky (with nvidia support)
 * dzen2 (with xft font support)
-* feh
+* nitrogen
 * unclutter
 * xscreensaver
 * rxvt-unicode (with 256 color support)
@@ -19,4 +17,5 @@ setup
 * autocutsel
 * keychain
 * pcmanfm
-* ncmpcpp / mpd
+* mpd
+* ncmpcpp
