@@ -19,7 +19,6 @@ import XMonad.Util.Run(spawnPipe)
 import qualified XMonad.Prompt as P
 import XMonad.Prompt.Shell
 import XMonad.Prompt
-import XMonad.Prompt.AppendFile (appendFilePrompt)
 import XMonad.Prompt.RunOrRaise
 
 -- layouts
@@ -30,11 +29,6 @@ import XMonad.Layout.IM
 import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Grid
-import Control.OldException(catchDyn,try)
-import XMonad.Layout.ComboP
-import XMonad.Layout.Column
-import XMonad.Layout.Named
-import XMonad.Layout.TwoPane
 import Data.Ratio ((%))
 import Data.List (isInfixOf)
 
