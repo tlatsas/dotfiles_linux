@@ -29,6 +29,15 @@ alias pman='pacman-color'
 alias pacman='/usr/bin/pacman'
 alias aur-update='yaourt -Su --aur'
 
+#--[ small functions ]---------------------------------------------------------
+
+myip() {
+    links -dump http://automation.whatismyip.com/n09230945.asp | tr -d ' '
+}
+
+spell() {
+    echo $@ | hunspell -a  | sed '1d' | awk -F ': ' '{ print $2 }'
+}
 
 #--[ Exports ]-----------------------------------------------------------------
 
