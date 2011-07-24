@@ -29,6 +29,7 @@ import XMonad.Layout.IM
 import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Grid
+import XMonad.Layout.LayoutHints
 import Data.Ratio ((%))
 import Data.List (isInfixOf)
 
@@ -137,7 +138,7 @@ myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWor
         standardLayouts = avoidStruts $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
 
         --Layouts
-        tiled = smartBorders (ResizableTall 1 (2/100) (1/2) [])
+        tiled = layoutHintsWithPlacement (0.5, 0.5) (Tall 1 (3/100) (1/2))
         reflectTiled = (reflectHoriz tiled)
         full = noBorders Full
 
