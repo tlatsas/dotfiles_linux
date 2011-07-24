@@ -22,7 +22,7 @@ alias du='du -ch'
 alias diffy='colordiff -y --suppress-common-lines'
 alias cls='clear'
 alias pss='ps aux'
-alias nwspace='egrep -v "^$|^#"'
+alias unbloat='egrep -v "^$|^#"'
 
 # archlinux stuff
 alias pman='pacman-color'
