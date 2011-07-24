@@ -37,7 +37,7 @@ main = do
     xmproc <- spawnPipe "xmobar"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig { manageHook = myManageHook <+> manageDocks
             , layoutHook = myLayoutHook
-            , logHook = dynamicLogWithPP xmobarPP { ppOutput = hPutStrLn xmproc, ppTitle = xmobarColor "green" "" . shorten 60 }
+            , logHook = myLogHook xmproc
             , terminal = myTerminal
             , workspaces = myWorkspaces
             , borderWidth = myBorderWidth
@@ -45,7 +45,6 @@ main = do
             , focusedBorderColor = myFocusedBorderColor
             , keys = myKeys
             }
-
 
 -- workspaces
 myWorkspaces :: [WorkspaceId]
@@ -89,6 +88,23 @@ myManageHook = composeAll . concat $
                 , fmap ("libreoffice" `isInfixOf`) className --> doShift "5:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
                 ]]
+
+-- logHook
+myLogHook :: Handle -> X ()
+myLogHook h = dynamicLogWithPP $ myPP { ppOutput = hPutStrLn h }
+
+-- custom theme for xmobar
+myPP :: PP
+myPP = defaultPP
+    {
+        ppCurrent   = xmobarColor "#429942" "" . wrap "[" "]"
+        , ppVisible = xmobarColor "#429942" "" . wrap "(" ")"
+        , ppHidden  = xmobarColor "#C98F0A" ""
+        , ppUrgent  = xmobarColor "#FFFFAF" "" . wrap "*" "*"
+        , ppLayout  = xmobarColor "#C9A34E" ""
+        , ppTitle   = xmobarColor "#C9A34E" "" . shorten 80
+        , ppSep     = xmobarColor "#429942" "" " :: "
+    }
 
 -- custom theme for shell
 myXPConfig = defaultXPConfig
