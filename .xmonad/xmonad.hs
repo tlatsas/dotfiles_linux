@@ -49,7 +49,7 @@ main = do
 
 -- workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["1:web", "2:code", "3:chat", "4:mail", "5:media", "6:docs", "7:dl", "8:games", "9:other" ]
+myWorkspaces = ["1:www", "2:code", "3:chat", "4:mail", "5:media", "6:docs", "7:dl", "8:games", "9:other"]
 
 -- terminal
 myTerminal :: String
@@ -73,6 +73,7 @@ myFocusedBorderColor = "#e0e0e0"
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
                 [[isFullscreen                      --> doFullFloat
+                , className =? "Firefox"            --> doShift "1:www"
                 , className =? "Xmessage"           --> doCenterFloat
                 , className =? "Gimp"               --> doShift "9:other"
                 -- chat
