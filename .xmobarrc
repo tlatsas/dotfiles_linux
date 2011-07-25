@@ -27,5 +27,5 @@ Config {
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %battery% | <fc=#b4cdcd>%date%</fc> | Athens:%LGAV%"
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%~/.bin/xkb-switch%</fc> | %battery% | <fc=#b4cdcd>%date%</fc> | Athens:%LGAV%"
 }
