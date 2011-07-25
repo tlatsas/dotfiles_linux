@@ -99,13 +99,13 @@ myLogHook h = dynamicLogWithPP $ myPP { ppOutput = hPutStrLn h }
 myPP :: PP
 myPP = defaultPP
     {
-        ppCurrent   = xmobarColor "#429942" "" . wrap "[" "]"
-        , ppVisible = xmobarColor "#429942" "" . wrap "(" ")"
+        ppCurrent   = xmobarColor "#B4CDCD" "" . wrap "[" "]"
+        , ppVisible = xmobarColor "#9CB1B1" "" . wrap "(" ")"
         , ppHidden  = xmobarColor "#C98F0A" ""
         , ppUrgent  = xmobarColor "#FFFFAF" "" . wrap "*" "*"
         , ppLayout  = xmobarColor "#C9A34E" ""
         , ppTitle   = xmobarColor "#C9A34E" "" . shorten 80
-        , ppSep     = xmobarColor "#429942" "" " :: "
+        , ppSep     = xmobarColor "#B4CDCD" "" " :: "
     }
 
 -- custom theme for shell
