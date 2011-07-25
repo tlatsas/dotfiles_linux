@@ -15,9 +15,17 @@ Config {
             , "--low",      "lightblue"
         ] 36000
         , Run Date "%a %b %d %H:%M" "date" 10
+        , Run Battery [
+            "-t", "Bat: <left>%"
+            , "-L",         "10"
+            , "-H",         "70"
+            , "--high",     "green"
+            , "--normal",   "yellow"
+            , "--low",      "red"
+        ] 600
         , Run StdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%date%</fc> | Athens:%LGAV%"
+    , template = "%StdinReader% }{ %battery% | <fc=#b4cdcd>%date%</fc> | Athens:%LGAV%"
 }
