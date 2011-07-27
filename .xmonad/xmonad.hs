@@ -33,6 +33,10 @@ import XMonad.Layout.LayoutHints
 import Data.Ratio ((%))
 import Data.List (isInfixOf)
 
+-- Java workarounds
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
+
 
 main = do
     xmproc <- spawnPipe "xmobar"
@@ -45,6 +49,7 @@ main = do
             , normalBorderColor = myNormalBorderColor
             , focusedBorderColor = myFocusedBorderColor
             , keys = myKeys
+            , startupHook = ewmhDesktopsStartup >> setWMName "LG3D"
             }
 
 -- workspaces
