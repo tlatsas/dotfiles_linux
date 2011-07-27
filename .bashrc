@@ -39,6 +39,10 @@ spell() {
     echo $@ | hunspell -a  | sed '1d' | awk -F ': ' '{ print $2 }'
 }
 
+vol() {
+    amixer sget Master,0 | grep --color=never -o -m 1 '[[:digit:]]*%'
+}
+
 #--[ Exports ]-----------------------------------------------------------------
 
 # grep colors
