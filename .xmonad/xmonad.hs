@@ -71,7 +71,7 @@ myBorderWidth = 1
 -- window border colors
 myNormalBorderColor, myFocusedBorderColor :: String
 myNormalBorderColor = "#141414"
-myFocusedBorderColor = "#e0e0e0"
+myFocusedBorderColor = "#9a9a9a"
 
 -- hooks --
 -- switch apps to workspace
