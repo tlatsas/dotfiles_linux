@@ -83,10 +83,7 @@ function bash_prompt() {
 ${_arrow1} ${_arrow2} ${_arrow3} ${txtrst}
 }
 
-# set a default prompt just in case
-PS1='[\u@\h:\w]\$ '
-
-# now set the fancy one
+# set prompt
 bash_prompt
 
 # vim: ts=2 sw=2 sts=2 et:

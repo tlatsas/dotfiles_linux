@@ -1,8 +1,8 @@
-# use British date/time format
-export LC_TIME="en_GB.utf8"
-
 # keychain
 eval `/usr/bin/keychain --eval -Q -q --agents ssh,gpg`
 
+# exports
+[[ -f ${HOME}/.bash_inc/exports ]] && source ${HOME}/.bash_inc/exports
+
 # include bashrc
-. $HOME/.bashrc
+source ${HOME}/.bashrc

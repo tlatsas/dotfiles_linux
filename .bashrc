@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything (scp, rcp)
 [[ $- != *i* ]] && return
 
-
 #--[ Aliases ]-----------------------------------------------------------------
 
 # navigate
@@ -43,26 +42,10 @@ vol() {
     amixer sget Master,0 | grep --color=never -o -m 1 '[[:digit:]]*%'
 }
 
-#--[ Exports ]-----------------------------------------------------------------
+#--[ Includes / Prompts / Colors / Completion ]--------------------------------
 
 # grep colors
 export GREP_COLOR="0;33"
-
-# export gtkrc so qt applications are aware
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-
-# export vim editor
-export EDITOR="/usr/bin/vim"
-
-# gtk look for libreoffice
-export OOO_FORCE_DESKTOP="gnome"
-
-# manage paths
-export GEM_HOME=${HOME}/.gems-local
-export PATH=${PATH}:/usr/local/bin:${HOME}/.bin:${GEM_HOME}/bin
-
-
-#--[ Includes / Prompts / Colors / Completion ]--------------------------------
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [[ -f $HOME/.bash_inc/LS_COLORS ]]; then

@@ -1,0 +1,28 @@
+# bash exports
+#
+# vim: ft=sh ts=2 st=2 sts=2 et:
+
+# use British date/time format
+export LC_TIME="en_GB.utf8"
+
+# export gtkrc so qt applications are aware
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+# export vim editor
+export EDITOR="/usr/bin/vim"
+
+# pretty libreoffice
+export OOO_FORCE_DESKTOP="gnome"
+
+# ruby gems
+export GEM_HOME=${HOME}/.gems-local
+_gems_bin=${GEM_HOME}/bin
+
+# tell matlab to use use system's jre
+export MATLAB_JRE="/opt/java/jre"
+
+# local bin
+_my_bin=${HOME}/.bin
+
+# export local dirs containing executables
+export PATH=${PATH}:${_my_bin}:${_gems_bin}
