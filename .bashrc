@@ -64,6 +64,7 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 if [[ "$TERM" = "linux" ]];then
     # awesome colors and simple prompt in virtual console
     [[ -f $HOME/.bash_inc/vt ]] && source $HOME/.bash_inc/vt
+    unset PROMPT_COMMAND
     PS1='(\l) [\u@\h:\w]\$ '
 else
     # fancy prompt
