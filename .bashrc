@@ -42,6 +42,11 @@ vol() {
     amixer sget Master,0 | grep --color=never -o -m 1 '[[:digit:]]*%'
 }
 
+# tell them you don't care!
+violin() {
+    ogg123 -q ${HOME}/.data/smallest_violin.ogg
+}
+
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
 
 # grep colors
