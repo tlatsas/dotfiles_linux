@@ -31,7 +31,7 @@ alias aur-update='yaourt -Su --aur'
 #--[ small functions ]---------------------------------------------------------
 
 myip() {
-    links -dump http://automation.whatismyip.com/n09230945.asp | tr -d ' '
+    lynx -dump http://checkip.dyndns.org | awk -F': ' '{ print $2 }'
 }
 
 spell() {
