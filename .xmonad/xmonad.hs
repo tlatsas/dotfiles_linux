@@ -139,10 +139,10 @@ myTabConfig = defaultTheme
     }
 
 -- layout
-myLayoutHook = onWorkspace "3:chat" imLayout
+myLayoutHook = onWorkspace "3:chat" imL
                 $ onWorkspace "4:mail" webL
                 $ onWorkspace "5:media" fullL
-                $ onWorkspace "9:gimp" gimpLayout
+                $ onWorkspace "9:gimp" gimpL
                 $ standardLayouts
     where
         standardLayouts = avoidStruts $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
@@ -154,7 +154,7 @@ myLayoutHook = onWorkspace "3:chat" imLayout
         fullL = avoidStruts $ full
 
         --Im Layout
-        imLayout = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ withIM ratio emeseneRoster $ withIM ratio gajimRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (Grid ||| tiled ||| reflectTiled) where
+        imL = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ withIM ratio emeseneRoster $ withIM ratio gajimRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (Grid ||| tiled ||| reflectTiled) where
                 chatLayout = Grid
                 ratio = (1%9)
                 -- pidgin
@@ -173,9 +173,7 @@ myLayoutHook = onWorkspace "3:chat" imLayout
 
         webL = avoidStruts $ (full ||| tiled ||| reflectHoriz tiled ||| tabbed shrinkText myTabConfig)
 
-        gimpLayout = withIM (0.11) (Role "gimp-toolbox") $
-                reflectHoriz $
-                withIM (0.15) (Role "gimp-dock") Full
+        gimpL = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") Full
 
 
 -- keybindings
