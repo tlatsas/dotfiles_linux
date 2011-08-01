@@ -156,8 +156,12 @@ myLayoutHook = onWorkspace "1:www" webL
         tabs = tabbed shrinkText myTabConfig
 
         --Im Layout
-        imL = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ withIM ratio emeseneRoster $ withIM ratio gajimRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (Grid ||| tiled ||| reflectTiled) where
-                chatLayout = Grid
+        imL = avoidStruts $
+              smartBorders $
+              withIM ratio pidginRoster $
+              withIM ratio emeseneRoster $
+              withIM ratio gajimRoster $
+              reflectHoriz $ withIM skypeRatio skypeRoster (reflectTiled ||| Grid) where
                 ratio = (1%9)
                 -- pidgin
                 pidginRoster = And (ClassName "Pidgin") (Role "buddy_list")
