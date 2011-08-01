@@ -54,7 +54,7 @@ main = do
 
 -- workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["1:www", "2:code", "3:chat", "4:mail", "5:media", "6:docs", "7:dl", "8:games", "9:other"]
+myWorkspaces = ["1:www", "2:code", "3:chat", "4:mail", "5:media", "6:docs", "7:vm", "8:float", "9:gimp"]
 
 -- terminal
 myTerminal :: String
@@ -80,7 +80,7 @@ myManageHook = composeAll . concat $
                 [[isFullscreen                      --> doFullFloat
                 , className =? "Firefox"            --> doShift "1:www"
                 , className =? "Xmessage"           --> doCenterFloat
-                , className =? "Gimp"               --> doShift "9:other"
+                , className =? "Gimp"               --> doShift "9:gimp"
                 -- chat
                 , className =? "Pidgin"             --> doShift "3:chat"
                 , className =? "Skype"              --> doShift "3:chat"
@@ -89,8 +89,8 @@ myManageHook = composeAll . concat $
                 , className =? "Thunderbird"        --> doShift "4:mail"
                 , className =? "MPlayer"            --> doShift "5:media"
                 , className =? "Smplayer"           --> doShift "5:media"
-                , className =? "Wine"               --> doShift "8:games"
-                , title     =? "Minecraft Launcher" --> doShift "8:games"
+                , className =? "Wine"               --> doShift "8:float"
+                , title     =? "Minecraft Launcher" --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doFloat
                 , fmap ("libreoffice" `isInfixOf`) className --> doShift "5:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
@@ -139,7 +139,11 @@ myTabConfig = defaultTheme
     }
 
 -- layout
-myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWorkspace "5:media" fullL $ onWorkspace "9:other" gimpLayout $ standardLayouts
+myLayoutHook = onWorkspace "3:chat" imLayout
+                $ onWorkspace "4:mail" webL
+                $ onWorkspace "5:media" fullL
+                $ onWorkspace "9:gimp" gimpLayout
+                $ standardLayouts
     where
         standardLayouts = avoidStruts $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
 
@@ -147,6 +151,7 @@ myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWor
         tiled = layoutHintsWithPlacement (0.5, 0.5) (Tall 1 (3/100) (1/2))
         reflectTiled = (reflectHoriz tiled)
         full = noBorders Full
+        fullL = avoidStruts $ full
 
         --Im Layout
         imLayout = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ withIM ratio emeseneRoster $ withIM ratio gajimRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (Grid ||| tiled ||| reflectTiled) where
@@ -171,9 +176,6 @@ myLayoutHook = onWorkspace "3:chat" imLayout $ onWorkspace "4:mail" webL $ onWor
         gimpLayout = withIM (0.11) (Role "gimp-toolbox") $
                 reflectHoriz $
                 withIM (0.15) (Role "gimp-dock") Full
-
-        --VirtualLayout
-        fullL = avoidStruts $ full
 
 
 -- keybindings
