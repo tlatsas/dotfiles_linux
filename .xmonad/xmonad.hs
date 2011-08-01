@@ -139,7 +139,8 @@ myTabConfig = defaultTheme
     }
 
 -- layout
-myLayoutHook = onWorkspace "3:chat" imL
+myLayoutHook = onWorkspace "1:www" webL
+                $ onWorkspace "3:chat" imL
                 $ onWorkspace "4:mail" webL
                 $ onWorkspace "5:media" fullL
                 $ onWorkspace "9:gimp" gimpL
@@ -152,6 +153,7 @@ myLayoutHook = onWorkspace "3:chat" imL
         reflectTiled = (reflectHoriz tiled)
         full = noBorders Full
         fullL = avoidStruts $ full
+        tabs = tabbed shrinkText myTabConfig
 
         --Im Layout
         imL = avoidStruts $ smartBorders $ withIM ratio pidginRoster $ withIM ratio emeseneRoster $ withIM ratio gajimRoster $ reflectHoriz $ withIM skypeRatio skypeRoster (Grid ||| tiled ||| reflectTiled) where
@@ -171,7 +173,7 @@ myLayoutHook = onWorkspace "3:chat" imL
                 gajimRoster = And (ClassName "Gajim.py") (Role "roster")
 
 
-        webL = avoidStruts $ (full ||| tiled ||| reflectHoriz tiled ||| tabbed shrinkText myTabConfig)
+        webL = avoidStruts $ (tabs ||| tiled)
 
         gimpL = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") Full
 
