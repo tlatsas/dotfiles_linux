@@ -179,7 +179,7 @@ myLayoutHook = onWorkspace "1:www" webL
 
         webL = avoidStruts $ (tabs ||| tiled)
 
-        gimpL = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") (fullL ||| tabs)
+        gimpL = avoidStruts $ withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") (fullL ||| tabs)
 
 
 -- keybindings
