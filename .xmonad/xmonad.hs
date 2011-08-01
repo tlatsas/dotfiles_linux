@@ -54,7 +54,7 @@ main = do
 
 -- workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["1:www", "2:code", "3:chat", "4:mail", "5:media", "6:docs", "7:vm", "8:float", "9:gimp"]
+myWorkspaces = ["1:www", "2:code", "3:doc", "4:chat", "5:media", "6:mail", "7:vm", "8:float", "9:gimp"]
 
 -- terminal
 myTerminal :: String
@@ -82,17 +82,17 @@ myManageHook = composeAll . concat $
                 , className =? "Xmessage"           --> doCenterFloat
                 , className =? "Gimp"               --> doShift "9:gimp"
                 -- chat
-                , className =? "Pidgin"             --> doShift "3:chat"
-                , className =? "Skype"              --> doShift "3:chat"
-                , className =? "Emesene.py"         --> doShift "3:chat"
-                , className =? "Gajim.py"           --> doShift "3:chat"
-                , className =? "Thunderbird"        --> doShift "4:mail"
+                , className =? "Pidgin"             --> doShift "4:chat"
+                , className =? "Skype"              --> doShift "4:chat"
+                , className =? "Emesene.py"         --> doShift "4:chat"
+                , className =? "Gajim.py"           --> doShift "4:chat"
                 , className =? "MPlayer"            --> doShift "5:media"
                 , className =? "Smplayer"           --> doShift "5:media"
+                , className =? "Thunderbird"        --> doShift "6:mail"
                 , className =? "Wine"               --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doFloat
-                , fmap ("libreoffice" `isInfixOf`) className --> doShift "5:doc"
+                , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
                 ]]
 
@@ -140,9 +140,9 @@ myTabConfig = defaultTheme
 
 -- layout
 myLayoutHook = onWorkspace "1:www" webL
-                $ onWorkspace "3:chat" imL
-                $ onWorkspace "4:mail" webL
+                $ onWorkspace "4:chat" imL
                 $ onWorkspace "5:media" fullL
+                $ onWorkspace "6:mail" webL
                 $ onWorkspace "9:gimp" gimpL
                 $ standardLayouts
     where
@@ -179,7 +179,7 @@ myLayoutHook = onWorkspace "1:www" webL
 
         webL = avoidStruts $ (tabs ||| tiled)
 
-        gimpL = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") Full
+        gimpL = withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") (Full ||| tabs)
 
 
 -- keybindings
