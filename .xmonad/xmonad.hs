@@ -84,7 +84,7 @@ myManageHook = composeAll . concat $
                 -- chat
                 , className =? "Pidgin"             --> doShift "4:chat"
                 , className =? "Skype"              --> doShift "4:chat"
-                , className =? "Emesene.py"         --> doShift "4:chat"
+                , className =? "Emesene"            --> doShift "4:chat"
                 , className =? "Gajim.py"           --> doShift "4:chat"
                 , className =? "MPlayer"            --> doShift "5:media"
                 , className =? "Smplayer"           --> doShift "5:media"
@@ -172,7 +172,7 @@ myLayoutHook = onWorkspace "1:www" webL
                                (Not (Role "Chats")) `And`
                                (Not (Role "CallWindowForm"))
                 -- emesene
-                emeseneRoster = And (ClassName "Emesene.py") (Title "emesene")
+                emeseneRoster = (Resource "emesene" `And` Title "emesene" `And` ClassName "Emesene")
                 -- gajim
                 gajimRoster = And (ClassName "Gajim.py") (Role "roster")
 
