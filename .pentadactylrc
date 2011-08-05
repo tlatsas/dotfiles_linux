@@ -14,7 +14,7 @@ set fbw=google.com,linux.com,github.com
 
 " search
 "
-" you need to bookmark google without competion
+" you need to bookmark google without auto-completion
 " :bmark http://www.google.com/search?sclient=psy&hl=en&complete=0&site=webhp&source=hp&q=%s -keyword gg
 set ds=gg
 
