@@ -12,9 +12,16 @@ colorscheme desert
 " flash block allow list
 set fbw=google.com,linux.com,github.com
 
-" search commands
+" search
+"
+" you need to bookmark google without competion
+" :bmark http://www.google.com/search?sclient=psy&hl=en&complete=0&site=webhp&source=hp&q=%s -keyword gg
+set ds=gg
+
 command -nargs=* g tabopen google <args>
 command -nargs=* d tabopen https://duckduckgo.com?q=<args>
+
+" other
 command date echo Date()
 
-" vim: set ft=pentadactyl:
+" vim: set ft=vim:
