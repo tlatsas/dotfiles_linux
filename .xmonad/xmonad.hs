@@ -245,6 +245,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Lock screen
     , ((modm .|. shiftMask, xK_l     ), spawn "xscreensaver-command -lock")
 
+    -- Screenshot using Scrot (desktop)
+    , ((0,                  xK_Print ), spawn "scrot '/tmp/%Y-%m-%d-%H%M%S_$wx$h.png'")
+
+    -- Screenshot using Scrot (selection)
+    , ((modm,               xK_Home  ), spawn "sleep 0.2; scrot -s '/tmp/%Y-%m-%d-%H%M%S_$wx$h.png'")
+
     -- Toggle the status bar gap
     -- Use this binding with avoidStruts from Hooks.ManageDocks.
     -- See also the statusBar function from Hooks.DynamicLog.
