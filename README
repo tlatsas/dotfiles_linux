@@ -7,7 +7,7 @@ my setup
 * xmonad-contrib (darcs)
 * xmobar
 * trayer
-* conky (with nvidia support)
+* conky (with mpd support)
 * dzen2 (with xft font support)
 * nitrogen
 * unclutter
@@ -19,3 +19,4 @@ my setup
 * pcmanfm
 * mpd
 * ncmpcpp
+* scrot
