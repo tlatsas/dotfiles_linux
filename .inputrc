@@ -16,3 +16,6 @@ $endif
 # ctrl home/end
 "\e[1~": beginning-of-line
 "\e[4~": end-of-line
+
+# possible completions with single tab
+set show-all-if-ambiguous on
