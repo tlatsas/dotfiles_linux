@@ -26,3 +26,6 @@ _my_bin=${HOME}/.bin
 
 # export local dirs containing executables
 export PATH=${PATH}:${_my_bin}:${_gems_bin}
+
+# bash history
+export HISTCONTROL=ignoredups
