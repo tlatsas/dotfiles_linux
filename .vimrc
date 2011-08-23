@@ -35,30 +35,27 @@ if has('gui_running')
   set mouse=v
 endif
 
-"plugins
-filetype plugin on
+" pathogen: https://github.com/tpope/vim-pathogen
+call pathogen#infect()
+"filetype off
+"call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
-" key bindings
-nnoremap <silent> <F8> :TlistToggle<CR>
+"plugins
+filetype plugin indent on
 
 " hightlight after 80th column for python/C/perl/php
-highlight OverLength ctermbg=lightred ctermfg=black guibg=#FFD9D9
-au BufRead,BufNewFile *.py,*.c,*.h,*.pl,*.pm,*.php match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=lightred ctermfg=black guibg=#FFD9D9
+"au BufRead,BufNewFile *.py,*.c,*.h,*.pl,*.pm,*.php match OverLength /\%81v.\+/
 
-" Vim Addon Manager
-" https://github.com/MarcWeber/vim-addon-manager.git
-fun SetupVAM()
-  set runtimepath+=~/.vim-addons/vim-addon-manager
-    call vam#ActivateAddons([
-                            \ 'snipmate',
-                            \ 'snipmate-snippets',
-                            \ 'surround',
-                            \ 'vim-latex',
-                            \ 'The_NERD_tree',
-                            \ 'The_NERD_Commenter',
-                            \ 'CSApprox',
-                            \ 'minibufexplorer_-_Elegant_buffer_explorer',
-                            \ 'taglist'], {'auto_install' : 0})
-endf
+" minibufexporer
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
-call SetupVAM()
+" taglist
+nnoremap <silent> <F8> :TlistToggle<CR>
+
+" tasklist
+nnoremap <silent> <F7> :TaskList<CR>
