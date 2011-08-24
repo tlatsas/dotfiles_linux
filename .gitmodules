@@ -30,3 +30,7 @@
 	path = .vim/bundle/The-NERD-tree
     url = https://github.com/vim-scripts/The-NERD-tree.git
     ignore = dirty
+[submodule ".vim/bundle/xptemplate"]
+	path = .vim/bundle/xptemplate
+	url = https://github.com/drmingdrmer/xptemplate.git
+    ignore = dirty
