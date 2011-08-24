@@ -59,3 +59,10 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 
 " tasklist
 nnoremap <silent> <F7> :TaskList<CR>
+
+" LaTeX Preview
+" 'stolen' from Jelly's configs
+autocmd FileType tex silent :! (file="%"; pdflatex % &>/dev/null && zathura "${file/.tex/.pdf}" &>/dev/null) &
+command! Reload :! (pdflatex % &>/dev/null) &
+au BufWritePost *.tex silent Reload
+
