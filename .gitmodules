@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/vim-haml"]
 	path = .vim/bundle/vim-haml
 	url = https://github.com/tpope/vim-haml.git
-[submodule ".vim/bundle/The-NERD-tree"]
-	path = .vim/bundle/The-NERD-tree
-	url = https://github.com/vim-scripts/The-NERD-tree.git
 [submodule ".vim/bundle/TaskList.vim"]
 	path = .vim/bundle/TaskList.vim
 	url = https://github.com/vim-scripts/TaskList.vim.git
