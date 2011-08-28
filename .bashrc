@@ -20,6 +20,10 @@ alias less='less -R'
 alias ping='ping -c 5'
 alias du='du -ch'
 
+# safe options
+alias cp='cp -i'
+alias mv='mv -i'
+
 # custom stuff
 alias diffy='colordiff -y --suppress-common-lines'
 alias cls='clear'
@@ -27,7 +31,7 @@ alias pss='ps aux'
 alias unbloat='egrep -v "^$|^#"'
 
 # archlinux stuff
-alias pman='pacman-color'
+alias pacc='pacman-color'
 alias pacman='/usr/bin/pacman'
 alias aur-update='yaourt -Su --aur'
 
