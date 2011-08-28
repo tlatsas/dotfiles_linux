@@ -54,6 +54,12 @@ violin() {
     ogg123 -q ${HOME}/.data/smallest_violin.ogg
 }
 
+# check if site is up
+isup() {
+    lynx -dump "http://www.downforeveryoneorjustme.com/${1}" | head -1\
+    | sed 's/...//' | sed 's/\[1\]//'
+}
+
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
 
 # grep colors
