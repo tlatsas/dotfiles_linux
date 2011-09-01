@@ -10,7 +10,7 @@ set guioptions=Cs
 colorscheme desert
 
 " flash block allow list
-set fbw=google.com,linux.com,github.com
+set fbw=google.com,linux.com,github.com,youtube.com,vimeo.com
 
 " search
 "
