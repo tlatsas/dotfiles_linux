@@ -16,12 +16,13 @@ my setup
 * urxvt-url-select
 * autocutsel
 * keychain
-* pcmanfm
 * mpd
 * ncmpcpp
 * scrot
 * vim
 * tmux
+* udiskie
+
 
 vim plugins
 ===========
