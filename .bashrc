@@ -66,8 +66,8 @@ isup() {
 export GREP_COLOR="0;33"
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
-if [[ -f $HOME/.bash_inc/LS_COLORS ]]; then
-    eval $( dircolors -b $HOME/.bash_inc/LS_COLORS )
+if [[ -f $HOME/.bash.d/LS_COLORS ]]; then
+    eval $( dircolors -b $HOME/.bash.d/LS_COLORS )
 else
     eval $( dircolors -b )
 fi
@@ -81,20 +81,20 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 # prompt
 if [[ "$TERM" = "linux" ]];then
     # awesome colors and simple prompt in virtual console
-    [[ -f $HOME/.bash_inc/vt ]] && source $HOME/.bash_inc/vt
+    [[ -f $HOME/.bash.d/vt ]] && source $HOME/.bash.d/vt
     unset PROMPT_COMMAND
     PS1='(\l) [\u@\h:\w]\$ '
 else
     # fancy prompt
-    if [[ -f $HOME/.bash_inc/bash_prompt ]]; then
-      . $HOME/.bash_inc/bash_prompt
+    if [[ -f $HOME/.bash.d/bash_prompt ]]; then
+      . $HOME/.bash.d/bash_prompt
     else
       PS1='[\u@\h:\w]\$ '
     fi
 fi
 
 # set less colors for man pages
-[[ -f $HOME/.bash_inc/less_colors ]] && source $HOME/.bash_inc/less_colors
+[[ -f $HOME/.bash.d/less_colors ]] && source $HOME/.bash.d/less_colors
 
 # Enable bash completition when preciding:
 complete -cf sudo
