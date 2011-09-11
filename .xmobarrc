@@ -23,7 +23,7 @@ Config {
             , "--normal",   "yellow"
             , "--low",      "red"
         ] 600
-        , Run Com "~/.bin/vol.sh" [] "vol" 5
+        , Run Com "~/.bin/alsavol" [] "vol" 5
         , Run Com "~/.bin/xkb-switch" [] "keys" 5
         , Run StdinReader
     ]
