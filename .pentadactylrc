@@ -47,4 +47,8 @@ javascript <<EOF
 EOF
 map -silent gy -js shortenURLBitLy(buffer.URL)
 
+" passkeys
+set passkeys+='google\.com/reader':npmsjk
+set passkeys+='docs.google\.com':jkx
+
 " vim: set ft=vim:
