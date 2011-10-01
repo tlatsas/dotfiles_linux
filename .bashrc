@@ -13,7 +13,7 @@ alias la='ls -a'
 alias lt='ls -lhrt' # sort by date
 alias ..='cd ..'
 
-# more usability
+# usability
 alias grep='grep --color=auto'
 alias diff='colordiff'
 alias less='less -R'
@@ -29,6 +29,7 @@ alias diffy='colordiff -y --suppress-common-lines'
 alias cls='clear'
 alias pss='ps aux'
 alias unbloat='egrep -v "^$|^#"'
+alias umnt='udiskie-umount'
 
 # archlinux stuff
 alias pacc='pacman-color'
