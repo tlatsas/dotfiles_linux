@@ -35,29 +35,9 @@ alias pacc='pacman-color'
 alias pacman='/usr/bin/pacman'
 alias aur-update='yaourt -Su --aur'
 
-#--[ small functions ]---------------------------------------------------------
-
-myip() {
-    lynx -dump http://checkip.dyndns.org | awk -F': ' '{ print $2 }'
-}
-
-spell() {
-    echo $@ | hunspell -a  | sed '1d' | awk -F ': ' '{ print $2 }'
-}
-
+#--[ functions ]---------------------------------------------------------
 vol() {
     amixer sget Master,0 | grep --color=never -o -m 1 '[[:digit:]]*%'
-}
-
-# tell them you don't care!
-violin() {
-    ogg123 -q ${HOME}/.data/smallest_violin.ogg
-}
-
-# check if site is up
-isup() {
-    lynx -dump "http://www.downforeveryoneorjustme.com/${1}" | head -1\
-    | sed 's/...//' | sed 's/\[1\]//'
 }
 
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
