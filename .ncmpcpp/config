@@ -1,0 +1,21 @@
+#
+# ~/.ncmpcpp/config
+#
+
+playlist_disable_highlight_delay = "2"
+
+alternative_header_first_line_format = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
+alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
+song_window_title_format = "{%t}|{%f} by {%a}"
+song_columns_list_format = "(8f)[magenta]{l:Length} (25)[cyan]{a} (40)[cyan]{t|f} (30)[green]{br}"
+
+playlist_display_mode = "columns"
+user_interface = "alternative"
+
+default_space_mode = "select"
+
+header_visibility = "yes"
+statusbar_visibility = "yes"
+titles_visibility = "yes"
+header_text_scrolling = "yes"
+fancy_scrolling = "yes"
