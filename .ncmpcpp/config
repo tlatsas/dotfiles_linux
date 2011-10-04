@@ -15,8 +15,6 @@ default_space_mode = "select"
 
 # layout
 user_interface = "classic"
-#alternative_header_first_line_format = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
-#alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
 header_visibility = "yes"
 statusbar_visibility = "yes"
 titles_visibility = "yes"
@@ -24,3 +22,4 @@ header_text_scrolling = "yes"
 fancy_scrolling = "yes"
 progressbar_look = "─•·"
 display_volume_level = "no"
+song_status_format = "$2%a $1• $3%t $1• $4%b {(Disc %d) }$1• $5%y$1"
