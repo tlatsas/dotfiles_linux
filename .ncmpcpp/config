@@ -7,14 +7,16 @@ song_window_title_format = "{%t}|{%f} by {%a}"
 song_columns_list_format = "(8f)[magenta]{l:Length} (25)[cyan]{a} (40)[cyan]{t|f} (30)[green]{br}"
 playlist_disable_highlight_delay = "2"
 playlist_display_mode = "columns"
+now_playing_prefix = "$b$5»$7»$1» "
+now_playing_suffix = "$/b"
 
 # behaviour
 default_space_mode = "select"
 
 # layout
-user_interface = "alternative"
-alternative_header_first_line_format = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
-alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
+user_interface = "classic"
+#alternative_header_first_line_format = "$b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b"
+#alternative_header_second_line_format = "{{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}"
 header_visibility = "yes"
 statusbar_visibility = "yes"
 titles_visibility = "yes"
