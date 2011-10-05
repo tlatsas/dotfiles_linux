@@ -9,7 +9,7 @@
 !
 Xft*font:           Sans:size=8
 Xft*dpi:            96
-Xft*antialias:      false
+Xft*antialias:      true
 Xft*rgba:           rgb
 Xft*hinting:        true
 Xft*hintstyle:      hintfull
