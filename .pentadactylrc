@@ -51,4 +51,7 @@ map -silent gy -js shortenURLBitLy(buffer.URL)
 set passkeys+='google\.com/reader':npmsjk
 set passkeys+='docs.google\.com':jkx
 
+" custom firefox title: page title - ff
+set titlestring='ff'
+
 " vim: set ft=vim:
