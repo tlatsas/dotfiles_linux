@@ -24,7 +24,7 @@ Xcursor*size:       10
 ! urxvt configuration
 !
 URxvt*font:                 xft:Terminus:pixelsize=10:antialias=false
-URxvt*termName:             rxvt-256color
+!URxvt*termName:             rxvt-256color
 URxvt*imLocale:             en_US.UTF-8
 URxvt*loginShell:           false
 URxvt*saveLines:            32767
