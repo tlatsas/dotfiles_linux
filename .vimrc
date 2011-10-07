@@ -18,8 +18,8 @@ set smartindent
 set list listchars=tab:→\ ,trail:·
 
 " colors
-set t_Co=256
-colorscheme wombat_t
+"set t_Co=256
+colorscheme neverland-darker
 
 " gvim options
 if has('gui_running')
