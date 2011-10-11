@@ -7,20 +7,20 @@ Config {
     , commands = [
         Run Weather "LGAV" [
             "-t"
-            , " <tempC>C"
+                , " <tempC>°C"
             , "-L",         "10"
             , "-H",         "33"
-            , "--normal",   "lightgreen"
+            , "--normal",   "#AFFF5F"
             , "--high",     "red"
-            , "--low",      "lightblue"
+            , "--low",      "#64FFE0"
         ] 36000
         , Run Date "%a %b %d %H:%M" "date" 10
         , Run Battery [
             "-t", "bat <left>%"
             , "-L",         "10"
             , "-H",         "70"
-            , "--high",     "green"
-            , "--normal",   "yellow"
+            , "--high",     "#AFFF5F"
+            , "--normal",   "#E7FF54"
             , "--low",      "red"
         ] 600
         , Run Com "~/.bin/alsavol" [] "vol" 5
