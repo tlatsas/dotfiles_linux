@@ -1,6 +1,7 @@
 # dzenconkybar - launch conkybar with dzen2
 
-FG='#9fbc00'
+#FG='#9fbc00'
+FG='#7BB146'
 BG='#232323'
 
 FONT='Sans Mono:size=8'
