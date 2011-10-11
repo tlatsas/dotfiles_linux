@@ -108,7 +108,7 @@ myPP = defaultPP
         , ppVisible = xmobarColor "#9CB1B1" "" . wrap "(" ")"
         , ppHidden  = xmobarColor "#C98F0A" ""
         , ppUrgent  = xmobarColor "#FFFFAF" "" . wrap "*" "*"
-        , ppLayout  = xmobarColor "#C9A34E" ""
+        , ppLayout  = xmobarColor "#698A8A" ""
         , ppTitle   = xmobarColor "#C9A34E" "" . shorten 80
         , ppSep     = xmobarColor "#B4CDCD" "" " :: "
     }
