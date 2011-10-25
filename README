@@ -11,7 +11,7 @@ my setup
 * dzen2 (with xft font support)
 * nitrogen
 * unclutter
-* xscreensaver
+* slimlock
 * rxvt-unicode (with 256 color support)
 * urxvt-url-select
 * autocutsel
