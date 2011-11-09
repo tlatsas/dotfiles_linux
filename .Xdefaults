@@ -45,7 +45,7 @@ URxvt*background:           rgba:0000/0000/0000/ccdd
 URxvt*foreground:           #dcdcdc
 URxvt*dynamicColors:        on
 URxvt*visualBell:           false
-URxvt*urgentOnBell:         false
+URxvt*urgentOnBell:         true
 ! urxvt perl
 URxvt*perl-ext-common:      default,matcher,searchable-scrollback,url-select
 URxvt*perl-lib:             /usr/lib/urxvt/perl/
