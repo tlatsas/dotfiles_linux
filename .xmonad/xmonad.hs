@@ -274,6 +274,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioStop),           spawn "ncmpcpp stop")
     , ((0, xF86XK_AudioPrev),           spawn "ncmpcpp prev")
     , ((0, xF86XK_AudioNext),           spawn "ncmpcpp next")
+
+    -- focus urgent window
+    , ((modm              , xK_BackSpace), focusUrgent)
     ]
     ++
 
