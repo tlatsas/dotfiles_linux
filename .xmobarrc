@@ -8,7 +8,7 @@ Config {
         Run Weather "LGAV" [
             "-t"
                 , " <tempC>°C"
-            , "-L",         "10"
+            , "-L",         "12"
             , "-H",         "33"
             , "--normal",   "#AFFF5F"
             , "--high",     "red"
