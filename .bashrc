@@ -30,6 +30,8 @@ alias cls='clear'
 alias pss='ps aux'
 alias unbloat='egrep -v "^$|^#"'
 alias umnt='udiskie-umount'
+alias lsd='ls -d */'
+alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
 
 # archlinux stuff
 alias pacc='pacman-color'
