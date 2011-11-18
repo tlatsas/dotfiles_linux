@@ -92,7 +92,7 @@ myManageHook = composeAll . concat $
                 , className =? "Wine"               --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doFloat
-                , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
+                -- , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
                 ]]
 
