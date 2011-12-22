@@ -32,6 +32,7 @@ alias unbloat='egrep -v "^$|^#"'
 alias umnt='udiskie-umount'
 alias lsd='ls -d */'
 alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
+alias cwd='pwd | xclip'
 
 # archlinux stuff
 alias pacc='pacman-color'
