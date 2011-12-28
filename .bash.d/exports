@@ -21,6 +21,9 @@ _gems_bin=${GEM_HOME}/bin
 # tell matlab to use use system's jre
 export MATLAB_JRE="/opt/java/jre"
 
+# AA fonts for Java applications
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+
 # local bin
 _my_bin=${HOME}/.bin
 
