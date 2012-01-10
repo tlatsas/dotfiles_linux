@@ -146,7 +146,7 @@ myLayoutHook = onWorkspace "1:www" webL
                 $ onWorkspace "9:gimp" gimpL
                 $ standardLayouts
     where
-        standardLayouts = avoidStruts $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
+        standardLayouts = avoidStruts $ smartBorders $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
 
         --Layouts
         tiled = layoutHintsWithPlacement (0.5, 0.5) (Tall 1 (3/100) (1/2))
