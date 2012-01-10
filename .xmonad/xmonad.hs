@@ -152,7 +152,7 @@ myLayoutHook = onWorkspace "1:www" webL
         tiled = layoutHintsWithPlacement (0.5, 0.5) (Tall 1 (3/100) (1/2))
         reflectTiled = (reflectHoriz tiled)
         full = noBorders Full
-        fullL = avoidStruts $ full
+        fullL = avoidStruts $ smartBorders $ full
         tabs = tabbed shrinkText myTabConfig
 
         --Im Layout
@@ -177,7 +177,7 @@ myLayoutHook = onWorkspace "1:www" webL
                 gajimRoster = And (ClassName "Gajim.py") (Role "roster")
 
 
-        webL = avoidStruts $ (tabs ||| tiled)
+        webL = avoidStruts $ smartBorders $ (tabs ||| tiled)
 
         gimpL = avoidStruts $ withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") (fullL ||| tabs)
 
