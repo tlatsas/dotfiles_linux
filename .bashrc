@@ -36,6 +36,7 @@ alias cwd='pwd | xclip'
 
 # archlinux stuff
 alias pacc='pacman-color'
+alias pacman='/usr/bin/pacman'
 alias aur-update='yaourt -Su --aur'
 
 #--[ functions ]---------------------------------------------------------
