@@ -32,3 +32,8 @@ export PATH=${PATH}:${_my_bin}:${_gems_bin}
 
 # bash history
 export HISTCONTROL=ignoredups
+
+# git prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
