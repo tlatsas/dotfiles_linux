@@ -16,7 +16,16 @@ function _set_prompt() {
   # ${6} : 2nd arrow
   # ${7} : 3rd arrow
   # ${8} : color reset code
-  PS1="\n${1}┌─( \h )────(${3} \w ${1}) ${2}\n${1}└─( ${4}\u ${1}) \
+
+  # check if git ps1 function is declared
+  type -t __git_ps1 > /dev/null 2>&1
+  if [[ $? -eq 0 ]]; then
+    local _gp='\[\e[0;33m\]$(__git_ps1 "[ %s ]")\[\e[0m\]'
+  else
+    local _gp=""
+  fi
+
+  PS1="\n${1}┌─( \h )────(${3} \w ${1}) ${2}${_gp}\n${1}└─( ${4}\u ${1}) \
 ${5}>${6}>${7}> ${8}"
 }
 
