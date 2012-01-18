@@ -1,0 +1,7 @@
+#
+# ~/.xprofile
+#
+
+# things lxdm should source for me
+source ~/.bash_profile
+source ~/.xinitrc
