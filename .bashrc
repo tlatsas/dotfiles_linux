@@ -1,3 +1,7 @@
+#
+# ~/.bashrc
+#
+
 # If not running interactively, don't do anything (scp, rcp)
 [[ $- != *i* ]] && return
 
