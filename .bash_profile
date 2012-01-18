@@ -1,5 +1,6 @@
-# keychain
-#eval `/usr/bin/keychain --eval -Q -q --agents ssh,gpg`
+#
+# ~/.bash_profile
+#
 
 # start gpg agent with ssh support
 gnupginf="${HOME}/.gnupg/gpg-agent.info"
