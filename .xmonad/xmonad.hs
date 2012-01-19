@@ -14,8 +14,10 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.ManageHelpers
 
--- xmonad prompt
+-- xmonad prompt and scratchpad
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Scratchpad
+import XMonad.Util.WorkspaceCompare
 import qualified XMonad.Prompt as P
 import XMonad.Prompt.Shell
 import XMonad.Prompt
@@ -76,7 +78,7 @@ myFocusedBorderColor = "#9a9a9a"
 -- hooks --
 -- switch apps to workspace
 myManageHook :: ManageHook
-myManageHook = composeAll . concat $
+myManageHook = scratchpadManageHook ( W.RationalRect 0.25 0.25 0.5 0.5 ) <+> ( composeAll . concat $
                 [[isFullscreen                      --> doFullFloat
                 , className =? "Firefox"            --> doShift "1:www"
                 , className =? "Xmessage"           --> doCenterFloat
@@ -94,11 +96,13 @@ myManageHook = composeAll . concat $
                 , title     =? "Minecraft Launcher" --> doFloat
                 -- , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
-                ]]
+                ]] )
 
 -- logHook
 myLogHook :: Handle -> X ()
-myLogHook h = dynamicLogWithPP $ myPP { ppOutput = hPutStrLn h }
+myLogHook h = dynamicLogWithPP $ myPP { ppOutput = hPutStrLn h
+    , ppSort = fmap (.scratchpadFilterOutWorkspace) getSortByTag
+    }
 
 -- custom theme for xmobar
 myPP :: PP
@@ -190,6 +194,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch dmenu
 --    , ((modm .|. shiftMask, xK_p     ), spawn myLauncher)
+
+    , ((modm,               xK_o    ), scratchpadSpawnActionTerminal "urxvt -name scratchpad")
 
     -- prompt
     , ((modm,               xK_p     ), shellPrompt myXPConfig)
