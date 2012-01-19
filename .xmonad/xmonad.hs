@@ -61,8 +61,8 @@ myTerminal :: String
 myTerminal = "urxvtc"
 
 -- launcher
-myLauncher :: String
-myLauncher = "dmenu_run -nb '#232323' -nf '#9fbc00' -sb '#9fbc00' -sf '#141414' -p '$'"
+--myLauncher :: String
+--myLauncher = "dmenu_run -nb '#232323' -nf '#9fbc00' -sb '#9fbc00' -sf '#141414' -p '$'"
 
 -- window border size
 myBorderWidth :: Dimension
@@ -189,7 +189,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    , ((modm .|. shiftMask, xK_p     ), spawn myLauncher)
+--    , ((modm .|. shiftMask, xK_p     ), spawn myLauncher)
 
     -- prompt
     , ((modm,               xK_p     ), shellPrompt myXPConfig)
