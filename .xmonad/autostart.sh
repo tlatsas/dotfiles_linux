@@ -11,7 +11,7 @@ xrdb $HOME/.Xdefaults
 nitrogen --restore &
 
 # hide mouse when idle
-unclutter -grab -idle 3 &
+unclutter -idle 3 &
 
 # launch xscreensaver - lock screen functionality
 xscreensaver -nosplash &
