@@ -1,0 +1,11 @@
+# udev rules for ZTE Skate
+
+# ONDA Communication S.p.A.
+SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", ATTR{idProduct}=="1351", SYMLINK+="android_adb1"
+SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", ATTR{idProduct}=="1354", SYMLINK+="android_adb2"
+SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", ATTR{idProduct}=="1350", SYMLINK+="android_recovery"
+
+# Google Inc.
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666"
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", ATTR{idProduct}=="d00d", SYMLINK+="android_fastboot"
