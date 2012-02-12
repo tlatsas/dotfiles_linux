@@ -1,0 +1,1 @@
+KERNEL=="js?", ENV{ID_VENDOR}=="Logitech", ENV{ID_MODEL}=="Logitech_R__Precision_TM__Gamepad", NAME="input/js3"
