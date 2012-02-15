@@ -20,9 +20,6 @@ nitrogen --restore &
 # hide mouse when idle
 unclutter -idle 3 &
 
-# launch xscreensaver - lock screen functionality
-xscreensaver -nosplash &
-
 # launch urxvt daemon
 urxvtd -q -f -o
 
