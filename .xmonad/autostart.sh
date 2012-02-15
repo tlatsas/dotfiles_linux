@@ -1,8 +1,15 @@
 #!/bin/sh
 #
 # ~/.xmonad/autostart.sh
-# startup programs
+# settings - startup programs
 
+# keyboard settings
+setxkbmap -model evdev -layout us,gr -variant extended \
+    -option grp:caps_toggle \
+    -option grp_led:caps \
+    -option eurosign:e \
+    -option terminate:ctrl_alt_bksp \
+    -option lv3:ralt_switch_multikey &
 
 # X application settings
 xrdb $HOME/.Xdefaults
