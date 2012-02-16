@@ -12,7 +12,7 @@ else
 fi
 
 # exports
-[[ -f ${HOME}/.bash.d/exports ]] && source ${HOME}/.bash.d/exports
+[[ -f ${HOME}/.conf.d/exports ]] && source ${HOME}/.conf.d/exports
 
 # include bashrc
 source ${HOME}/.bashrc
