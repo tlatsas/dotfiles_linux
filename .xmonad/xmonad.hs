@@ -94,6 +94,7 @@ myManageHook = scratchpadManageHook ( W.RationalRect 0.25 0.25 0.5 0.5 ) <+> ( c
                 , className =? "Wine"               --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doShift "8:float"
                 , title     =? "Minecraft Launcher" --> doFloat
+                , className =? "Zenity"             --> doFloat
                 -- , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
                 ]] )
@@ -268,6 +269,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Restart xmonad
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
+
+    -- play youtube videos
+    , ((modm              , xK_y     ), spawn "~/.bin/zutube")
 
     -- Manage volume
     -- for amixer-osd see: https://github.com/tlatsas/scripts
