@@ -18,7 +18,7 @@ xrdb $HOME/.Xdefaults
 nitrogen --restore &
 
 # hide mouse when idle
-unclutter -idle 3 &
+#unclutter -idle 3 &
 
 # launch urxvt daemon
 urxvtd -q -f -o

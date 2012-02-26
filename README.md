@@ -10,7 +10,6 @@ my setup
 * conky (with mpd support)
 * dzen2 (with xft font support)
 * nitrogen
-* unclutter
 * rxvt-unicode (with 256 color support)
 * urxvt-url-select
 * autocutsel
