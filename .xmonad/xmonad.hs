@@ -41,7 +41,7 @@ import XMonad.Hooks.SetWMName
 
 
 main = do
-    xmproc <- spawnPipe "xmobar"
+    xmproc <- spawnPipe "xmobar ~/.xmonad/xmobarrc"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig { manageHook = myManageHook <+> manageDocks
             , layoutHook = myLayoutHook
             , logHook = myLogHook xmproc
