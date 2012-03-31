@@ -17,6 +17,9 @@ function _set_prompt() {
   # ${7} : 3rd arrow
   # ${8} : color reset code
 
+  # workaround bash-completion issues
+  _xfunc git __git_ps1 &>/dev/null
+
   # check if git ps1 function is declared
   type -t __git_ps1 > /dev/null 2>&1
   if [[ $? -eq 0 ]]; then
