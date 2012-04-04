@@ -50,4 +50,7 @@ set passkeys+='docs.google\.com':jkx
 " remove firefox keyword from title
 set titlestring=''
 
+" style options
+highlight HintElem background-color: #698A8A; color: black !important;
+
 " vim: set ft=vim:
