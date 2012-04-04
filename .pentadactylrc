@@ -9,9 +9,6 @@ set guioptions=Cs
 
 colorscheme desert
 
-" flash block allow list
-set fbw=google.com,linux.com,github.com,youtube.com,vimeo.com
-
 " search
 "
 " you need to bookmark google without auto-completion
@@ -23,7 +20,6 @@ command -nargs=* d tabopen https://duckduckgo.com?q=<args>
 
 " other
 command date echo Date()
-
 
 " A builtin bit.ly shortener.
 " Based on http://github.com/scy/dotscy/commit/4526f23a09b2ae51fb7f4b1e2ed3aec84f318fa5
