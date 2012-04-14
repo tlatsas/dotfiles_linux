@@ -19,7 +19,7 @@ set list listchars=tab:→\ ,trail:·
 
 " colors
 "set t_Co=256
-colorscheme neverland-darker
+colorscheme darkburn
 
 " gvim options
 if has('gui_running')
@@ -28,7 +28,6 @@ if has('gui_running')
   set textwidth=80
   set lines=35 columns=90
   set guifont=Terminus\ 10
-  colors wombat_g
   set suffixes=.bak,~,.swp,.o,.pyc
   set fileencodings=utf-8
   set termencoding=utf-8
