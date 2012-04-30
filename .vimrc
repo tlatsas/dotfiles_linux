@@ -35,7 +35,7 @@ if has('gui_running')
 endif
 
 " pathogen: https://github.com/tpope/vim-pathogen
-source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 "filetype off
 "call pathogen#runtime_append_all_bundles()
