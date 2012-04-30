@@ -14,9 +14,8 @@ export EDITOR="/usr/bin/vim"
 # pretty libreoffice
 export OOO_FORCE_DESKTOP="gnome"
 
-# ruby gems
-export GEM_HOME=${HOME}/.gems-local
-_gems_bin=${GEM_HOME}/bin
+# ruby gems - we install gems in user's folder by default
+_gems=$(ruby -rubygems -e "puts Gem.user_dir")/bin
 
 # tell matlab to use use system's jre
 export MATLAB_JRE="/opt/java/jre"
@@ -25,10 +24,12 @@ export MATLAB_JRE="/opt/java/jre"
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
 # local bin
-_my_bin=${HOME}/.bin
+_bin=${HOME}/bin
 
 # export local dirs containing executables
-export PATH=${PATH}:${_my_bin}:${_gems_bin}
+export PATH=${PATH}:${_bin}:${_gems}
+unset _bin
+unset _gems
 
 # bash history
 export HISTCONTROL=ignoredups

@@ -271,13 +271,13 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- play youtube videos
-    , ((modm              , xK_y     ), spawn "~/.bin/zutube")
+    , ((modm              , xK_y     ), spawn "~/bin/zutube")
 
     -- Manage volume
     -- for amixer-osd see: https://github.com/tlatsas/scripts
-    , ((0, xF86XK_AudioRaiseVolume),    spawn "~/.bin/alsavol up")
-    , ((0, xF86XK_AudioLowerVolume),    spawn "~/.bin/alsavol down")
-    , ((0, xF86XK_AudioMute),           spawn "~/.bin/alsavol toggle")
+    , ((0, xF86XK_AudioRaiseVolume),    spawn "~/bin/alsavol up")
+    , ((0, xF86XK_AudioLowerVolume),    spawn "~/bin/alsavol down")
+    , ((0, xF86XK_AudioMute),           spawn "~/bin/alsavol toggle")
 
     -- Control MPD from ncmpcpp
     , ((0, xF86XK_AudioPlay),           spawn "ncmpcpp toggle")
