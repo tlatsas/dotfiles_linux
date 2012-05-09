@@ -40,8 +40,30 @@ javascript <<EOF
         }
         req.send(null);
     }
+
+    // see your puclic ip in pentadactyl
+    function ip() {
+        var req = new XMLHttpRequest();
+        // use my own service (tlatsas/ipz @github)
+        req.open('GET', 'http://ipz.herokuapp.com/', true);
+
+        req.onreadystatechange = function (ev) {
+            if (req.readyState == 4) {
+                try {
+                    dactyl.echo(req.responseText);
+                }
+                catch (err) {
+                    dactyl.echo(err);
+                }
+            }
+        }
+        req.send(null);
+    }
 EOF
+
+" map custom javascript functions
 map -silent gy -js shortenURLBitLy(buffer.URL)
+command ip -js ip()
 
 " passkeys
 set passkeys+='google\.com/reader':npmsjk
