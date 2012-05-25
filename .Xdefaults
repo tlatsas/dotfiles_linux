@@ -38,10 +38,7 @@ URxvt*borderless:           1
 URxvt*skipBuiltinGlyphs:    true
 URxvt*xftAntialias:         false
 URxvt*depth:                32
-URxvt*transparent:          true
-URxvt*inheritPixmap:        true
 URxvt*shading:              20
-URxvt*background:           rgba:0000/0000/0000/ccdd
 URxvt*foreground:           #dcdcdc
 URxvt*dynamicColors:        on
 URxvt*visualBell:           false
@@ -57,6 +54,16 @@ URxvt*keysym.C-u:           perl:matcher
 ! Yankable URLs
 URxvt*keysym.M-u:           perl:url-select:select_next
 URxvt*undelineURLs:         true
+
+! -- transparent backbground ------------------------
+!URxvt*background:           rgba:0000/0000/0000/ccdd
+!URxvt*transparent:          true
+!URxvt*inheritPixmap:        true
+! ---------------------------------------------------
+
+! -- solid backbground ------------------------------
+URxvt*background:           #1c1c1c
+! ---------------------------------------------------
 
 !
 ! ctrl-arrow/home/end keys
