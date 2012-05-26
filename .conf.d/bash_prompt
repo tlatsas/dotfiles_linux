@@ -1,39 +1,10 @@
-# fancy bash prompt
-
-# layout:
 #
-#   ┌─( hostname )────( working direcory )
-#   └─( username ) >>>
+# set bash prompt
+#
+# vim: ts=2 sw=2 sts=2 et ft=sh:
 
-function _set_prompt() {
-  # color parameters
-  #
-  # ${1} : lines
-  # ${2} : hostname (\h)
-  # ${3} : current path (\w)
-  # ${4} : username (\u)
-  # ${5} : 1st arrow
-  # ${6} : 2nd arrow
-  # ${7} : 3rd arrow
-  # ${8} : color reset code
-
-  # workaround bash-completion issues
-  _xfunc git __git_ps1 &>/dev/null
-
-  # check if git ps1 function is declared
-  type -t __git_ps1 > /dev/null 2>&1
-  if [[ $? -eq 0 ]]; then
-    local _gp='\[\e[0;33m\]$(__git_ps1 "[ %s ]")\[\e[0m\]'
-  else
-    local _gp=""
-  fi
-
-  PS1="\n${1}┌─( \h )────(${3} \w ${1}) ${2}${_gp}\n${1}└─( ${4}\u ${1}) \
-${5}>${6}>${7}> ${8}"
-}
-
-function bash_prompt() {
-  # colors
+function set_prompt() {
+  # color codes
   local txtrst='\[\e[0m\]'    # Text Reset
   local txtblu='\[\e[0;34m\]' # Blue
   local txtcyn='\[\e[0;36m\]' # Cyan
@@ -43,59 +14,30 @@ function bash_prompt() {
   local txtmag='\[\e[0;35m\]' # magenta
   local bldred='\[\e[1;31m\]' # Red Bold
   local bldgrn='\[\e[1;32m\]' # Green Bold
+  local bldgra='\[\e[0;37m\]' # Gray Bold
 
-  # hostnames
-  local _desktop="desktop"
-  local _server="server"
-  local _laptop="laptop"
+  # workaround bash-completion issues
+  _xfunc git __git_ps1 &>/dev/null
 
-  # set colors based on hostnames
-  case $(hostname) in
-    ${_desktop})
-      local _lines=${txtblu}
-      local _hostname=${_lines}
-      local _cpath=${txtcyn}
-      local _arrow1=${_lines}
-      ;;
+  # check if git ps1 function is declared
+  type -t __git_ps1 &>/dev/null
 
-    ${_laptop})
-      local _lines=${txtmag}
-      local _hostname=${_lines}
-      local _cpath=${txtcyn}
-      local _arrow1=${_lines}
-      ;;
-
-    ${_server})
-      local _lines=${txtred}
-      local _hostname=${_lines}
-      local _cpath=${txtcyn}
-      local _arrow1=${_lines}
-      ;;
-
-    *)
-      local _lines=${txtylw}
-      local _hostname=${_lines}
-      local _cpath=${txtcyn}
-      local _arrow1=${_lines}
-  esac
-
-  # between users and root prompt arrows and username colors change
-  if [[ $(id -u) -eq 0 ]]; then
-    local _username=${txtred}
-    local _arrow2=${txtred}
-    local _arrow3=${bldred}
+  # show git info
+  if [[ $? -eq 0 ]]; then
+    local _gp="$txtmag"'$(__git_ps1 "( %s )" )'"$txtrst"
   else
-    local _username=${txtgrn}
-    local _arrow2=${txtgrn}
-    local _arrow3=${bldgrn}
+    local _gp=''
   fi
 
-  # set prompt
-  _set_prompt ${_lines} ${_hostname} ${_cpath} ${_username} \
-${_arrow1} ${_arrow2} ${_arrow3} ${txtrst}
+  #set PS1
+  PS1=" $bldgra¦ $txtcyn\w$txtrst $_gp\n"
+
+  if [[ $(id -u) -eq 0 ]]; then
+    PS1="\n$bldred\u$txtrst"$PS1"$bldred>$txtrst "
+  else
+    PS1="\n$txtgrn\u$txtrst"$PS1"$bldgrn>$txtrst "
+  fi
 }
 
 # set prompt
-bash_prompt
-
-# vim: ts=2 sw=2 sts=2 et ft=sh:
+set_prompt
