@@ -23,6 +23,7 @@ alias diff='colordiff'
 alias less='less -R'
 alias ping='ping -c 5'
 alias du='du -ch'
+alias cower='cower -t ~/pkgs --color=always'
 
 # safe options
 alias cp='cp -i'
@@ -37,11 +38,6 @@ alias umnt='udiskie-umount'
 alias lsd='ls -d */'
 alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
 alias cwd='pwd | tr -d "\n" | xclip'
-
-# archlinux stuff
-alias pacc='pacman-color'
-alias pacman='/usr/bin/pacman'
-alias aur-update='yaourt -Su --aur'
 
 #--[ functions ]---------------------------------------------------------
 vol() {
