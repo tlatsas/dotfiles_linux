@@ -3,8 +3,8 @@
 #
 
 # start gpg agent with ssh support
-gnupginf="${HOME}/.gnupg/gpg-agent.info"
-if pgrep -u "${USER}" gpg-agent >/dev/null 2>&1; then
+gnupginf="~/.gnupg/gpg-agent.info"
+if pgrep -u $USER gpg-agent &>/dev/null; then
   eval `cat $gnupginf`
   eval `cut -d= -f1 $gnupginf | xargs echo export`
 else
@@ -12,7 +12,7 @@ else
 fi
 
 # exports
-[[ -f ${HOME}/.conf.d/exports ]] && source ${HOME}/.conf.d/exports
+[[ -f ~/.conf.d/exports ]] && source ~/.conf.d/exports
 
 # include bashrc
-source ${HOME}/.bashrc
+source ~/.bashrc
