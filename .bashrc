@@ -39,11 +39,6 @@ alias lsd='ls -d */'
 alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
 alias cwd='pwd | tr -d "\n" | xclip'
 
-#--[ functions ]---------------------------------------------------------
-vol() {
-    amixer sget Master,0 | grep --color=never -o -m 1 '[[:digit:]]*%'
-}
-
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
 
 # grep colors
