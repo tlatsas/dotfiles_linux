@@ -45,10 +45,10 @@ alias cwd='pwd | tr -d "\n" | xclip'
 export GREP_COLOR="0;33"
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
-if [[ -f $HOME/.conf.d/LS_COLORS ]]; then
-    eval $( dircolors -b $HOME/.conf.d/LS_COLORS )
+if [[ -f ~/.conf.d/LS_COLORS ]]; then
+    eval $(dircolors -b ~/.conf.d/LS_COLORS)
 else
-    eval $( dircolors -b )
+    eval $(dircolors -b)
 fi
 
 # set the terminal title prompt
@@ -57,20 +57,20 @@ PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 # prompt
 if [[ "$TERM" = "linux" ]];then
     # awesome colors and simple prompt in virtual console
-    [[ -f $HOME/.conf.d/vt ]] && source $HOME/.conf.d/vt
+    [[ -f ~/.conf.d/vt ]] && source ~/.conf.d/vt
     unset PROMPT_COMMAND
     PS1='(\l) [\u@\h:\w]\$ '
 else
     # fancy prompt
-    if [[ -f $HOME/.conf.d/bash_prompt ]]; then
-      . $HOME/.conf.d/bash_prompt
+    if [[ -f ~/.conf.d/bash_prompt ]]; then
+      source ~/.conf.d/bash_prompt
     else
       PS1='[\u@\h:\w]\$ '
     fi
 fi
 
 # set less colors for man pages
-[[ -f $HOME/.conf.d/less_colors ]] && source $HOME/.conf.d/less_colors
+[[ -f ~/.conf.d/less_colors ]] && source ~/.conf.d/less_colors
 
 # Enable bash completition when preciding:
 complete -cf sudo
