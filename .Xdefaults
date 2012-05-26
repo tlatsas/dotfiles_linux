@@ -2,7 +2,7 @@
 
 ! vim: ai:si:et:ts=4:sw=4:ft=xdefaults:
 
-#include ".conf.d/xcolors/rezza"
+#include ".conf.d/xcolors/jasonwryan"
 
 !
 ! fonts
