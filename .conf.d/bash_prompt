@@ -15,6 +15,7 @@ function set_prompt() {
   local bldred='\[\e[1;31m\]' # Red Bold
   local bldgrn='\[\e[1;32m\]' # Green Bold
   local bldgra='\[\e[0;37m\]' # Gray Bold
+  local bldcyn='\[\e[1;36m\]' # Cyan Bold
 
   # workaround bash-completion issues
   _xfunc git __git_ps1 &>/dev/null
@@ -30,12 +31,12 @@ function set_prompt() {
   fi
 
   #set PS1
-  PS1=" $bldgra¦ $txtcyn\w$txtrst $_gp\n"
+  PS1=" $bldgra¦ $bldcyn\w$txtrst $_gp\n"
 
   if [[ $(id -u) -eq 0 ]]; then
-    PS1="\n$bldred\u$txtrst"$PS1"$bldred>$txtrst "
+    PS1="\n$bldred\u$txtrst"$PS1"$txtred>$bldred>$txtrst "
   else
-    PS1="\n$txtgrn\u$txtrst"$PS1"$bldgrn>$txtrst "
+    PS1="\n$bldgrn\u$txtrst"$PS1"$txtgrn>$bldgrn>$txtrst "
   fi
 }
 
