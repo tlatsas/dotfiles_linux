@@ -9,11 +9,9 @@ set guioptions=Cs
 
 colorscheme desert
 
-" search
-"
-" you need to bookmark google without auto-completion
-" :bmark http://www.google.com/search?sclient=psy&hl=en&complete=0&site=webhp&source=hp&q=%s -keyword gg
-set ds=gg
+" search - google search without auto-completion
+" see: ~/.pentadactyl/search/googlenc.xml
+set ds=googlenc
 
 command -nargs=* g tabopen google <args>
 command -nargs=* d tabopen https://duckduckgo.com?q=<args>
