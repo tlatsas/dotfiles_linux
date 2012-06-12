@@ -7,7 +7,7 @@ Config {
     , commands = [
         Run Weather "LGAV" [
             "-t"
-            , " <tempC>°C"
+            , "☀ <tempC><fc=#b4cdcd>°C</fc>"
             , "-L",         "12"
             , "-H",         "33"
             , "--normal",   "#AFFF5F"
@@ -16,7 +16,7 @@ Config {
         ] 36000
         , Run Date "%a %b %d %H:%M" "date" 10
         , Run Battery [
-            "-t", "bat <left>%"
+            "-t", "⚡ <left><fc=#b4cdcd>%</fc>"
             , "-L",         "10"
             , "-H",         "70"
             , "--high",     "#AFFF5F"
@@ -24,10 +24,22 @@ Config {
             , "--low",      "red"
         ] 600
         , Run Com "~/bin/alsavol" [] "vol" 5
-        , Run Com "~/bin/xkb-switch" [] "keys" 5
+        , Run Kbd [
+            ("us", "us"), ("gr", "gr")
+        ]
+        , Run MultiCpu [
+            "-L","3"
+            , "-H","50"
+            , "--normal","#AFFF5F"
+            , "--high","red"
+            , "-t", "☢ <total><fc=#b4cdcd>%</fc>"
+        ] 20
+        , Run ThermalZone 0 [
+            "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
+        ] 30
         , Run StdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%keys%</fc> :: vol <fc=#b4cdcd>%vol%</fc> :: %battery% :: <fc=#b4cdcd>%date%</fc> :: %LGAV% "
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
 }

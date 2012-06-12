@@ -41,7 +41,7 @@ import XMonad.Hooks.SetWMName
 
 
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar_top.hs"
+    xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig { manageHook = myManageHook <+> manageDocks
             , layoutHook = myLayoutHook
             , logHook = myLogHook xmproc
@@ -114,7 +114,7 @@ myPP = defaultPP
         , ppHidden  = xmobarColor "#C98F0A" ""
         , ppUrgent  = xmobarColor "#FFFFAF" "" . wrap "*" "*"
         , ppLayout  = xmobarColor "#698A8A" ""
-        , ppTitle   = xmobarColor "#C9A34E" "" . shorten 80
+        , ppTitle   = xmobarColor "#C9A34E" "" . shorten 60
         , ppSep     = xmobarColor "#B4CDCD" "" " :: "
     }
 
