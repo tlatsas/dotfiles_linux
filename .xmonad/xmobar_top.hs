@@ -7,7 +7,7 @@ Config {
     , commands = [
         Run Weather "LGAV" [
             "-t"
-                , " <tempC>°C"
+            , " <tempC>°C"
             , "-L",         "12"
             , "-H",         "33"
             , "--normal",   "#AFFF5F"
