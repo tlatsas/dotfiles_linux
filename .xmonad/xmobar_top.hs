@@ -29,5 +29,5 @@ Config {
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%keys%</fc> :: vol <fc=#b4cdcd>%vol%</fc> :: %battery% :: <fc=#b4cdcd>%date%</fc> :: %LGAV%"
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%keys%</fc> :: vol <fc=#b4cdcd>%vol%</fc> :: %battery% :: <fc=#b4cdcd>%date%</fc> :: %LGAV% "
 }
