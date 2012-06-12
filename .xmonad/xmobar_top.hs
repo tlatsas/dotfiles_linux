@@ -2,7 +2,7 @@ Config {
     font = "xft:Sans Mono:size=8"
     , bgColor = "#232323"
     , fgColor = "#C9A34E"
-    , position = BottomW L 90
+    , position = TopW L 90
     , lowerOnStart = True
     , commands = [
         Run Weather "LGAV" [

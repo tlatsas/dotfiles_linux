@@ -31,7 +31,7 @@ xsetroot -cursor_name left_ptr
 /usr/bin/autocutsel -selection PRIMARY -fork &
 
 # start trayer
-trayer  --edge bottom \
+trayer  --edge top \
         --align right \
         --SetDockType true \
         --SetPartialStrut true \
