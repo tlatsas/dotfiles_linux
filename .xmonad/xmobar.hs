@@ -37,9 +37,25 @@ Config {
         , Run ThermalZone 0 [
             "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
         ] 30
+        ,Run Network "wlan0" [
+            "-L", "8"
+            , "-H", "32"
+            , "-l", "#64FFE0"
+            , "-n", "#AFFF5F"
+            , "-h", "#B64949"
+            , "-t", "⇅ <fc=#b4cdcd><rx></fc>↲ <fc=#b4cdcd><tx></fc>↱"
+        ] 20
+        ,Run Network "eth0" [
+            "-L", "8"
+            , "-H", "32"
+            , "-l", "#64FFE0"
+            , "-n", "#AFFF5F"
+            , "-h", "#B64949"
+            , "-t", "⇆ <fc=#b4cdcd><rx></fc>↲ <fc=#b4cdcd><tx></fc>↱"
+        ] 20
         , Run StdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %thermal0% : %wlan0%%eth0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
 }
