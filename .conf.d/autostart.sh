@@ -44,7 +44,8 @@ trayer  --edge top \
         --height 17 &
 
 # start conky top bar using dzen2
-sh $HOME/.conky/dzenconkybar.sh &
+# -- replaced by xmobar
+#sh $HOME/.conky/dzenconkybar.sh &
 
 # start mpd as unpriviledged user if not already running
 pgrep -x -u $(whoami) 'mpd' > /dev/null

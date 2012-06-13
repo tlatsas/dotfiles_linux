@@ -7,8 +7,6 @@ applications
 * xmonad-contrib (darcs)
 * xmobar
 * trayer
-* conky (with mpd support)
-* dzen2 (with xft font support)
 * nitrogen
 * rxvt-unicode (with 256 color support)
 * urxvt-url-select
