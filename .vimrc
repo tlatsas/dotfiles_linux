@@ -48,11 +48,6 @@ filetype plugin indent on
 "highlight OverLength ctermbg=lightred ctermfg=black guibg=#FFD9D9
 "au BufRead,BufNewFile *.py,*.c,*.h,*.pl,*.pm,*.php match OverLength /\%81v.\+/
 
-" minibufexporer
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
 
 " taglist
 nnoremap <silent> <F8> :TlistToggle<CR>
