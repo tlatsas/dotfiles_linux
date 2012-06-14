@@ -55,8 +55,7 @@ nnoremap <silent> <F9> :NERDTree<CR>
 nnoremap <silent> <F10> :TagbarToggle<CR>
 
 " LaTeX Preview
-" 'stolen' from Jelly's configs
-autocmd FileType tex silent :! (file="%"; pdflatex % &>/dev/null && zathura "${file/.tex/.pdf}" &>/dev/null) &
-command! Reload :! (pdflatex % &>/dev/null) &
-au BufWritePost *.tex silent Reload
+"autocmd FileType tex silent :! (file="%"; pdflatex % &>/dev/null && zathura "${file/.tex/.pdf}" &>/dev/null) &
+"command! Reload :! (pdflatex % &>/dev/null) &
+"au BufWritePost *.tex silent Reload
 
