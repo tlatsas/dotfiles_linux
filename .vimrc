@@ -48,12 +48,11 @@ filetype plugin indent on
 "highlight OverLength ctermbg=lightred ctermfg=black guibg=#FFD9D9
 "au BufRead,BufNewFile *.py,*.c,*.h,*.pl,*.pm,*.php match OverLength /\%81v.\+/
 
+" nerd tree
+nnoremap <silent> <F9> :NERDTree<CR>
 
-" taglist
-nnoremap <silent> <F8> :TlistToggle<CR>
-
-" tasklist
-nnoremap <silent> <F7> :TaskList<CR>
+" tagbar
+nnoremap <silent> <F10> :TagbarToggle<CR>
 
 " LaTeX Preview
 " 'stolen' from Jelly's configs
