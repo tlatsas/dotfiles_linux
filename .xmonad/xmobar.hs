@@ -1,5 +1,5 @@
 Config {
-    font = "xft:Sans Mono:size=8"
+    font = "xft:Dejavu Sans:size=8"
     , bgColor = "#232323"
     , fgColor = "#C9A34E"
     , position = TopW L 90

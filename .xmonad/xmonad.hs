@@ -121,7 +121,7 @@ myPP = defaultPP
 -- custom theme for shell
 myXPConfig = defaultXPConfig
     {
-        font = "xft:Sans Mono:size=8"
+        font = "xft:Dejavu Sans:size=8"
         , fgColor = "#9fbc00"
         , bgColor = "#232323"
         , bgHLight = "#9fbc00"
