@@ -15,6 +15,7 @@ applications
 * ncmpcpp
 * scrot
 * vim
+* ctags
 * tmux
 * udiskie
 * lxdm
