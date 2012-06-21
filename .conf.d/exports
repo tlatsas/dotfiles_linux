@@ -15,7 +15,8 @@ export EDITOR="/usr/bin/vim"
 export OOO_FORCE_DESKTOP="gnome"
 
 # ruby gems - we install gems in user's folder by default
-_gems=$(ruby -rubygems -e "puts Gem.user_dir")/bin
+export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
+_gems=$GEM_HOME/bin
 
 # tell matlab to use use system's jre
 export MATLAB_JRE="/opt/java/jre"
