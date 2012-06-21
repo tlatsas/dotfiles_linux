@@ -16,7 +16,6 @@ export OOO_FORCE_DESKTOP="gnome"
 
 # ruby gems - we install gems in user's folder by default
 export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
-_gems=$GEM_HOME/bin
 
 # tell matlab to use use system's jre
 export MATLAB_JRE="/opt/java/jre"
@@ -24,13 +23,8 @@ export MATLAB_JRE="/opt/java/jre"
 # AA fonts for Java applications
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
-# local bin
-_bin=$HOME/bin
-
-# export local dirs containing executables
-export PATH=${PATH}:${_bin}:${_gems}
-unset _bin
-unset _gems
+# export other dirs containing executables
+export PATH=$PATH:$HOME/bin:$GEM_HOME/bin
 
 # bash history
 export HISTCONTROL=ignoredups
