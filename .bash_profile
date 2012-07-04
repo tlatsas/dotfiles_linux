@@ -3,7 +3,7 @@
 #
 
 # start gpg agent with ssh support
-gnupginf="~/.gnupg/gpg-agent.info"
+gnupginf="$HOME/.gnupg/gpg-agent.info"
 if pgrep -u $USER gpg-agent &>/dev/null; then
   eval `cat $gnupginf`
   eval `cut -d= -f1 $gnupginf | xargs echo export`
