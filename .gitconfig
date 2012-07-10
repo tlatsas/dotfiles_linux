@@ -29,8 +29,8 @@
     mr = merge
     sb = show-branch
     lg = log --oneline --decorate
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit --no-merges
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all --no-merges
+    lol = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     df = diff
     dc = diff --cached
     rb = rebase
