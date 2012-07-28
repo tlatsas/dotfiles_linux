@@ -59,3 +59,4 @@ nnoremap <silent> <F10> :TagbarToggle<CR>
 "command! Reload :! (pdflatex % &>/dev/null) &
 "au BufWritePost *.tex silent Reload
 
+let g:HAMMER_BROWSER = '/usr/bin/firefox'
