@@ -48,8 +48,8 @@ trayer  --edge top \
 #sh $HOME/.conky/dzenconkybar.sh &
 
 # start mpd as unpriviledged user if not already running
-pgrep -x -u $(whoami) 'mpd' > /dev/null
-[[ $? -eq '1' ]] && mpd ~/.mpd/mpd.conf > /dev/null 2>&1
+#pgrep -x -u $(whoami) 'mpd' > /dev/null
+#[[ $? -eq '1' ]] && mpd ~/.mpd/mpd.conf > /dev/null 2>&1
 
 # automount
 udiskie &
