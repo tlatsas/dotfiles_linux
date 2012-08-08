@@ -2,9 +2,6 @@
 #
 # vim: ft=sh ts=2 st=2 sts=2 et:
 
-# use British date/time format
-export LC_TIME="en_GB.utf8"
-
 # export gtkrc so qt applications are aware
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
