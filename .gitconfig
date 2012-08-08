@@ -40,4 +40,11 @@
     templatedir = ~/.git_template
 
 [sendemail]
+    smtpencryption = tls
+    smtpserver = smtp.gmail.com
+    smtpserverport = 587
     chainreplyto = false
+    signoffbycc = false
+    supresscc = all
+    suppressfrom = true
+    confirm = always
