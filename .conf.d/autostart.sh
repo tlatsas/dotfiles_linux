@@ -36,8 +36,8 @@ trayer  --edge top \
         --SetDockType true \
         --SetPartialStrut true \
         --expand false \
-        --widthtype pixel \
-        --width 137 \
+        --widthtype percent \
+        --width 10 \
         --transparent true \
         --alpha 0 \
         --tint 0x232323 \
