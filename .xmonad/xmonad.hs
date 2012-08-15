@@ -172,10 +172,7 @@ myLayoutHook = onWorkspace "1:www" webL
                 pidginRoster = And (ClassName "Pidgin") (Role "buddy_list")
                 -- skype
                 skypeRatio = (1%8)
-                skypeRoster = (ClassName "Skype") `And`
-                               (Not (Title "Options")) `And`
-                               (Not (Role "Chats")) `And`
-                               (Not (Role "CallWindowForm"))
+                skypeRoster = (And (ClassName "Skype") (Not (Role "ConversationsWindow")))
                 -- emesene
                 emeseneRoster = (Resource "emesene" `And` Title "emesene" `And` ClassName "Emesene")
                 -- gajim
