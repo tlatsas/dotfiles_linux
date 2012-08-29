@@ -18,10 +18,12 @@ function set_prompt() {
   local bldcyn='\[\e[1;36m\]' # Cyan Bold
 
   # workaround bash-completion issues
-  _xfunc git __git_ps1 &>/dev/null
+  #_xfunc git __git_ps1 &>/dev/null
 
   # check if git ps1 function is declared
-  type -t __git_ps1 &>/dev/null
+  #type -t __git_ps1 &>/dev/null
+
+  . /usr/share/git/git-prompt.sh
 
   # show git info
   if [[ $? -eq 0 ]]; then
