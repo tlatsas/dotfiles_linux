@@ -50,6 +50,7 @@ filetype plugin indent on
 
 " nerd tree
 nnoremap <silent> <F9> :NERDTree<CR>
+nnoremap <silent> gn :NERDTreeFocus<CR>
 
 " tagbar
 nnoremap <silent> <F10> :TagbarToggle<CR>
