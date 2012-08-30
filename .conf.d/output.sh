@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# check if VGA is connected
-if xrandr | grep -q 'VGA-0 connected'; then
+#
+# Switch to exernal monitor after login
+#
 
-    VgaRes=$(xrandr | grep -A 1 'VGA-0' | grep '\*' | awk '{ print $1 }')
+# nvidia propriatary
+res=$(xrandr | grep 'VGA-0' | awk '{ print $3 }' | cut -d'+' -f 1)
+[[ $res == '1680x1050' ]] && xrandr --output LVDS-0 --off
 
-    # if main monitor is connected turn off laptop display
-    # assume that our main monitor has 1680x1050 resolution
-    [[ $VgaRes == '1680x1050' ]] && xrandr --output LVDS-0 --off
-
-fi
+# Nouveau
+res=$(xrandr | grep 'VGA-1' | awk '{ print $3 }' | cut -d'+' -f 1)
+[[ $res == '1366x768' ]] && xrandr --output LVDS-1 --off --output VGA-1 --auto
