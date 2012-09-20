@@ -1,13 +1,22 @@
 #!/bin/bash
-
 #
-# Switch to exernal monitor after login
-#
+# Adjust screen resolution/DPI for external and laptop monitor after
+# login depending on used driver
 
-# nvidia propriatary
-res=$(xrandr | grep 'VGA-0' | awk '{ print $3 }' | cut -d'+' -f 1)
-[[ $res == '1680x1050' ]] && xrandr --output LVDS-0 --off
-
-# Nouveau
-res=$(xrandr | grep 'VGA-1' | awk '{ print $3 }' | cut -d'+' -f 1)
-[[ $res == '1366x768' ]] && xrandr --output LVDS-1 --off --output VGA-1 --auto
+if lsmod | grep -q 'nouveau'; then
+    if xrandr | grep -q 'VGA-1 connected'; then
+        xrandr --output LVDS-1 --off --output VGA-1 --mode 1680x1050 --rate 60 --dpi 90
+    else
+        # laptop screen - only adjust DPI
+        xrandr --dpi 100
+    fi
+else
+    # nvidia propriatary
+    if xrandr | grep -q 'VGA-0 connected'; then
+        # nvidia driver should pick the right resolution/rate for us
+        xrandr --output LVDS-0 --off --output VGA-0 --dpi 90
+    else
+        # laptop screen - only adjust DPI
+        xrandr --dpi 100
+    fi
+fi
