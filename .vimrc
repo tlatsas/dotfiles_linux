@@ -19,7 +19,8 @@ set list listchars=tab:→\ ,trail:·
 
 " colors
 "set t_Co=256
-colorscheme darkburn
+"colorscheme darkburn
+colorscheme hybrid
 
 " gvim options
 if has('gui_running')
@@ -34,6 +35,16 @@ if has('gui_running')
   set mouse=v
 endif
 
+" disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
 " pathogen: https://github.com/tpope/vim-pathogen
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
@@ -43,6 +54,8 @@ call pathogen#helptags()
 
 "plugins
 filetype plugin indent on
+
+set ofu=syntaxcomplete#Complete
 
 " hightlight after 80th column for python/C/perl/php
 "highlight OverLength ctermbg=lightred ctermfg=black guibg=#FFD9D9
