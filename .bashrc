@@ -24,6 +24,8 @@ alias less='less -R'
 alias ping='ping -c 5'
 alias du='du -ch'
 alias cower='cower -t ~/pkgs --color=always'
+alias fjson="python -m json.tool"
+alias fxml="xmllint --format -"
 
 # safe options
 alias cp='cp -i'
