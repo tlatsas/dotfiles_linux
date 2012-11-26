@@ -39,10 +39,14 @@ import Data.List (isInfixOf)
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 
+-- classic alt-tab
+--import XMonad.Actions.CycleWindows
+
 
 main = do
     xmproc <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
     xmonad $ withUrgencyHook NoUrgencyHook $ defaultConfig { manageHook = myManageHook <+> manageDocks
+            , modMask = mod4Mask
             , layoutHook = myLayoutHook
             , logHook = myLogHook xmproc
             , terminal = myTerminal
@@ -211,7 +215,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_n     ), refresh)
 
     -- Move focus to the next window
-    , ((modm,               xK_Tab   ), windows W.focusDown)
+    , ((mod1Mask,           xK_Tab   ), windows W.focusDown)
 
     -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
@@ -281,6 +285,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioStop),           spawn "ncmpcpp stop")
     , ((0, xF86XK_AudioPrev),           spawn "ncmpcpp prev")
     , ((0, xF86XK_AudioNext),           spawn "ncmpcpp next")
+
+    -- Toggle touchpad on/off
+    , ((0, 0x1008ffa9),                 spawn "~/bin/toggle-touchpad")
 
     -- focus urgent window
     , ((modm              , xK_BackSpace), focusUrgent)
