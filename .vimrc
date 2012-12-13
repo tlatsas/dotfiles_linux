@@ -74,3 +74,6 @@ nnoremap <silent> <F10> :TagbarToggle<CR>
 "au BufWritePost *.tex silent Reload
 
 let g:HAMMER_BROWSER = '/usr/bin/firefox'
+
+" deactivate smart indent for python
+au! FileType python setl nosmartindent
