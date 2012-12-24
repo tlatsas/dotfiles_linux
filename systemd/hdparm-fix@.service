@@ -1,0 +1,10 @@
+[Unit]
+Description=Fix excessive HDD parking frequency for device /dev/%i
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/hdparm -B 220 /dev/%i
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
