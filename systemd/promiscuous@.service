@@ -1,0 +1,10 @@
+[Unit]
+Description=Set %i interface in promiscuous mode
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ip link set dev %i promisc on
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
