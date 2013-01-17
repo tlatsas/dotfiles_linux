@@ -40,6 +40,7 @@ alias umnt='udiskie-umount -s'
 alias lsd='ls -d */'
 alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
 alias cwd='pwd | tr -d "\n" | xclip'
+alias lanscan='sudo nmap -PE -sn -n'
 
 #--[ Includes / Prompts / Colors / Completion ]--------------------------------
 
