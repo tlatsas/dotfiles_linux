@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# print your global IP
+# depends on the lynx text browser
+
+_lynx=$(which lynx) || exit 1
+${_lynx} -dump http://checkip.dyndns.org | awk -F': ' '{ print $2 }'

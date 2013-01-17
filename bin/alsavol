@@ -1,0 +1,165 @@
+#!/bin/bash
+
+# Change alsa volume levels and display notifications using libnotify
+#
+# author: Tasos Latsas <tlatsas2000 _at_ gmail _dot_ com>
+
+# A more polished version of the original script found in ubuntu forums:
+# http://ubuntuforums.org/showpost.php?p=7241817&postcount=2
+
+show_help () {
+cat << EOF
+usage: $(basename "$0") [OPTIONS] [up | down | toggle]
+
+Increase/decrease/mute using alsa mixer and display notifications
+
+
+[OPTIONS]
+  -h    Show this message
+  -c    Comma delimited list of mixer channels (default: Master)
+  -s    Step to increase/decrease volume (default: 5)
+  -d    Display notifications using libnotify (default: off)
+  -q    Quiet, do not print volume level after volume change (default: off)
+
+[up|down|toggle]
+Alsa mixer actions
+  up     : Increase volume (amixer set 'channel' 'step'+)
+  down   : Decrease volume (amixer set 'channel' 'step'-)
+  toggle : Mute/Unmute volume (amixer set 'channel' toggle)
+
+EOF
+}
+
+get_vol() {
+    # return volume levels 0 - 100
+    # parameter $1 - alsa channel
+    local _vol=$(${_amixer} sget ${1} | grep -o -m 1 '[[:digit:]]*%' | tr -d '%')
+    echo ${_vol}
+}
+
+get_status() {
+    # return the status of the channel
+    # parameter $1 - alsa channel
+    # return values:
+    #   0 - not muted
+    #   1 - muted
+    status=$(${_amixer} sget ${1} | awk '/[0-9]*%/ { print $NF }' | uniq )
+    [[ "${status}" == "[off]" ]] && return 1
+    return 0
+}
+
+# default values
+_display_notification=0
+_step=5
+_channels=("Master")
+_quiet=0
+# string/char to display if channel is muted
+_chmute='✕'
+
+# notification values
+_time=1000
+_text="Volume Control"
+
+
+while getopts ":hdqc:s:" options; do
+  case ${options} in
+    h)
+      show_help
+      exit 0
+      ;;
+    d)
+      _display_notification=1
+      ;;
+    c)
+      _channels=${OPTARG}
+      ;;
+    s)
+      _step=${OPTARG}
+      ;;
+    q)
+      _quiet=1
+      ;;
+    \?)
+      echo "Invalid option: -${OPTARG}" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -${OPTARG} requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+# check for amixer and notify-send binaries
+_amixer=$(which amixer) || exit 1
+if [[ $_display_notification -eq 1 ]]; then
+    _notify=$(which notify-send) || exit 1
+fi
+
+case ${@:$OPTIND} in
+    "")
+        _command=''
+        ;;
+    "up")
+        _command="${_step}+"
+        ;;
+    "down")
+        _command="${_step}-"
+        ;;
+    "toggle")
+        _command="toggle"
+        ;;
+    *)
+        echo "Unknown command - use up, down, toggle"
+        echo "try -h for help"
+        exit 1
+        ;;
+esac
+
+
+IFS=$','
+for channel in $_channels; do
+    if [[ ! -z $_command ]]; then
+            $_amixer set "$channel" $_command > /dev/null
+    fi
+
+    if [[ $_quiet -eq 0 ]]; then
+        # get channel volume
+        _vol=$(get_vol ${channel})
+
+        # if mutted add mute char
+        get_status ${channel}
+        if [[ $? -eq 1 ]]; then
+            _vol="${_vol}${_chmute}"
+        else
+            _vol="${_vol}%"
+        fi
+        echo ${_vol}
+    fi
+
+    [[ $_display_notification -eq 0 ]] && continue
+
+    # get channel status
+    get_status ${channel}
+    if [[ $? -eq 1 ]]; then
+        _vol="Muted"
+        _icon="audio-volume-muted"
+    else
+        _vol=$(get_vol ${channel})
+        if [[ $_vol -eq 0 ]]; then
+            _icon="audio-volume-off"
+        elif [[ $_vol -lt 33 ]]; then
+            _icon="audio-volume-low"
+        elif [[ $_vol -lt 66 ]]; then
+            _icon="audio-volume-medium"
+        else
+            _icon="audio-volume-high"
+        fi
+        _vol="${_vol}%"
+    fi
+
+    ${_notify} "${_text}" "${_vol}" -i ${_icon} -t ${_time}
+
+    unset IFS
+done
+exit 0

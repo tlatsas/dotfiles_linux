@@ -1,0 +1,10 @@
+#!/bin/bash
+# source: https://github.com/falconindy/bin-scripts/blob/master/git-archprojects
+
+if (( $# < 2 )); then
+  echo "usage: ${0##*/}: <project> <options to git send-email>"
+  exit 1
+fi
+
+exec git format-patch --to='arch-projects@archlinux.org' --subject-prefix="$1][PATCH" "${@:2}"
+

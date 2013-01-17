@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# check if a website is up
+# depends on the lynx text browser
+
+_lynx=$(which lynx) || exit 1
+_isup="http://www.downforeveryoneorjustme.com"
+
+if [[ -z ${1} ]]; then
+    echo "Must supply a URL to check..."
+    exit 1
+fi
+
+${_lynx} -dump "${_isup}/${1}" | head -1 | sed 's/...//' | sed 's/\[1\]//'

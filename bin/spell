@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# check word spelling
+# depends on hunspell
+
+_hspell=$(which hunspell) || exit 1
+
+echo $@ | ${_hspell} -a  | sed '1d' | awk -F ': ' '{ print $2 }'

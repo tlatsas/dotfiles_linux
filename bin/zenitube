@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# view youtube videos with mplayer
+# depends on mplayer,  youtube-dl and zenity
+
+zen=$(which zenity) || exit 1
+mp=$(which mplayer) || { $zen --error --text="Cannot locate mplayer binary."; exit 1; }
+udl=$(which youtube-dl) || { $zen --error --text="Cannot locate youtube-dl binary."; exit 1; }
+
+cookies="/tmp/utube.cookie"
+cache=1024
+
+# grab url from dialog
+url=$(${zen} --entry --title="play YouTube video" --text="Url:" --width=350)
+
+# bail on empty url
+[[ -z $url ]] && { echo "Bye.."; exit 0; }
+
+# url is not shortened grab video id from url
+if [[ ! $url =~ youtu.be ]]; then
+    # string from "v=" to the end
+    id=${url#*v=}
+
+    # remove crap after "&"
+    id=${id%%&*}
+
+    # build url
+    url="http://youtube.com/watch?v=$id"
+fi
+
+# play
+${mp} -really-quiet -cache ${cache} \
+    -framedrop -cookies -cookies-file ${cookies} \
+    $(${udl} -g --cookies ${cookies} "$url") > /dev/null 2>&1

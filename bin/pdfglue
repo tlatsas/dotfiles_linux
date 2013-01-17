@@ -1,0 +1,38 @@
+#!/bin/bash
+
+device="pdfwrite"
+quality="/prepress"
+out="out.pdf"
+
+usage() {
+    echo "usage: $(basename $0) [-o output-pdf] <list of pdfs to concatenate>"
+}
+
+
+while getopts ":ho:" options; do
+    case $options in
+        h)
+            usage
+            exit 0
+            ;;
+        o)
+            out="$OPTARG"
+            ;;
+        \?)
+            echo "Invalid option -${OPTARG}"
+            exit 1
+            ;;
+        :)
+            echo "Option -${OPTARG} requires an argument"
+            exit 1
+            ;;
+    esac
+done
+
+files="${@:$OPTIND}"
+[[ -z $files ]] && { echo "No input PDFs, bye"; exit 1; }
+[[ -e $out ]] && { echo "File $out already exists, bye"; exit 1; }
+
+# note: whitespace in important here don't try to align the command
+gs -q -dBATCH -dNOPAUSE -sDEVICE=$device -dPDFSETTINGS=$quality \
+-sOutputFile=$out $files
