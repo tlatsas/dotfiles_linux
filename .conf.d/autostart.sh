@@ -53,3 +53,6 @@ trayer  --edge top \
 
 # automount
 udiskie &
+
+# NM applet
+nm-applet >/dev/null 2>&1 &
