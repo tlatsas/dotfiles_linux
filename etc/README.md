@@ -1,0 +1,4 @@
+/etc
+----
+
+System wide settings
