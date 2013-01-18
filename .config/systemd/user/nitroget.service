@@ -1,0 +1,8 @@
+[Unit]
+Description=Nitrogen background setter
+
+[Service]
+ExecStart=/usr/bin/nitrogen --restore
+
+[Install]
+WantedBy=default.target

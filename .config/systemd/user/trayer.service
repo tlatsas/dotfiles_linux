@@ -1,0 +1,8 @@
+[Unit]
+Description=Trayer systray
+
+[Service]
+ExecStart=/usr/bin/trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand false --widthtype percent --width 10 --transparent true --alpha 0 --tint 0x232323 --height 17
+
+[Install]
+WantedBy=default.target

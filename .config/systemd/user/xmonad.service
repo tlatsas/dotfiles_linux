@@ -1,0 +1,18 @@
+[Unit]
+Description=Xmonad Tiling WM
+Before=xinit.target
+After=xorg.target
+
+[Service]
+Requires=xorg.target
+#Environment=PATH=uncomment:to:override:your:PATH
+Environment=DISPLAY=:0
+ExecStartPre=/usr/bin/xsetroot -cursor_name left_ptr
+ExecStartPre=/usr/bin/setxkbmap -model evdev -layout us,gr -variant extended -option grp:caps_toggle -option grp_led:caps -option eurosign:e -option terminate:ctrl_alt_bksp -option lv3:ralt_switch_multikey
+ExecStartPre=/usr/bin/xrdb %h/.Xdefaults
+ExecStart=/usr/bin/xmonad
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=wm.target
