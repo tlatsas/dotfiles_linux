@@ -48,8 +48,8 @@ alias lanscan='sudo nmap -PE -sn -n'
 export GREP_COLOR="0;33"
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
-if [[ -f ~/.conf.d/LS_COLORS ]]; then
-    eval $(dircolors -b ~/.conf.d/LS_COLORS)
+if [[ -f ~/lib/LS_COLORS/LS_COLORS ]]; then
+    eval $(dircolors -b ~/lib/LS_COLORS/LS_COLORS)
 else
     eval $(dircolors -b)
 fi
