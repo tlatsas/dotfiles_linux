@@ -1,4 +1,6 @@
 # udev rules for ZTE Skate
+#
+# DEPRECATED by https://github.com/M0Rf30/android-udev-rules
 
 # ONDA Communication S.p.A.
 SUBSYSTEM=="usb", ATTR{idVendor}=="19d2", MODE="0666"
