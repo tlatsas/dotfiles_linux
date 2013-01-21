@@ -9,5 +9,8 @@ sh $HOME/.conf.d/output.sh > /dev/null 2>&1
 # launch my apps
 sh $HOME/.conf.d/autostart.sh > /dev/null 2>&1
 
+# let systemd handle our session
+#exec /bin/systemd --user
+
 # start xmonad awesomness
 exec xmonad
