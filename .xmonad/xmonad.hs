@@ -272,7 +272,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_q     ), spawn "xmonad --recompile; xmonad --restart")
 
     -- play youtube videos
-    , ((modm              , xK_y     ), spawn "~/bin/zutube")
+    , ((modm              , xK_y     ), spawn "~/bin/zenitube")
 
     -- Manage volume
     -- for amixer-osd see: https://github.com/tlatsas/scripts
@@ -287,7 +287,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioNext),           spawn "ncmpcpp next")
 
     -- Toggle touchpad on/off
-    , ((0, 0x1008ffa9),                 spawn "~/bin/toggle-touchpad")
+    , ((0, 0x1008ffa9),                 spawn "~/bin/touchpad-toggle")
 
     -- focus urgent window
     , ((modm              , xK_BackSpace), focusUrgent)
