@@ -4,7 +4,7 @@ Before=xinit.target
 After=xorg.target
 
 [Service]
-Requires=xorg.target
+#Requires=xorg.target
 #Environment=PATH=uncomment:to:override:your:PATH
 Environment=DISPLAY=:0
 ExecStartPre=/usr/bin/xsetroot -cursor_name left_ptr

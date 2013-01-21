@@ -2,7 +2,7 @@
 Description=Window manager target
 Wants=xorg.target
 Wants=xinit.target
-Requires=dbus.socket
+#Requires=dbus.socket
 AllowIsolate=true
 
 [Install]
