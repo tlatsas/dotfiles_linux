@@ -7,7 +7,7 @@
 sh $HOME/bin/display-out.sh > /dev/null 2>&1
 
 # launch my apps
-sh $HOME/.conf.d/autostart.sh > /dev/null 2>&1
+sh $HOME/.config/autostart.sh > /dev/null 2>&1
 
 # let systemd handle our session
 #exec /bin/systemd --user

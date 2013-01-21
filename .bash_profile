@@ -11,8 +11,33 @@ else
   eval `gpg-agent --enable-ssh-support --daemon --write-env-file $gnupginf`
 fi
 
-# exports
-[[ -f ~/.conf.d/exports ]] && source ~/.conf.d/exports
+# export gtkrc so qt applications are aware
+export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
-# include bashrc
-source ~/.bashrc
+# export vim editor
+export EDITOR="/usr/bin/vim"
+
+# pretty libreoffice
+export OOO_FORCE_DESKTOP="gnome"
+
+# ruby gems - we install gems in user's folder by default
+export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
+
+# tell matlab to use use system's jre
+export MATLAB_JRE="/opt/java6/jre"
+
+# AA fonts for Java applications
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
+
+# export other dirs containing executables
+export PATH=$PATH:$HOME/bin:$GEM_HOME/bin
+
+# bash history
+export HISTCONTROL=ignoredups
+
+# git prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+
+. $HOME/.bashrc
