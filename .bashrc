@@ -16,6 +16,8 @@ alias ll='ls -lh'
 alias la='ls -a'
 alias lt='ls -lhrt' # sort by date
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # usability
 alias grep='grep --color=auto'
