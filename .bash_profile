@@ -14,9 +14,6 @@ fi
 # export gtkrc so qt applications are aware
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
-# export vim editor
-export EDITOR="/usr/bin/vim"
-
 # pretty libreoffice
 export OOO_FORCE_DESKTOP="gnome"
 
@@ -31,13 +28,5 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
 # export other dirs containing executables
 export PATH=$PATH:$HOME/bin:$GEM_HOME/bin
-
-# bash history
-export HISTCONTROL=ignoredups
-
-# git prompt
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
 
 . $HOME/.bashrc

@@ -49,6 +49,16 @@ alias lanscan='sudo nmap -PE -sn -n'
 # grep colors
 export GREP_COLOR="0;33"
 
+# bash history
+export HISTCONTROL=ignoredups
+
+# git prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+
+export EDITOR="/usr/bin/vim"
+
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [[ -f ~/lib/LS_COLORS/LS_COLORS ]]; then
     eval $(dircolors -b ~/lib/LS_COLORS/LS_COLORS)
