@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# shorten urls with is.gd
+
+_curl=$(which curl) || exit 1
+$_curl -s "http://is.gd/api.php?longurl=$@"
