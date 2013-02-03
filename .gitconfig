@@ -35,6 +35,7 @@
     dc = diff --cached
     rb = rebase
     fe = fetch
+    subs = submodule foreach git
 
 [init]
     templatedir = ~/.git_template

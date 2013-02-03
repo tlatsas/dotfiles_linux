@@ -10,7 +10,6 @@ set -o noclobber
 
 #--[ Aliases ]-----------------------------------------------------------------
 
-# navigate
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
@@ -18,8 +17,6 @@ alias lt='ls -lhrt' # sort by date
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
-# usability
 alias grep='grep --color=auto'
 alias diff='colordiff'
 alias less='less -R'
@@ -28,12 +25,8 @@ alias du='du -ch'
 alias cower='cower -t ~/pkgs --color=always'
 alias fjson="python -m json.tool"
 alias fxml="xmllint --format -"
-
-# safe options
 alias cp='cp -i'
 alias mv='mv -i'
-
-# custom stuff
 alias diffy='colordiff -y --suppress-common-lines'
 alias cls='clear'
 alias pss='ps aux'
@@ -43,6 +36,7 @@ alias lsd='ls -d */'
 alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
 alias cwd='pwd | tr -d "\n" | xclip'
 alias lanscan='sudo nmap -PE -sn -n'
+alias pacclear='sudo pacman -Scc'
 
 #--[ Prompts / Colors ]--------------------------------
 
