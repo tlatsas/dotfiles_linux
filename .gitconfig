@@ -36,6 +36,8 @@
     rb = rebase
     fe = fetch
     subs = submodule foreach git
+    sub = submodule
+    rinfo = remote show origin
 
 [init]
     templatedir = ~/.git_template
@@ -49,3 +51,5 @@
     supresscc = all
     suppressfrom = true
     confirm = always
+[push]
+	default = upstream
