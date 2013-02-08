@@ -2,7 +2,7 @@
 
 ! vim: ai:si:et:ts=4:sw=4:ft=xdefaults:
 
-#include "lib/xcolors/jasonwryan"
+#include "lib/xcolors/eqie6"
 
 !
 ! fonts
@@ -24,6 +24,9 @@ Xcursor*size:       10
 ! urxvt configuration
 !
 URxvt*font:                 xft:Terminus:pixelsize=10:antialias=false
+!URxvt*font:                 xft:Dejavu Sans Mono:pixelsize=11:antialias=true:hinting=true
+!URxvt*boldFont:             xft:DejaVu Sans Mono:bold:pixelsize=11:antialias=true:hinting=true
+
 !URxvt*termName:             rxvt-256color
 URxvt*imLocale:             en_US.UTF-8
 URxvt*loginShell:           false
@@ -39,7 +42,7 @@ URxvt*skipBuiltinGlyphs:    true
 URxvt*xftAntialias:         false
 URxvt*depth:                32
 URxvt*shading:              20
-URxvt*foreground:           #dcdcdc
+!URxvt*foreground:           #dcdcdc
 URxvt*dynamicColors:        on
 URxvt*visualBell:           false
 URxvt*urgentOnBell:         true
