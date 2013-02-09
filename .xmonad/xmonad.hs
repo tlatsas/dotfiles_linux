@@ -101,6 +101,7 @@ myManageHook = scratchpadManageHook ( W.RationalRect 0.25 0.25 0.5 0.5 ) <+> ( c
                 , className =? "Zenity"             --> doFloat
                 -- , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
                 , className =? "MPlayer"            --> (ask >>= doF . W.sink)
+                , title =? "Unlock private key"     --> doCenterFloat
                 ]] )
 
 -- logHook
