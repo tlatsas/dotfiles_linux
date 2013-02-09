@@ -1,13 +1,14 @@
 # gtk application style
 
 # theme
-gtk-theme-name = "Shiki-Brave"
+#gtk-theme-name = "Shiki-Brave"
+gtk-theme-name = "Zukitwo"
 
 # mouse cursor
 gtk-cursor-theme-name = "ComixCursors-White-Small-Slim"
 
 # icons
-gtk-icon-theme-name = "Faenza-Darkest"
+gtk-icon-theme-name = "Faenza-Dark"
 
 # font
 style "font"
