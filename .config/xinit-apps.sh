@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# ~/.xmonad/autostart.sh
-# settings - startup programs
+# ~/.config/xinit-apps.sh
 
 # keyboard settings
 setxkbmap -model evdev -layout us,gr -variant extended \

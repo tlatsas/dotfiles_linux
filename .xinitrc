@@ -52,7 +52,7 @@ export PATH=$PATH:$HOME/bin:$GEM_HOME/bin
 sh $HOME/bin/display-out.sh > /dev/null 2>&1
 
 # launch my apps
-sh $HOME/.config/autostart.sh > /dev/null 2>&1
+sh $HOME/.config/xinit-apps.sh > /dev/null 2>&1
 
 # let systemd handle our session
 #exec /bin/systemd --user
