@@ -2,6 +2,5 @@
 # ~/.xprofile
 #
 
-# things lxdm should source for me
-source ~/.bash_profile
+# lxdm uses ~/.xprofile
 source ~/.xinitrc
