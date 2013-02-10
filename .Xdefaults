@@ -74,3 +74,10 @@ URxvt.keysym.Control-Left:  \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Home:          \033[1~
 URxvt.keysym.End:           \033[4~
+
+!
+! man pages
+!
+URxvt.colorIT:      #fea63c
+URxvt.colorBD:      #b7ce42
+URxvt.colorUL:      #87afd7
