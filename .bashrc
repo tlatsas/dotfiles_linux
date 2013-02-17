@@ -38,6 +38,19 @@ alias cwd='pwd | tr -d "\n" | xclip'
 alias lanscan='sudo nmap -PE -sn -n'
 alias pacclear='sudo pacman -Scc'
 
+alias rails='bundle_exec rails'
+alias rspec='bundle_exec rspec'
+alias guard='bundle_exec guard'
+
+bundle_exec() {
+    if [[ -f ./Gemfile ]]; then
+        echo "Running command with 'bundle exec'"
+        bundle exec "$@"
+    else
+        "$@"
+    fi
+}
+
 #--[ Prompts / Colors ]--------------------------------
 
 # grep colors
