@@ -41,10 +41,11 @@ alias pacclear='sudo pacman -Scc'
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
 alias guard='bundle_exec guard'
+alias rake='bundle_exec rake'
 
 bundle_exec() {
     if [[ -f ./Gemfile ]]; then
-        echo "Running command with 'bundle exec'"
+        echo ":: Running command with 'bundle exec'"
         bundle exec "$@"
     else
         "$@"
