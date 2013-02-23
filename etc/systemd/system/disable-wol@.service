@@ -1,0 +1,12 @@
+[Unit]
+Description=Disable wake on lan for network interface %i
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/ethtool -s %i wol d
+RemainAfterExit=yes
+Requires=network.target
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
