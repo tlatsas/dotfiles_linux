@@ -35,7 +35,7 @@
     dc = diff --cached
     rb = rebase
     fe = fetch
-    feo = fetch origin
+    fo = fetch origin
     subs = submodule foreach git
     sub = submodule
     rinfo = remote show origin
