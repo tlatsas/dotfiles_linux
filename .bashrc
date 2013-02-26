@@ -66,6 +66,7 @@ export GIT_PS1_SHOWSTASHSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 
 export EDITOR="/usr/bin/vim"
+export VAULT_PATH="${HOME}/.config/vault/vault.conf"
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [[ -f ~/lib/LS_COLORS/LS_COLORS ]]; then
