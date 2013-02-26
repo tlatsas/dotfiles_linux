@@ -43,8 +43,11 @@ export MATLAB_JRE="/opt/java6/jre"
 # AA fonts for Java applications
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 
+# we use a local folder for npm install -g
+export _NODE="$HOME/.node"
+
 # export other dirs containing executables
-export PATH=$PATH:$HOME/bin:$GEM_HOME/bin
+export PATH=$PATH:$HOME/bin:$GEM_HOME/bin:$_NODE/bin
 
 . $HOME/.bashrc
 
