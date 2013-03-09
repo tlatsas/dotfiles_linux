@@ -5,10 +5,7 @@
 # If not running interactively, don't do anything (scp, rcp)
 [[ $- != *i* ]] && return
 
-#--[ shell parameters ]--------------------------------------------------------
 set -o noclobber
-
-#--[ Aliases ]-----------------------------------------------------------------
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
@@ -55,8 +52,6 @@ bundle_exec() {
 
 # autocomplete vault
 which vault > /dev/null && . "$( vault --initpath )"
-
-#--[ Prompts / Colors ]--------------------------------
 
 # grep colors
 export GREP_COLOR="0;33"
@@ -153,8 +148,6 @@ else
     # bash prompt
     _set_prompt
 fi
-
-#--[ man colors ]--------------------------------------------------------------
 
 _set_man_colors() {
     ## Red-Green Color Scheme
