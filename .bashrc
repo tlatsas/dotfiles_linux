@@ -53,6 +53,9 @@ bundle_exec() {
     fi
 }
 
+# autocomplete vault
+which vault > /dev/null && . "$( vault --initpath )"
+
 #--[ Prompts / Colors ]--------------------------------
 
 # grep colors
