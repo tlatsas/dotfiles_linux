@@ -92,15 +92,15 @@ _target=${_target%/}
 case $_ext in
   gz | tgz | tar.gz)
     check gzip
-    compress gzip z $_target tar.gz $_level
+    compress gzip z "$_target" tar.gz $_level
     ;;
   bz | bz2 | tbz | tbz2 | tar.bz2)
     check bzip2
-    compress bzip2 j $_target tar.bz2 $_level
+    compress bzip2 j "$_target" tar.bz2 $_level
     ;;
   xz | txz | tar.xz)
     check xz
-    compress xz J $_target tar.xz $_level
+    compress xz J "$_target" tar.xz $_level
     ;;
   tar)
     tar cvf "$_target.$_ext" "$_target"
