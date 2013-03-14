@@ -22,6 +22,7 @@
     untracked = cyan
 
 [alias]
+    ap = add --patch
     st = status -sb
     co = checkout
     cm = commit
@@ -39,6 +40,7 @@
     subs = submodule foreach git
     sub = submodule
     rinfo = remote show origin
+    stash-unapply = !git stash show -p --no-color | git apply -R
 
 [init]
     templatedir = ~/.git_template
@@ -52,5 +54,16 @@
     supresscc = all
     suppressfrom = true
     confirm = always
+
 [push]
-	default = upstream
+    default = upstream
+
+[branch]
+    autosetupmerge = true
+    autosetuprebase = always
+
+[merge]
+    stat = true
+
+[rerere]
+    enabled = true
