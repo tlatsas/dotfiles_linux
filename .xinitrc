@@ -49,6 +49,9 @@ export _NODE="$HOME/.node"
 # export other dirs containing executables
 export PATH=$PATH:$HOME/bin:$GEM_HOME/bin:$_NODE/bin
 
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+
 . $HOME/.bashrc
 
 # adjust display if attached to main monitor
