@@ -43,3 +43,9 @@
 [submodule "lib/LS_COLORS"]
 	path = lib/LS_COLORS
 	url = git://github.com/trapd00r/LS_COLORS.git
+[submodule "ruby/rbenv"]
+	path = ruby/rbenv
+	url = https://github.com/sstephenson/rbenv
+[submodule "ruby/ruby-build"]
+	path = ruby/ruby-build
+	url = git://github.com/sstephenson/ruby-build.git

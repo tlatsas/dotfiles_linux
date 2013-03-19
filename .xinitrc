@@ -34,9 +34,6 @@ export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 # pretty libreoffice
 export OOO_FORCE_DESKTOP="gnome"
 
-# ruby gems - we install gems in user's folder by default
-export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
-
 # tell matlab to use use system's jre
 export MATLAB_JRE="/opt/java6/jre"
 
@@ -47,10 +44,12 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 export _NODE="$HOME/.node"
 
 # export other dirs containing executables
-export PATH=$PATH:$HOME/bin:$GEM_HOME/bin:$_NODE/bin
+export PATH=$PATH:$HOME/bin:$_NODE/bin:$HOME/ruby/bin
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
+
+eval "$(rbenv init -)"
 
 . $HOME/.bashrc
 
