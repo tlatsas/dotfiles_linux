@@ -34,6 +34,7 @@ alias lsf='find . -maxdepth 1 -type f | cut -c 3- | sort'
 alias cwd='pwd | tr -d "\n" | xclip'
 alias lanscan='sudo nmap -PE -sn -n'
 alias pacclear='sudo pacman -Scc'
+alias rand='openssl rand -base64 45'
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
