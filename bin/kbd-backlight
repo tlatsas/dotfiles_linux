@@ -1,0 +1,112 @@
+#!/bin/bash
+
+# Handle keyboard backlight in Asus Zenbook
+# this script requires upower to be installed
+#
+# Author: Tasos Latsas
+#
+# This is a more polished version of the scripts found in:
+# https://wiki.archlinux.org/index.php/ASUS_Zenbook_Prime_UX31A
+
+show_help() {
+cat << EOF
+usage: $(basename "$0") [OPTIONS] [up|down|max|off|night|<lvl>|show]
+
+Handle keyboard backlight using upower
+
+[OPTIONS]
+  -h    Show this message
+
+Arguments:
+  up    Increase backlight
+  down  Decrease backlight
+  max   Set backlight to maximum value
+  off   Turn backlight completely off
+  night Set backlight to the lowest level
+  <lvl> Set backlight to <lvl>
+  show  Show current backlight level
+EOF
+}
+
+usend() {
+  local method=$1
+  local argument=$2
+
+  local command="--type=method_call \
+    --print-reply=literal
+    --system \
+    --dest="org.freedesktop.UPower" \
+    /org/freedesktop/UPower/KbdBacklight org.freedesktop.UPower.KbdBacklight."
+
+  command=$command$method
+
+  if [[ -n $argument ]]; then
+    argument="int32:$argument"
+    command="$command $argument"
+  fi
+
+  local ret=$(dbus-send $command)
+  return ${ret:9}
+}
+
+while getopts ":h" options; do
+  case ${options} in
+    h)
+      show_help
+      exit 0
+      ;;
+    \?)
+      echo "Invalid option: -${OPTARG}" >&2
+      exit 1
+      ;;
+    :)
+      echo "Option -${OPTARG} requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+usend "GetBrightness"
+current_brightness=$?
+
+usend "GetMaxBrightness"
+max_brightness=$?
+
+case ${@:$OPTIND} in
+  "up")
+    next=$((current_brightness+1))
+    if [[ $next -le $max_brightness ]]; then
+      usend "SetBrightness" $next
+    fi
+    ;;
+  "down")
+    next=$((current_brightness-1))
+    if [[ $next -ge 0 ]]; then
+      usend "SetBrightness" $next
+    fi
+    ;;
+  "max")
+    usend "SetBrightness" $max_brightness
+    ;;
+  "off")
+    usend "SetBrightness" 0
+    ;;
+  "night")
+    usend "SetBrightness" 1
+    ;;
+  "show")
+    echo $current_brightness
+    ;;
+  *)
+    next=${@:$OPTIND}
+    if [[ $next -le $max_brightness && $next -ge 0 ]]; then
+      usend "SetBrightness" $next
+    else
+      echo "Error: brightness level out of range"
+      exit 1
+    fi
+esac
+
+exit 0
+
+# vim: set ts=2 sw=2 sts=2 et:
