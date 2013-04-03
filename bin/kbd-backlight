@@ -94,15 +94,20 @@ case ${@:$OPTIND} in
   "night")
     usend "SetBrightness" 1
     ;;
-  "show")
+  "show"|"")
     echo $current_brightness
     ;;
   *)
     next=${@:$OPTIND}
-    if [[ $next -le $max_brightness && $next -ge 0 ]]; then
-      usend "SetBrightness" $next
+    if [[ $next =~ ^[0-9]+$ ]]; then
+      if [[ $next -le $max_brightness && $next -ge 0 ]]; then
+        usend "SetBrightness" $next
+      else
+        echo "Error: brightness level out of range"
+        exit 1
+      fi
     else
-      echo "Error: brightness level out of range"
+      echo "Error: bad input"
       exit 1
     fi
 esac
