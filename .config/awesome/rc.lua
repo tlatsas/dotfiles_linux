@@ -293,6 +293,9 @@ globalkeys = awful.util.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end),
 
+    -- print screen
+    awful.key({                   }, "Print",                 function () awful.util.spawn("scrot '/tmp/%Y-%m-%d-%H%M%S_$wx$h.png'") end),
+
     -- kbd brightness
     awful.key({                   }, "XF86KbdBrightnessDown", function () awful.util.spawn("kbd-backlight down") end),
     awful.key({                   }, "XF86KbdBrightnessUp",   function () awful.util.spawn("kbd-backlight up") end),
