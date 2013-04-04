@@ -291,7 +291,17 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end),
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end)
+    awful.key({ modkey }, "p", function() menubar.show() end),
+
+    -- kbd brightness
+    awful.key({                   }, "XF86KbdBrightnessDown", function () awful.util.spawn("kbd-backlight down") end),
+    awful.key({                   }, "XF86KbdBrightnessUp",   function () awful.util.spawn("kbd-backlight up") end),
+
+    -- media keys
+    awful.key({                   }, "XF86AudioMute",         function () awful.util.spawn("alsavol toggle") end),
+    awful.key({                   }, "XF86AudioLowerVolume",  function () awful.util.spawn("alsavol down") end),
+    awful.key({                   }, "XF86AudioRaiseVolume",  function () awful.util.spawn("alsavol up") end)
+
 )
 
 clientkeys = awful.util.table.join(
