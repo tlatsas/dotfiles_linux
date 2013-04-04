@@ -51,6 +51,8 @@ bundle_exec() {
     fi
 }
 
+map() { while read l; do $@ "$l"; done; }
+
 # autocomplete vault
 which vault > /dev/null && . "$( vault --initpath )"
 
