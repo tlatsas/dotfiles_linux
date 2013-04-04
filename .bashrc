@@ -19,7 +19,7 @@ alias diff='colordiff'
 alias less='less -R'
 alias ping='ping -c 5'
 alias du='du -ch'
-alias cower='cower -t ~/pkgs --color=always'
+alias cower='cower -t /tmp --color=always'
 alias fjson="python -m json.tool"
 alias fxml="xmllint --format -"
 alias cp='cp -i'
