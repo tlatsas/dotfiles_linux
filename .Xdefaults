@@ -8,11 +8,12 @@
 ! fonts
 !
 Xft*font:           Sans:size=8
-Xft*dpi:            96
+Xft*lcdfilter:      lcddefault
 Xft*antialias:      true
 Xft*rgba:           rgb
 Xft*hinting:        true
 Xft*hintstyle:      hintfull
+Xft*autohint:       false
 
 !
 ! mouse cursor
