@@ -4,6 +4,8 @@ Config {
     , fgColor = "#C9A34E"
     , position = TopW L 90
     , lowerOnStart = True
+
+    -- refresh rate is in tenths of second
     , commands = [
         Run Weather "LGAV" [
             "-t"
@@ -14,7 +16,7 @@ Config {
             , "--high",     "red"
             , "--low",      "#64FFE0"
         ] 36000
-        , Run Date "%a %b %d %H:%M" "date" 10
+        , Run Date "%a %b %d %H:%M" "date" 300
         , Run Battery [
             "-t", "⚡ <left><fc=#b4cdcd>%</fc>"
             , "-L",         "10"
@@ -23,7 +25,9 @@ Config {
             , "--normal",   "#E7FF54"
             , "--low",      "red"
         ] 600
-        , Run Com "~/bin/alsavol" [] "vol" 5
+
+        -- vol script is in ~/bin
+        , Run Com "volume" [] "vol" 30
         , Run Kbd [
             ("us", "us"), ("gr", "gr")
         ]
@@ -33,29 +37,13 @@ Config {
             , "--normal","#AFFF5F"
             , "--high","red"
             , "-t", "☢ <total><fc=#b4cdcd>%</fc>"
-        ] 20
+        ] 30
         , Run ThermalZone 0 [
             "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
-        ] 30
-        ,Run Network "wlan0" [
-            "-L", "8"
-            , "-H", "32"
-            , "-l", "#64FFE0"
-            , "-n", "#AFFF5F"
-            , "-h", "#B64949"
-            , "-t", "⇅ <fc=#b4cdcd><rx></fc>↲ <fc=#b4cdcd><tx></fc>↱"
-        ] 20
-        ,Run Network "eth0" [
-            "-L", "8"
-            , "-H", "32"
-            , "-l", "#64FFE0"
-            , "-n", "#AFFF5F"
-            , "-h", "#B64949"
-            , "-t", "⇆ <fc=#b4cdcd><rx></fc>↲ <fc=#b4cdcd><tx></fc>↱"
-        ] 20
+        ] 80
         , Run StdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %thermal0% : %wlan0%%eth0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
 }
