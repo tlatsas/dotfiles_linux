@@ -287,8 +287,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioPrev),           spawn "ncmpcpp prev")
     , ((0, xF86XK_AudioNext),           spawn "ncmpcpp next")
 
+    -- Keyboard backlight
+    , ((0, xF86XK_KbdBrightnessDown),      spawn "~/bin/kbd-backlight down")
+    , ((0, xF86XK_KbdBrightnessUp),        spawn "~/bin/kbd-backlight up")
+
     -- Toggle touchpad on/off
-    , ((0, 0x1008ffa9),                 spawn "~/bin/touchpad-toggle")
+    --, ((0, 0x1008ffa9),                 spawn "~/bin/touchpad-toggle")
 
     -- focus urgent window
     , ((modm              , xK_BackSpace), focusUrgent)
