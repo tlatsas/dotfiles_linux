@@ -127,7 +127,7 @@ vicious.register(tmp_widget, vicious.widgets.thermal, " - $1°C", 15, { "coretem
 
 -- weather
 weather_widget = wibox.widget.textbox()
-vicious.register(weather_widget, vicious.widgets.weather, " w: ${sky} - ${tempc}°C", 120, "LGAV")
+vicious.register(weather_widget, vicious.widgets.weather, " w: ${sky} - ${tempc}°C", 360, "LGAV")
 
 
 -- Create a wibox for each screen and add it
