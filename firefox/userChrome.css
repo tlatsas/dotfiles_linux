@@ -6,3 +6,8 @@
 #appmenu-toolbar-button > .toolbarbutton-menu-dropmarker {
     display: none !important;
 }
+
+/* hide the new-tab button */
+.tabs-newtab-button {
+    display: none;
+}
