@@ -60,7 +60,7 @@ main = do
 
 -- workspaces
 myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["1:www", "2:code", "3:doc", "4:chat", "5:media", "6:mail", "7:vm", "8:float", "9:gimp"]
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
 
 -- terminal
 myTerminal :: String
@@ -84,19 +84,19 @@ myFocusedBorderColor = "#9a9a9a"
 myManageHook :: ManageHook
 myManageHook = scratchpadManageHook ( W.RationalRect 0.25 0.25 0.5 0.5 ) <+> ( composeAll . concat $
                 [[isFullscreen                      --> doFullFloat
-                , className =? "Firefox"            --> doShift "1:www"
+                , className =? "Firefox"            --> doShift "1"
                 , className =? "Xmessage"           --> doCenterFloat
-                , className =? "Gimp"               --> doShift "9:gimp"
+                , className =? "Gimp"               --> doShift "9"
                 -- chat
-                , className =? "Pidgin"             --> doShift "4:chat"
-                , className =? "Skype"              --> doShift "4:chat"
-                , className =? "Emesene"            --> doShift "4:chat"
-                , className =? "Gajim.py"           --> doShift "4:chat"
-                , className =? "MPlayer"            --> doShift "5:media"
-                , className =? "Smplayer"           --> doShift "5:media"
-                , className =? "Thunderbird"        --> doShift "6:mail"
-                , className =? "Wine"               --> doShift "8:float"
-                , title     =? "Minecraft Launcher" --> doShift "8:float"
+                , className =? "Pidgin"             --> doShift "4"
+                , className =? "Skype"              --> doShift "4"
+                , className =? "Emesene"            --> doShift "4"
+                , className =? "Gajim.py"           --> doShift "4"
+                , className =? "MPlayer"            --> doShift "5"
+                , className =? "Smplayer"           --> doShift "5"
+                , className =? "Thunderbird"        --> doShift "6"
+                , className =? "Wine"               --> doShift "8"
+                , title     =? "Minecraft Launcher" --> doShift "8"
                 , title     =? "Minecraft Launcher" --> doFloat
                 , className =? "Zenity"             --> doFloat
                 -- , fmap ("libreoffice" `isInfixOf`) className --> doShift "3:doc"
@@ -149,11 +149,11 @@ myTabConfig = defaultTheme
     }
 
 -- layout
-myLayoutHook = onWorkspace "1:www" webL
-                $ onWorkspace "4:chat" imL
-                $ onWorkspace "5:media" fullL
-                $ onWorkspace "6:mail" webL
-                $ onWorkspace "9:gimp" gimpL
+myLayoutHook = onWorkspace "1" webL
+                $ onWorkspace "4" imL
+                $ onWorkspace "5" fullL
+                $ onWorkspace "6" webL
+                $ onWorkspace "9" gimpL
                 $ standardLayouts
     where
         standardLayouts = avoidStruts $ smartBorders $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
@@ -276,7 +276,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm              , xK_y     ), spawn "~/bin/zenitube")
 
     -- Manage volume
-    -- for amixer-osd see: https://github.com/tlatsas/scripts
+    -- for amixer-osd see: https://github.com/tlatsas/dotfiles
     , ((0, xF86XK_AudioRaiseVolume),    spawn "~/bin/alsavol up")
     , ((0, xF86XK_AudioLowerVolume),    spawn "~/bin/alsavol down")
     , ((0, xF86XK_AudioMute),           spawn "~/bin/alsavol toggle")
