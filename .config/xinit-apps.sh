@@ -1,6 +1,8 @@
 #!/bin/sh
 #
 # ~/.config/xinit-apps.sh
+#
+# background applications, utilities and settings when WM starts
 
 # we turn off keyboard backlight by default
 kbd-backlight off &
@@ -32,20 +34,20 @@ setxkbmap -model evdev -layout us,gr -variant extended \
 # X application settings
 xrdb $HOME/.Xdefaults
 
-# grab dpi and make adjustmanets
+# grab dpi and make adjustments on fonts and tray size
 _dpi=$(xdpyinfo |grep resolution|awk '{ print $2 }' | cut -f1 -d'x')
 if [[ $_dpi -gt 96 ]]; then
     _height=26
 else
     _height=17
-
     # smaller console fonts as the default font is 16px
     xrdb -merge - <(echo "URxvt*font: xft:DejaVu Sans Mono:pixelsize=12")
 fi
 
 # start trayer
-# 168 dpi -> height=26
-# 96 dpi -> height=17
+# height:
+#   168 dpi -> 26
+#   96 dpi  -> 17
 trayer  --edge top \
         --align right \
         --SetDockType true \
