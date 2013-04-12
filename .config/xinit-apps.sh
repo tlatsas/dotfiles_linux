@@ -2,7 +2,26 @@
 #
 # ~/.config/xinit-apps.sh
 
-# keyboard settings
+# we turn off keyboard backlight by default
+kbd-backlight off &
+
+# automount
+udiskie &
+
+# launch urxvt daemon
+urxvtd -q -f -o
+
+# set default cursor for Xmonad
+xsetroot -cursor_name left_ptr
+
+# set background
+nitrogen --restore &
+
+# merge clipboards
+/usr/bin/autocutsel -fork &
+/usr/bin/autocutsel -selection PRIMARY -fork &
+
+# keyboard layout settings
 setxkbmap -model evdev -layout us,gr -variant extended \
     -option grp:caps_toggle \
     -option grp_led:caps \
@@ -13,23 +32,20 @@ setxkbmap -model evdev -layout us,gr -variant extended \
 # X application settings
 xrdb $HOME/.Xdefaults
 
-# set background
-nitrogen --restore &
+# grab dpi and make adjustmanets
+_dpi=$(xdpyinfo |grep resolution|awk '{ print $2 }' | cut -f1 -d'x')
+if [[ $_dpi -gt 96 ]]; then
+    _height=26
+else
+    _height=17
 
-# hide mouse when idle
-#unclutter -idle 3 &
-
-# launch urxvt daemon
-urxvtd -q -f -o
-
-# set xmonad default cursor
-xsetroot -cursor_name left_ptr
-
-# merge clipboards
-/usr/bin/autocutsel -fork &
-/usr/bin/autocutsel -selection PRIMARY -fork &
+    # smaller console fonts as the default font is 16px
+    xrdb -merge - <(echo "URxvt*font: xft:DejaVu Sans Mono:pixelsize=12")
+fi
 
 # start trayer
+# 168 dpi -> height=26
+# 96 dpi -> height=17
 trayer  --edge top \
         --align right \
         --SetDockType true \
@@ -40,18 +56,7 @@ trayer  --edge top \
         --transparent true \
         --alpha 0 \
         --tint 0x232323 \
-        --height 17 &
-
-# start conky top bar using dzen2
-# -- replaced by xmobar
-#sh $HOME/.conky/dzenconkybar.sh &
-
-# start mpd as unpriviledged user if not already running
-#pgrep -x -u $(whoami) 'mpd' > /dev/null
-#[[ $? -eq '1' ]] && mpd ~/.mpd/mpd.conf > /dev/null 2>&1
-
-# automount
-udiskie &
+        --height $_height &
 
 # NM applet
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
