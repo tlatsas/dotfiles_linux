@@ -37,6 +37,7 @@ alias pacclear='sudo pacman -Scc'
 alias rand='openssl rand -base64 45'
 alias xev='xev | grep -A2 --line-buffered "^KeyRelease" | sed -n "/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p"'
 alias v='viewnior'
+alias wg='curl -O'
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
