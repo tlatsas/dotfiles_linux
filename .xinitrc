@@ -18,7 +18,6 @@ export GNOME_KEYRING_PID
 #
 # GPG Agent settings
 #
-
 # start gpg agent with ssh support
 #gnupginf="$HOME/.gnupg/gpg-agent.info"
 #if pgrep -u $USER gpg-agent &>/dev/null; then
@@ -51,16 +50,17 @@ export XDG_DATA_HOME=$HOME/.local/share
 
 eval "$(rbenv init -)"
 
+# export for python venv wrapper
+export WORKON_HOME=$HOME/.virtualenvs
+
 . $HOME/.bashrc
 
 # adjust display if attached to main monitor
-sh $HOME/bin/display-out.sh > /dev/null 2>&1
+#sh $HOME/bin/display-out.sh > /dev/null 2>&1
+xrandr --dpi 168
+#xrandr --dpi 96
 
 # launch my apps
-sh $HOME/.config/xinit-apps.sh > /dev/null 2>&1
+sh $XDG_CONFIG_HOME/xinit-apps.sh
 
-# let systemd handle our session
-#exec /bin/systemd --user
-
-# start xmonad awesomness
 exec xmonad
