@@ -14,7 +14,7 @@ udiskie &
 urxvtd -q -f -o
 
 # set default cursor for Xmonad
-xsetroot -cursor_name left_ptr
+xsetroot -cursor_name left_ptr &
 
 # set background
 nitrogen --restore &
@@ -32,16 +32,16 @@ setxkbmap -model evdev -layout us,gr -variant extended \
     -option lv3:ralt_switch_multikey &
 
 # X application settings
-xrdb $HOME/.Xdefaults
+xrdb -quiet $HOME/.Xdefaults
 
 # grab dpi and make adjustments on fonts and tray size
 _dpi=$(xdpyinfo |grep resolution|awk '{ print $2 }' | cut -f1 -d'x')
-if [[ $_dpi -gt 96 ]]; then
+if [ $_dpi -gt 96 ]; then
     _height=26
 else
     _height=17
     # smaller console fonts as the default font is 16px
-    xrdb -merge - <(echo "URxvt*font: xft:DejaVu Sans Mono:pixelsize=12")
+    xrdb -quiet -merge - <<< "URxvt*font: xft:DejaVu Sans Mono:pixelsize=12"
 fi
 
 # start trayer
