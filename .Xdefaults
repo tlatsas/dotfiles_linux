@@ -4,9 +4,9 @@
 
 #include "lib/xcolors/eqie6"
 
-!
+! ------------------------------------
 ! fonts
-!
+! ------------------------------------
 Xft*font:           Sans:size=8
 Xft*lcdfilter:      lcddefault
 Xft*antialias:      true
@@ -15,20 +15,30 @@ Xft*hinting:        true
 Xft*hintstyle:      hintfull
 Xft*autohint:       false
 
-!
+! ------------------------------------
 ! mouse cursor
-!
+! ------------------------------------
 Xcursor*theme:      ComixCursors-White-Small-Slim
 Xcursor*size:       10
 
-!
-! urxvt configuration
-!
-URxvt*font:                 xft:Terminus:pixelsize=10:antialias=false
-!URxvt*font:                 xft:Dejavu Sans Mono:pixelsize=11:antialias=true:hinting=true
-!URxvt*boldFont:             xft:DejaVu Sans Mono:bold:pixelsize=11:antialias=true:hinting=true
+! ------------------------------------
+! urxvt fonts
+! ------------------------------------
 
-!URxvt*termName:             rxvt-256color
+! use with 1920x1080
+URxvt*font:                 xft:DejaVu Sans Mono:pixelsize=16
+!URxvt*font:                 xft:Inconsolata:pixelsize=18
+!URxvt*font:                 xft:Terminus:pixelsize=18:antialias=false
+
+
+! use with 1680x1050
+!URxvt*font:                 xft:DejaVu Sans Mono:pixelsize=12
+!URxvt*font:                 xft:Inconsolata:pixelsize=14:autohint=true:hintstyle=hintslight
+!URxvt*font:                 xft:Droid Sans Mono:pixelsize=12
+
+! ------------------------------------
+! urxvt configuration
+! ------------------------------------
 URxvt*imLocale:             en_US.UTF-8
 URxvt*loginShell:           false
 URxvt*saveLines:            32767
