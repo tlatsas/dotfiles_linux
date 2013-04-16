@@ -19,7 +19,6 @@ alias diff='colordiff'
 alias less='less -R'
 alias ping='ping -c 5'
 alias du='du -ch'
-alias cower='cower -t /tmp --color=always'
 alias fjson="python -m json.tool"
 alias fxml="xmllint --format -"
 alias cp='cp -i'
@@ -38,6 +37,7 @@ alias rand='openssl rand -base64 45'
 alias xev='xev | grep -A2 --line-buffered "^KeyRelease" | sed -n "/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p"'
 alias v='viewnior'
 alias wg='curl -O'
+alias cower='_cower'
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
@@ -55,6 +55,12 @@ bundle_exec() {
 }
 
 map() { while read l; do $@ "$l"; done; }
+
+_cower() {
+    local target=/tmp/pkg
+    [[ -d $target  ]] || mkdir $target
+    /usr/bin/cower -t $target --color=always $@
+}
 
 # autocomplete vault
 which vault > /dev/null && . "$( vault --initpath )"
