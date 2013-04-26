@@ -56,9 +56,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 . $HOME/.bashrc
 
 # adjust display if attached to main monitor
-#sh $HOME/bin/display-out.sh > /dev/null 2>&1
-xrandr --dpi 168
-#xrandr --dpi 96
+sh $HOME/bin/display-out.sh
 
 # launch my apps
 sh $XDG_CONFIG_HOME/xinit-apps.sh
