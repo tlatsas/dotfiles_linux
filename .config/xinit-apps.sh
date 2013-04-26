@@ -4,6 +4,16 @@
 #
 # background applications, utilities and settings when WM starts
 
+# dependecies:
+#   udiskie
+#   urxvt
+#   nitrogen
+#   autocutsel
+#   xorg apps: setxkbmap/xrdb/xdpyinfo/xsetroot
+#   trayer
+#   polkit-gnome
+#   network manager applet
+
 # we turn off keyboard backlight by default
 kbd-backlight off &
 
