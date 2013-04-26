@@ -1,31 +1,49 @@
-Dotfiles
-========
+dotfiles
+--------
+System configuration files and scripts.
 
-applications
-------------
-* xmonad (darcs)
-* xmonad-contrib (darcs)
+
+setup
+-----
+
+Main applications include:
+
+* xmonad
+* xmonad-contrib
 * xmobar
 * trayer
 * nitrogen
-* rxvt-unicode (with 256 color support)
-* urxvt-url-select
+* rxvt-unicode
+* urxvt-perls
 * autocutsel
-* mpd
-* ncmpcpp
-* scrot
 * vim
 * ctags
 * tmux
 * udiskie
-* lxdm
 * slock
+* scrot
+* gnome-keyring
+* nm-applet
 
+Other applications that help productivity:
+
+* rbenv
+* vault
+* virtualenv
+* latexmk
+
+For style:
+
+* zukitwo colors
+* faenza dark icons
+* xcursor-comix
+* LS_COLORS for file colors in terminal
 
 vim plugins
 -----------
 all vim plugins are loaded by pathogen
 plugins are in .vim/bundle as git submodules
+
 
 install vim plugins
 -------------------
@@ -39,6 +57,12 @@ To make sure you use the master branch you can do:
 `$ git submodule foreach git checkout master`
 And then update: `$ git submodule foreach git pull`
 
+
 keep vim plugins up to date
 ---------------------------
 Pull changes: `$ git submodule foreach git pull` and commit.
+
+
+scripts / utilities
+-------------------
+Look into folder `bin`
