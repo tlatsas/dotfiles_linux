@@ -1,22 +1,33 @@
 #!/bin/bash
 #
 # Adjust screen resolution/DPI for external and laptop monitor after
-# login depending on used driver
+# login depending on connected interfaces
 
-if lsmod | grep -q 'nouveau'; then
-    if xrandr | grep -q 'VGA-1 connected'; then
-        xrandr --output VGA-1 --mode 1680x1050 --rate 60 --dpi 90
-    else
-        # laptop screen - only adjust DPI
-        xrandr --dpi 100
+is_external() {
+    local external=(VGA-1 VGA-0 HDMI1)
+    local iface
+    for iface in "${external[@]}"; do
+        [[ "$iface" == "$1" ]] && return 0
+    done
+    return 1
+}
+
+set_external() {
+    xrandr --output eDP1 --off
+    xrandr --output "$1" --mode 1680x1050 --dpi 96
+}
+
+set_laptop() {
+    xrandr --dpi 168
+}
+
+for iface in $(xrandr | grep -w connected | cut -d' ' -f1); do
+    if is_external "$iface"; then
+        set_external
+        #echo "external"
+        exit 2
     fi
-else
-    # nvidia propriatary
-    if xrandr | grep -q 'VGA-0 connected'; then
-        # nvidia driver should pick the right resolution/rate for us
-        xrandr --output VGA-0 --dpi 90
-    else
-        # laptop screen - only adjust DPI
-        xrandr --dpi 100
-    fi
-fi
+done
+
+set_laptop
+exit 0
