@@ -38,6 +38,7 @@ alias xev='xev | grep -A2 --line-buffered "^KeyRelease" | sed -n "/keycode /s/^.
 alias v='viewnior'
 alias wg='curl -O'
 alias cower='_cower'
+alias upshot='_screenshot_upload'
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
@@ -60,6 +61,11 @@ _cower() {
     local target=/tmp/pkg
     [[ -d $target  ]] || mkdir $target
     /usr/bin/cower -t $target --color=always $@
+}
+
+_screenshot_upload() {
+    scp "$@" "dione:~/http/img/"
+    echo "https://dl.kodama.gr/img/$@"
 }
 
 # autocomplete vault
