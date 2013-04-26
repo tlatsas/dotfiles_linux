@@ -34,10 +34,18 @@ Other applications that help productivity:
 
 For style:
 
-* zukitwo colors
-* faenza dark icons
+* Zukitwo colors (gtk2/3)
+* Faenza-dark icons
 * xcursor-comix
 * LS_COLORS for file colors in terminal
+
+There are also configs for applications tha I do not use anymore like:
+
+* awesomewm
+* vimperator
+* mpd
+* conky
+* ...
 
 vim plugins
 -----------
