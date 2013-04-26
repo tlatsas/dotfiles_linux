@@ -68,6 +68,9 @@ nnoremap <silent> gn :NERDTreeFocus<CR>
 " tagbar
 nnoremap <silent> <F10> :TagbarToggle<CR>
 
+" ignore pyc files
+let NERDTreeIgnore = ['\.pyc$']
+
 " LaTeX Preview
 "autocmd FileType tex silent :! (file="%"; pdflatex % &>/dev/null && zathura "${file/.tex/.pdf}" &>/dev/null) &
 "command! Reload :! (pdflatex % &>/dev/null) &
