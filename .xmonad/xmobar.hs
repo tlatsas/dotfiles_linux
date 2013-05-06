@@ -19,8 +19,8 @@ Config {
         , Run Date "%a %b %d %H:%M" "date" 300
         , Run Battery [
             "-t", "⚡ <left><fc=#b4cdcd>%</fc>"
-            , "-L",         "10"
-            , "-H",         "70"
+            , "-L",         "15"
+            , "-H",         "60"
             , "--high",     "#AFFF5F"
             , "--normal",   "#E7FF54"
             , "--low",      "red"
