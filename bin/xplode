@@ -9,8 +9,7 @@ check_bin() {
   type ${1} > /dev/null 2>&1
 
   if [ $? -ne 0 ]; then
-    echo "You need ${1} to uncompress this file."
-    echo "Aborting..."
+    echo "Error: You need ${1} to uncompress this file."
     return 1
   fi
 
@@ -19,58 +18,58 @@ check_bin() {
 
 FILE=$@
 
-if [ -f "${FILE}" ]; then
+if [[ -f "$FILE" ]]; then
   case "${FILE}" in
     *.tar.bz2 | *.tbz | *.tbz2)
-      tar xvjf "${FILE}"
+      tar xvjf "$FILE"
       ;;
 
     *.tar.gz | *.tgz)
-      tar xvzf "${FILE}"
+      tar xvzf "$FILE"
       ;;
 
     *.tar.xz | *.txz)
-      tar xvJf "${FILE}"
+      tar xvJf "$FILE"
       ;;
 
     *.bz2 | *.bz)
-      bunzip2 "${FILE}"
+      bunzip2 "$FILE"
       ;;
 
-    *.gz)        
-      gunzip "${FILE}"
+    *.gz)
+      gunzip "$FILE"
       ;;
 
     *.rar)
       check_bin unrar || exit 1
-      unrar x "${FILE}"
+      unrar x "$FILE"
       ;;
 
-    *.tar)       
-      tar xvf "${FILE}"
+    *.tar)
+      tar xvf "$FILE"
       ;;
 
     *.zip)
       check_bin unzip || exit 1
-      unzip "${FILE}"
+      unzip "$FILE"
       ;;
 
-    *.Z)         
-      uncompress "${FILE}"
+    *.Z)
+      uncompress "$FILE"
       ;;
 
     *.7z)
       check_bin 7z || exit 1
-      7z x "${FILE}"
+      7z x "$FILE"
       ;;
 
     *)
-      echo "don't know how to extract '${FILE}'..."
+      echo "Error: I don't know how to extract '$FILE'"
       exit 1
       ;;
   esac
 else
-  echo "'${FILE}' is not a valid file!"
+  echo "Error: '${FILE}' is not a valid file"
   exit 1
 fi
 exit 0
