@@ -69,6 +69,11 @@ _screenshot_upload() {
     echo "https://dl.kodama.gr/img/$@"
 }
 
+
+vimconflicts() {
+    vim +/"<<<<<<<" $( git diff --name-only --diff-filter=U | xargs )
+}
+
 # autocomplete vault
 which vault > /dev/null && . "$( vault --initpath )"
 
