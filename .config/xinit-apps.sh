@@ -13,6 +13,7 @@
 #   trayer
 #   polkit-gnome
 #   network manager applet
+#   blueman bluetooth applet
 
 # we turn off keyboard backlight by default
 kbd-backlight off &
@@ -73,3 +74,5 @@ trayer  --edge top \
 # NM applet
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nm-applet >/dev/null 2>&1 &
+
+/usr/bin/blueman-applet > /dev/null 2>&1 &
