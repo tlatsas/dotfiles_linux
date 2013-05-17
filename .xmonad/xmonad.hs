@@ -189,6 +189,10 @@ myLayoutHook = onWorkspace "1" webL
         gimpL = avoidStruts $ withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") (fullL ||| tabs)
 
 
+-- define keysym for touchpad toggle
+xF86XK_TouchpadToggle :: KeySym
+xF86XK_TouchpadToggle = 0x1008ffa9
+
 -- keybindings
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
@@ -288,8 +292,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_AudioNext),           spawn "ncmpcpp next")
 
     -- Keyboard backlight
-    , ((0, xF86XK_KbdBrightnessDown),      spawn "~/bin/kbd-backlight down")
-    , ((0, xF86XK_KbdBrightnessUp),        spawn "~/bin/kbd-backlight up")
+    , ((0, xF86XK_KbdBrightnessDown),   spawn "~/bin/kbd-backlight down")
+    , ((0, xF86XK_KbdBrightnessUp),     spawn "~/bin/kbd-backlight up")
+
+    -- Toggle touchpad on/off
+    , ((0, xF86XK_TouchpadToggle),        spawn "~/bin/touchpad-toggle")
 
     -- Toggle touchpad on/off
     --, ((0, 0x1008ffa9),                 spawn "~/bin/touchpad-toggle")
