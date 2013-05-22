@@ -38,6 +38,13 @@ Config {
             , "--high","red"
             , "-t", "☢ <total><fc=#b4cdcd>%</fc>"
         ] 30
+        , Run Memory [
+            "-t", "♽ <usedratio><fc=#b4cdcd>%</fc>"
+            , "-L",         "20"
+            , "-H",         "70"
+            , "--high",     "red"
+            , "--normal",   "#AFFF5F"
+        ] 50
         , Run ThermalZone 0 [
             "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
         ] 80
@@ -45,5 +52,5 @@ Config {
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %memory% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
 }
