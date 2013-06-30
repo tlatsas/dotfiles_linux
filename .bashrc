@@ -37,8 +37,8 @@ alias rand='openssl rand -base64 45'
 alias xev='xev | grep -A2 --line-buffered "^KeyRelease" | sed -n "/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p"'
 alias v='viewnior'
 alias wg='curl -O'
-alias cower='_cower'
-alias upshot='_screenshot_upload'
+alias cower='_cower_run_tmp'
+alias upshot='_vps_upload'
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
@@ -58,15 +58,15 @@ bundle_exec() {
 
 map() { while read l; do $@ "$l"; done; }
 
-_cower() {
+_cower_run_tmp() {
     local target=/tmp/pkg
     [[ -d $target  ]] || mkdir $target
     /usr/bin/cower -t $target --color=always $@
 }
 
-_screenshot_upload() {
-    scp "$@" "dione:~/http/img/"
-    echo "https://dl.kodama.gr/img/$@"
+_vps_upload() {
+    scp "$@" "dione:~/http/misc/"
+    echo "https://dl.kodama.gr/misc/$@"
 }
 
 
