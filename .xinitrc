@@ -43,12 +43,11 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
 export _NODE="$HOME/.node"
 
 # export other dirs containing executables
-export PATH=$PATH:$HOME/bin:$_NODE/bin:$HOME/ruby/bin
+export PATH=$PATH:$HOME/bin:$_NODE/bin
 
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 
-eval "$(rbenv init -)"
 
 # export for python venv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
