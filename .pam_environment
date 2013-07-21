@@ -1,0 +1,32 @@
+# This file is parsed by pam_env module
+# Syntax: simple "KEY=VAL" pairs on separate lines
+
+# bash history
+HISTCONTROL=ignoredups
+
+# git prompt
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+
+# applications and settings
+GREP_COLOR=0;33
+EDITOR=/usr/bin/vim
+
+# pretty libreoffice
+OOO_FORCE_DESKTOP=gnome
+
+# tell matlab to use use system's jre
+#MATLAB_JRE="/opt/java6/jre"
+
+# AA fonts for Java applications
+_JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=lcd
+
+# python virtualenvwrapper
+WORKON_HOME=~/.virtualenvs
+
+# wine settings
+WINEARCH=win32
+WINEDEBUG=-all
+
+# vim: ft=conf 

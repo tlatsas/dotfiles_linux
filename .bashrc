@@ -74,22 +74,9 @@ vimconflicts() {
     vim +/"<<<<<<<" $( git diff --name-only --diff-filter=U | xargs )
 }
 
-# autocomplete vault
-which vault > /dev/null && . "$( vault --initpath )"
-
-# grep colors
-export GREP_COLOR="0;33"
-
-# bash history
-export HISTCONTROL=ignoredups
-
-# git prompt
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
-
-export EDITOR="/usr/bin/vim"
-export VAULT_PATH="${HOME}/.config/vault/vault.conf"
+# vault
+export VAULT_PATH=$HOME/.config/vault/vault.conf
+which vault &> /dev/null && . "$( vault --initpath )"
 
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [[ -f ~/lib/LS_COLORS/LS_COLORS ]]; then

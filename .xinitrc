@@ -30,15 +30,6 @@ export GNOME_KEYRING_PID
 # export gtkrc so qt applications are aware
 export GTK2_RC_FILES=$HOME/.gtkrc-2.0
 
-# pretty libreoffice
-export OOO_FORCE_DESKTOP="gnome"
-
-# tell matlab to use use system's jre
-export MATLAB_JRE="/opt/java6/jre"
-
-# AA fonts for Java applications
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=lcd'
-
 # we use a local folder for npm install -g
 export _NODE="$HOME/.node"
 
