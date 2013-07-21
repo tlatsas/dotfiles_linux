@@ -27,9 +27,9 @@ Main applications include:
 
 Other applications that help productivity:
 
-* rbenv
+* chruby/ruby-install
 * vault
-* virtualenv
+* virtualenv/virtualenvwrapper
 * latexmk
 
 For style:
@@ -39,7 +39,7 @@ For style:
 * xcursor-comix
 * LS_COLORS for file colors in terminal
 
-There are also configs for applications that I don't use anymore like:
+There are also some old configs for applications that I don't use anymore like:
 
 * awesomewm
 * vimperator

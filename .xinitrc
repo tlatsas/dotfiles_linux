@@ -48,7 +48,6 @@ export PATH=$PATH:$HOME/bin:$_NODE/bin
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 
-
 # export for python venv wrapper
 export WORKON_HOME=$HOME/.virtualenvs
 

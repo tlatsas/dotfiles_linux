@@ -193,3 +193,7 @@ _set_man_colors() {
     #export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 }
 _set_man_colors
+
+# chruby / ruby install
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
