@@ -122,9 +122,9 @@ _set_prompt() {
     PS1=" $bldgra¦ $bldcyn\w$txtrst $_gp\n"
 
     if [[ $(id -u) -eq 0 ]]; then
-       PS1="\n$bldred\u$txtrst"$PS1"$txtred>$bldred>$txtrst "
+       PS1="$bldred\u$txtrst"$PS1"$txtred>$bldred>$txtrst "
     else
-       PS1="\n$bldgrn\u$txtrst"$PS1"$txtgrn>$bldgrn>$txtrst "
+       PS1="$bldgrn\u$txtrst"$PS1"$txtgrn>$bldgrn>$txtrst "
     fi
 }
 

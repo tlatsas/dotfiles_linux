@@ -121,12 +121,10 @@ _set_prompt() {
 
     # ugly indentation for multi-line prompts!
     if [[ $UID -eq 0 ]]; then
-       PS1="
-$PR_RED_B%n$PR_RST$PS1
+       PS1="$PR_RED_B%n$PR_RST$PS1
 $PR_RED>$PR_RED_B>$PR_RST "
     else
-       PS1="
-$PR_GREEN_B%n$PR_RST$PS1
+       PS1="$PR_GREEN_B%n$PR_RST$PS1
 $PR_GREEN>$PR_GREEN_B>$PR_RST "
     fi
 }
