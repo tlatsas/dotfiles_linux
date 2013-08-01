@@ -51,10 +51,13 @@
     smtpserver = smtp.gmail.com
     smtpserverport = 587
     chainreplyto = false
-    signoffbycc = false
-    supresscc = all
+    signedoffbycc = false
+    suppresscc = all
     suppressfrom = true
     confirm = always
+
+[format]
+    signoff = true
 
 [push]
     default = upstream
