@@ -22,9 +22,8 @@ set_laptop() {
 }
 
 for iface in $(xrandr | grep -w connected | cut -d' ' -f1); do
-    if is_external "$iface"; then
-        set_external
-        #echo "external"
+    if is_external $iface; then
+        set_external $iface
         exit 2
     fi
 done
