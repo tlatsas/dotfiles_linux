@@ -27,7 +27,7 @@ Config {
         ] 600
 
         -- vol script is in ~/bin
-        , Run Com "volume" [] "vol" 30
+        , Run Com "~/bin/volume" [] "vol" 30
         , Run Kbd [
             ("us", "us"), ("gr", "gr")
         ]

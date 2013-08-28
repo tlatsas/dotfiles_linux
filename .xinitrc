@@ -15,23 +15,6 @@ export GPG_AGENT_INFO
 export GNOME_KEYRING_CONTROL
 export GNOME_KEYRING_PID
 
-# export gtkrc so qt applications are aware
-export GTK2_RC_FILES=$HOME/.gtkrc-2.0
-
-# we use a local folder for npm install -g
-export _NODE="$HOME/.node"
-
-# export other dirs containing executables
-export PATH=$PATH:$HOME/bin:$_NODE/bin
-
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_DATA_HOME=$HOME/.local/share
-
-# export for python venv wrapper
-export WORKON_HOME=$HOME/.virtualenvs
-
-source $HOME/.bashrc
-
 # adjust display if attached to main monitor
 sh $HOME/bin/display-out.sh
 

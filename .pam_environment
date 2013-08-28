@@ -1,9 +1,6 @@
 # This file is parsed by pam_env module
 # Syntax: simple "KEY=VAL" pairs on separate lines
 
-# bash history
-HISTCONTROL=ignoredups
-
 # git prompt
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
@@ -22,11 +19,8 @@ OOO_FORCE_DESKTOP=gnome
 # AA fonts for Java applications
 _JAVA_OPTIONS=-Dawt.useSystemAAFontSettings=lcd
 
-# python virtualenvwrapper
-WORKON_HOME=~/.virtualenvs
-
 # wine settings
 WINEARCH=win32
 WINEDEBUG=-all
 
-# vim: ft=conf 
+# vim: ft=conf
