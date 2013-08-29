@@ -1,6 +1,0 @@
-#
-# ~/.xprofile
-#
-
-# lxdm uses ~/.xprofile
-source ~/.xinitrc

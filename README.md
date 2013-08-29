@@ -47,6 +47,8 @@ There are also some old configs for applications that I don't use anymore like:
 * conky
 * ...
 
+configs for these applications can be found in the `archive` branch of the repo.
+
 vim plugins
 -----------
 all vim plugins are loaded by pathogen
