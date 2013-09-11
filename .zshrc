@@ -22,6 +22,11 @@ bindkey '\eOA' up-line-or-beginning-search
 bindkey '\e[A' up-line-or-beginning-search
 bindkey '\eOB' down-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
+bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[1;5D' emacs-backward-word
+
+autoload -U compinit
+compinit
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
