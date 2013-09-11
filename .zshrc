@@ -91,7 +91,6 @@ vimconflicts() {
 }
 
 # vault
-export VAULT_PATH=$HOME/.config/vault/vault.conf
 which vault &> /dev/null && . "$( vault --initpath )"
 
 # chruby / ruby install
