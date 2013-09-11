@@ -14,9 +14,6 @@
 #   polkit-gnome
 #   network manager applet
 
-# we turn off keyboard backlight by default
-kbd-backlight off &
-
 # automount
 udiskie &
 
@@ -73,3 +70,7 @@ trayer  --edge top \
 # NM applet
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nm-applet >/dev/null 2>&1 &
+
+# we turn off keyboard backlight by default
+~/bin/kbd-backlight off &
+
