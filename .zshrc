@@ -2,18 +2,26 @@
 [[ $- != *i* ]] && return
 
 set -o noclobber
+bindkey -e
 
-setopt appendhistory
-setopt share_history
-HISTFILE=~/.histfile
+HISTFILE=$HOME/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
-autoload -U compinit
-compinit
+setopt append_history
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt inc_append_history
+setopt share_history
 
-[[ -n "${key[PageUp]}"   ]] && bindkey "${key[PageUp]}"   history-beginning-search-backward
-[[ -n "${key[PageDown]}" ]] && bindkey "${key[PageDown]}" history-beginning-search-forward
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '\eOA' up-line-or-beginning-search
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\eOB' down-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
