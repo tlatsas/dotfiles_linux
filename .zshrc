@@ -24,20 +24,19 @@ bindkey '\eOB' down-line-or-beginning-search
 bindkey '\e[B' down-line-or-beginning-search
 bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[1;5D' emacs-backward-word
+
 bindkey '\e[1~' beginning-of-line
-bindkey '\e[4~' end-of-line
 bindkey '\e[2~' overwrite-mode
-bindkey '^?' backward-delete-char
-bindkey '\e[1~' beginning-of-line
-bindkey '\e[5~' up-line-or-history
 bindkey '\e[3~' delete-char
 bindkey '\e[4~' end-of-line
+bindkey '\e[5~' up-line-or-history
 bindkey '\e[6~' down-line-or-history
+bindkey '^?' backward-delete-char
 bindkey '\e[D' backward-char
 bindkey '\e[C' forward-char
 # for rxvt
-bindkey '\e[8~' end-of-line
 bindkey '\e[7~' beginning-of-line
+bindkey '\e[8~' end-of-line
 # for gnome-terminal
 bindkey '\eOH' beginning-of-line
 bindkey '\eOF' end-of-line
