@@ -74,3 +74,8 @@ nm-applet >/dev/null 2>&1 &
 # we turn off keyboard backlight by default
 ~/bin/kbd-backlight off &
 
+# send the volume levels on this pipe
+_volume_pipe=/tmp/.volume-pipe
+[[ -S $_volume_pipe ]] || mkfifo $_volume_pipe
+# send an initial value
+~/bin/alsavol -p $_volume_pipe &

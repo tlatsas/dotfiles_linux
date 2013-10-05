@@ -19,6 +19,7 @@ Increase/decrease/mute using alsa mixer and display notifications
   -c    Comma delimited list of mixer channels (default: Master)
   -s    Step to increase/decrease volume (default: 5)
   -d    Display notifications using libnotify (default: off)
+  -p    Send output to the specified pipe path (default: none)
   -q    Quiet, do not print volume level after volume change (default: off)
 
 [up|down|toggle]
@@ -48,6 +49,12 @@ get_status() {
     return 0
 }
 
+write_to_pipe() {
+    # $1 pipe to write
+    # $2 value to write
+    echo $2 > $1
+}
+
 # default values
 _display_notification=0
 _step=5
@@ -61,7 +68,7 @@ _time=1000
 _text="Volume Control"
 
 
-while getopts ":hdqc:s:" options; do
+while getopts ":hdqp:c:s:" options; do
   case ${options} in
     h)
       show_help
@@ -78,6 +85,9 @@ while getopts ":hdqc:s:" options; do
       ;;
     q)
       _quiet=1
+      ;;
+    p)
+      pipe=${OPTARG}
       ;;
     \?)
       echo "Invalid option: -${OPTARG}" >&2
@@ -135,6 +145,10 @@ for channel in $_channels; do
             _vol="${_vol}%"
         fi
         echo ${_vol}
+    fi
+
+    if [[ -n $pipe  ]]; then
+        write_to_pipe $pipe $_vol
     fi
 
     [[ $_display_notification -eq 0 ]] && continue

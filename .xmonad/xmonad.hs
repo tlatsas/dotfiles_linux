@@ -281,9 +281,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Manage volume
     -- for amixer-osd see: https://github.com/tlatsas/dotfiles
-    , ((0, xF86XK_AudioRaiseVolume),    spawn "~/bin/alsavol up")
-    , ((0, xF86XK_AudioLowerVolume),    spawn "~/bin/alsavol down")
-    , ((0, xF86XK_AudioMute),           spawn "~/bin/alsavol toggle")
+    , ((0, xF86XK_AudioRaiseVolume),    spawn "~/bin/alsavol -p /tmp/.volume-pipe up")
+    , ((0, xF86XK_AudioLowerVolume),    spawn "~/bin/alsavol -p /tmp/.volume-pipe down")
+    , ((0, xF86XK_AudioMute),           spawn "~/bin/alsavol -p /tmp/.volume-pipe toggle")
 
     -- Control MPD from ncmpcpp
     , ((0, xF86XK_AudioPlay),           spawn "ncmpcpp toggle")

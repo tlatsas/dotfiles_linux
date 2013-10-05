@@ -25,9 +25,6 @@ Config {
             , "--normal",   "#E7FF54"
             , "--low",      "red"
         ] 600
-
-        -- vol script is in ~/bin
-        , Run Com "~/bin/volume" [] "vol" 30
         , Run Kbd [
             ("us", "us"), ("gr", "gr")
         ]
@@ -48,9 +45,10 @@ Config {
         , Run ThermalZone 0 [
             "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
         ] 80
+        , Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
         , Run StdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol%</fc> : %multicpu% %memory% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
+    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol_pipe%</fc> : %multicpu% %memory% %thermal0% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
 }
