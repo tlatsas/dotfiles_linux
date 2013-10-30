@@ -84,7 +84,6 @@ alias rspec='bundle_exec rspec'
 alias guard='bundle_exec guard'
 alias rake='bundle_exec rake'
 alias npmg='npm install --prefix ~/.node/ -g'
-alias venvon='source /usr/bin/virtualenvwrapper.sh'
 
 bundle_exec() {
     if [[ -f ./Gemfile ]]; then
