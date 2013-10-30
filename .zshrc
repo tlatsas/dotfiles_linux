@@ -76,6 +76,8 @@ alias v='viewnior'
 alias wg='curl -O'
 alias cower='_cower_run_tmp'
 alias upshot='_vps_upload'
+alias h='history'
+alias h\?='history | grep -i '
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
