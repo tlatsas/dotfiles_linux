@@ -7,4 +7,4 @@ export WORKON_HOME=$HOME/.virtualenvs
 typeset -U path
 path=(~/bin ~/.node/bin $path)
 
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
