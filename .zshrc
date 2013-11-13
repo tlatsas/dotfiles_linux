@@ -78,6 +78,7 @@ alias cower='_cower_run_tmp'
 alias upshot='_vps_upload'
 alias h='history'
 alias h\?='history | grep -i '
+alias serve='python -m http.server $@'
 
 alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
