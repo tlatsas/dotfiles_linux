@@ -85,7 +85,7 @@ alias rails='bundle_exec rails'
 alias rspec='bundle_exec rspec'
 alias guard='bundle_exec guard'
 alias rake='bundle_exec rake'
-alias npmg='npm install --prefix ~/.node/ -g'
+alias npm='npm --prefix ~/.node'
 
 bundle_exec() {
     if [[ -f ./Gemfile ]]; then
