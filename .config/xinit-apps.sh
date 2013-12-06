@@ -15,7 +15,7 @@
 #   network manager applet
 
 # automount
-udiskie &
+udiskie -s &
 
 # launch urxvt daemon
 urxvtd -q -f -o
