@@ -79,6 +79,7 @@ alias upshot='_vps_upload'
 alias h='history'
 alias h\?='history | grep -i '
 alias serve='python -m http.server $@'
+alias serve2='python -m SimpleHTTPServer $@'
 alias last='last -a | head -15'
 
 alias rails='bundle_exec rails'
