@@ -78,8 +78,5 @@ let NERDTreeIgnore = ['\.pyc$']
 
 let g:HAMMER_BROWSER = '/usr/bin/firefox'
 
-" deactivate smart indent for python
-au! FileType python setl nosmartindent
-
 " twig templates
 au BufRead,BufNewFile *.twig set filetype=htmljinja

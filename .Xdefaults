@@ -18,7 +18,7 @@ Xft*autohint:       false
 ! ------------------------------------
 ! mouse cursor
 ! ------------------------------------
-Xcursor*theme:      ComixCursors-White-Small-Slim
+Xcursor*theme:      ComixCursors-Slim-White
 Xcursor*size:       10
 
 ! ------------------------------------

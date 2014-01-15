@@ -5,7 +5,7 @@
 gtk-theme-name = "Zukitwo"
 
 # mouse cursor
-gtk-cursor-theme-name = "ComixCursors-White-Small-Slim"
+gtk-cursor-theme-name = "ComixCursors-Slim-White"
 
 # icons
 gtk-icon-theme-name = "Faenza-Dark"
