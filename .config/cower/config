@@ -1,0 +1,4 @@
+Color=auto
+ConnectTimeout=5
+TargetDir=/tmp/pkg
+MaxThreads=4
