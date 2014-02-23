@@ -44,7 +44,7 @@ xrdb -quiet $HOME/.Xdefaults
 # grab dpi and make adjustments on fonts and tray size
 _dpi=$(xdpyinfo |grep resolution|awk '{ print $2 }' | cut -f1 -d'x')
 if [ $_dpi -gt 96 ]; then
-    _height=26
+    _height=25
 else
     _height=17
     # smaller console fonts as the default font is 16px
@@ -54,18 +54,19 @@ fi
 # start trayer
 # height:
 #   168 dpi -> 26
+#   166 dpi -> 25
 #   96 dpi  -> 17
-trayer  --edge top \
-        --align right \
-        --SetDockType true \
-        --SetPartialStrut true \
-        --expand false \
-        --widthtype percent \
-        --width 10 \
-        --transparent true \
-        --alpha 0 \
-        --tint 0x232323 \
-        --height $_height &
+trayer --edge top \
+       --align right \
+       --SetDockType true \
+       --SetPartialStrut true \
+       --expand false \
+       --widthtype percent \
+       --width 10 \
+       --transparent true \
+       --alpha 0 \
+       --tint 0x232323 \
+       --height $_height &
 
 # NM applet
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

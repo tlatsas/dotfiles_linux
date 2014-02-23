@@ -18,7 +18,7 @@ set_external() {
 }
 
 set_laptop() {
-    xrandr --dpi 168
+    xrandr --dpi 166
 }
 
 for iface in $(xrandr | grep -w connected | cut -d' ' -f1); do
