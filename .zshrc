@@ -44,7 +44,8 @@ bindkey '\eOF' end-of-line
 autoload -U compinit
 compinit
 
-fpath=(~/.zsh $fpath)
+# auto-complete custom git commands
+zstyle ':completion:*:git:*' user-commands ${${(k)commands[(I)git-*]}#git-}
 
 alias ls='ls --color=auto'
 alias ll='ls -lh'
