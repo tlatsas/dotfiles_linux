@@ -5,6 +5,6 @@ export VAULT_PATH=$XDG_CONFIG_HOME/vault/vault.conf
 export WORKON_HOME=$HOME/.virtualenvs
 
 typeset -U path
-path=(~/bin ~/.node/bin $path)
+path=(~/bin ~/.git-scripts $path)
 
 source /usr/bin/virtualenvwrapper_lazy.sh
