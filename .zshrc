@@ -44,6 +44,8 @@ bindkey '\eOF' end-of-line
 autoload -U compinit
 compinit
 
+fpath=(~/.zsh $fpath)
+
 alias ls='ls --color=auto'
 alias ll='ls -lh'
 alias la='ls -a'
