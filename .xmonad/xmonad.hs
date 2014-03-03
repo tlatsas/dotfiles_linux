@@ -85,6 +85,7 @@ myManageHook :: ManageHook
 myManageHook = scratchpadManageHook ( W.RationalRect 0.25 0.25 0.5 0.5 ) <+> ( composeAll . concat $
                 [[isFullscreen                      --> doFullFloat
                 , className =? "Firefox"            --> doShift "1"
+                , className =? "Aurora"             --> doShift "1"
                 , className =? "Xmessage"           --> doCenterFloat
                 , className =? "Gimp"               --> doShift "9"
                 -- chat
