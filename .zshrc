@@ -72,6 +72,7 @@ alias lanscan='sudo nmap -PE -sn -n'
 alias pacclear='sudo pacman -Scc'
 alias rand='openssl rand -base64 45'
 alias xev='xev | grep -A2 --line-buffered "^KeyRelease" | sed -n "/keycode /s/^.*keycode \([0-9]*\).* (.*, \(.*\)).*$/\1 \2/p"'
+alias dpi="xdpyinfo|grep resolution|awk '{ print \$2 }'|cut -f1 -d'x'"
 alias v='viewnior'
 alias wg='curl -O'
 alias cower='_cower_tmpfs'
