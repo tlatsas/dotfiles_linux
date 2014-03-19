@@ -42,8 +42,6 @@
     subs = submodule foreach git
     sub = submodule
     rinfo = remote show origin
-    stash-unapply = !git stash show -p --no-color | git apply -R
-    deleted = "!git ls-files --deleted | while read l; do git rm "$l"; done;"
 
 [init]
     templatedir = ~/.git_template
