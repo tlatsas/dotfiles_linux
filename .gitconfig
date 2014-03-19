@@ -27,6 +27,7 @@
     co = checkout
     cm = commit
     br = branch
+    bra = branch --all
     mr = merge
     sb = show-branch
     l = log --oneline --decorate
@@ -36,6 +37,7 @@
     dc = diff --cached
     rb = rebase
     fe = fetch
+    fea = fetch --all
     fo = fetch origin
     subs = submodule foreach git
     sub = submodule
