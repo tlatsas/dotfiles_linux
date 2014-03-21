@@ -12,7 +12,7 @@ Config {
             , "☀ <tempC><fc=#b4cdcd>°C</fc>"
             , "-L",         "12"
             , "-H",         "33"
-            , "--normal",   "#AFFF5F"
+            , "--normal",   "#85B400"
             , "--high",     "red"
             , "--low",      "#64FFE0"
         ] 36000
@@ -21,7 +21,7 @@ Config {
             "-t", "⚡ <left><fc=#b4cdcd>%</fc>"
             , "-L",         "15"
             , "-H",         "60"
-            , "--high",     "#AFFF5F"
+            , "--high",     "#85B400"
             , "--normal",   "#E7FF54"
             , "--low",      "red"
         ] 600
@@ -40,7 +40,7 @@ Config {
             , "-L",         "20"
             , "-H",         "70"
             , "--high",     "red"
-            , "--normal",   "#AFFF5F"
+            , "--normal",   "#85B400"
         ] 50
         , Run ThermalZone 0 [
             "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
