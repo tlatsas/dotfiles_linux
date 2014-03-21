@@ -3,5 +3,5 @@
 # convert documents to pdf
 # depends on libre office base
 
-_lo=$(which loffice) || exit 1
-${_lo} --headless --convert-to pdf "$@"
+hash loffice &>/dev/null || { echo "LibreOffice is not installed"; exit 1; }
+loffice --headless --convert-to pdf "$@"

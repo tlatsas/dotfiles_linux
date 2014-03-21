@@ -6,8 +6,7 @@
 # Author: Tasos Latsas
 
 check() {
-  type ${1} > /dev/null 2>&1
-  [[ $? -ne 0 ]] && { echo "Error: You need ${1} to compress"; exit 1; }
+  type ${1} &>/dev/null || { echo "Error: You need ${1} to compress"; exit 1; }
 }
 
 show_help() {

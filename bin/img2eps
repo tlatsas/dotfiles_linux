@@ -3,8 +3,8 @@
 # convert image files to eps files
 # requires: imagemagick
 
-im=$(which convert) || exit 1
+hash convert &>/dev/null || { echo "imagemagick is not installed"; exit 1; }
 
 filename="${1%.*}"
-$im -quality 80 $1 EPS3:${filename}.eps
+convert -quality 80 $1 EPS3:${filename}.eps
 
