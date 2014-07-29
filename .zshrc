@@ -121,10 +121,6 @@ vimconflicts() {
 # vault
 which vault &> /dev/null && . "$( vault --initpath )"
 
-# chruby / ruby install
-source /usr/share/chruby/chruby.sh
-source /usr/share/chruby/auto.sh
-
 # use LS_COLORS from: https://github.com/trapd00r/LS_COLORS
 if [[ -f ~/lib/LS_COLORS/LS_COLORS ]]; then
     eval $(dircolors -b ~/lib/LS_COLORS/LS_COLORS)
