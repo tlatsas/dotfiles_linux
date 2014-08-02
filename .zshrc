@@ -131,6 +131,9 @@ fi
 # travis-ci cli completion
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
+source /usr/bin/virtualenvwrapper_lazy.sh
+source ~/.rvm/scripts/rvm
+
 # set the terminal title prompt
 #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 

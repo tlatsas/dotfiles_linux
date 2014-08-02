@@ -4,7 +4,8 @@ export XDG_DATA_HOME=$HOME/.local/share
 export VAULT_PATH=$XDG_CONFIG_HOME/vault/vault.conf
 export WORKON_HOME=$HOME/.virtualenvs
 
+path=(~/bin ~/.git-scripts ~/.rvm/bin $path)
 typeset -U path
-path=(~/bin ~/.git-scripts $path)
 
-source /usr/bin/virtualenvwrapper_lazy.sh
+fpath=(~/.zsh/completion $fpath)
+typeset -U fpath
