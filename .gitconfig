@@ -71,3 +71,5 @@
 
 [rerere]
     enabled = true
+[core]
+	excludesfile = ~/.gitignore_global
