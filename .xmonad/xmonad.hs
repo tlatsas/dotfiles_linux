@@ -31,6 +31,7 @@ import XMonad.Layout.IM
 import XMonad.Layout.Tabbed
 import XMonad.Layout.PerWorkspace (onWorkspace)
 import XMonad.Layout.Grid
+import XMonad.Layout.Circle
 import XMonad.Layout.LayoutHints
 import Data.Ratio ((%))
 import Data.List (isInfixOf)
@@ -157,7 +158,7 @@ myLayoutHook = onWorkspace "1" webL
                 $ onWorkspace "9" gimpL
                 $ standardLayouts
     where
-        standardLayouts = avoidStruts $ smartBorders $ (tiled ||| reflectTiled ||| Mirror tiled ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
+        standardLayouts = avoidStruts $ smartBorders $ (tiled ||| reflectTiled ||| Mirror tiled ||| Circle ||| Grid ||| Full ||| tabbed shrinkText myTabConfig)
 
         --Layouts
         tiled = layoutHintsWithPlacement (0.5, 0.5) (Tall 1 (3/100) (1/2))
@@ -185,7 +186,7 @@ myLayoutHook = onWorkspace "1" webL
                 gajimRoster = And (ClassName "Gajim.py") (Role "roster")
 
 
-        webL = avoidStruts $ smartBorders $ (tabs ||| tiled)
+        webL = avoidStruts $ smartBorders $ (tabs ||| tiled ||| Circle)
 
         gimpL = avoidStruts $ withIM (0.11) (Role "gimp-toolbox") $ reflectHoriz $ withIM (0.15) (Role "gimp-dock") (fullL ||| tabs)
 
