@@ -78,41 +78,17 @@ alias xev='xev | grep -A2 --line-buffered "^KeyRelease" | sed -n "/keycode /s/^.
 alias dpi="xdpyinfo|grep resolution|awk '{ print \$2 }'|cut -f1 -d'x'"
 alias v='viewnior'
 alias wg='curl -O'
-alias cower='_cower_tmpfs'
-alias upshot='_vps_upload'
 alias h='history'
 alias h\?='history | grep -i '
 alias serve='python -m http.server $@'
 alias serve2='python -m SimpleHTTPServer $@'
 alias last='last -a | head -15'
-
-alias rails='bundle_exec rails'
-alias rspec='bundle_exec rspec'
-alias guard='bundle_exec guard'
-alias rake='bundle_exec rake'
+alias pac='sudo pacman -Syu'
 alias npm='npm --prefix ~/.node'
+alias svim='sudo vim'
 
-bundle_exec() {
-    if [[ -f ./Gemfile ]]; then
-        echo ":: Running command with 'bundle exec'"
-        bundle exec "$@"
-    else
-        "$@"
-    fi
-}
 
 map() { while read l; do $@ "$l"; done; }
-
-_cower_tmpfs() {
-    local target=/tmp/pkg
-    [[ ! -d $target  ]] && mkdir $target
-    /usr/bin/cower $@
-}
-
-_vps_upload() {
-    scp "$@" "dione:~/http/misc/"
-    echo "https://dl.kodama.gr/misc/$@"
-}
 
 vimconflicts() {
     vim +/"<<<<<<<" $( git diff --name-only --diff-filter=U | xargs )
@@ -128,9 +104,7 @@ else
     eval $(dircolors -b)
 fi
 
-# travis-ci cli completion
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
+source ~/.travis/travis.sh
 source /usr/bin/virtualenvwrapper_lazy.sh
 source ~/.rvm/scripts/rvm
 

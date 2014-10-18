@@ -1,0 +1,6 @@
+#!/bin/bash
+
+target=/tmp/pkg
+[[ ! -d $target  ]] && mkdir $target
+/usr/bin/cower "$@"
+
