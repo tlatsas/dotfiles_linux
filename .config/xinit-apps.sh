@@ -26,10 +26,6 @@ xsetroot -cursor_name left_ptr &
 # set background
 nitrogen --restore &
 
-# merge clipboards
-/usr/bin/autocutsel -fork &
-/usr/bin/autocutsel -selection PRIMARY -fork &
-
 # keyboard layout settings
 setxkbmap -model evdev -layout us,gr -variant extended \
     -option grp:caps_toggle \
@@ -83,3 +79,5 @@ _volume_pipe=/tmp/.volume-pipe
 
 # init an mplayer socket to contol from cli
 ~/bin/mplayer-cmd 'init' &
+
+parcellite &
