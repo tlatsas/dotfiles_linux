@@ -34,7 +34,7 @@ Other applications that help productivity:
 
 For style:
 
-* Zukitwo colors (gtk2/3)
+* Gnome themes standard
 * Faenza-dark icons
 * xcursor-comix
 * LS_COLORS for file colors in terminal

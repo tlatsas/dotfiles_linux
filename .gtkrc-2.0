@@ -1,8 +1,7 @@
 # gtk application style
 
 # theme
-#gtk-theme-name = "Shiki-Brave"
-gtk-theme-name = "Zukitwo"
+gtk-theme-name = "Adwaita"
 
 # mouse cursor
 gtk-cursor-theme-name = "ComixCursors-Slim-White"
