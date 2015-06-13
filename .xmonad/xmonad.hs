@@ -60,8 +60,16 @@ main = do
             }
 
 -- workspaces
-myWorkspaces :: [WorkspaceId]
-myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+xmobarEscape = concatMap doubleLts
+    where doubleLts '<' = "<<"
+          doubleLts x = [x]
+
+myWorkspaces :: [String]
+myWorkspaces = clickable . (map xmobarEscape) $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    where
+        clickable l = [ "<action=xdotool key super+" ++ show (n) ++ ">" ++ ws ++ "</action>" |
+                            (i,ws) <- zip [1..9] l,
+                            let n = i ]
 
 -- terminal
 myTerminal :: String

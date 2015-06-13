@@ -46,9 +46,9 @@ Config {
             "-t","✇ <temp><fc=#b4cdcd>°C</fc>"
         ] 80
         , Run PipeReader "/tmp/.volume-pipe" "vol_pipe"
-        , Run StdinReader
+        , Run UnsafeStdinReader
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol_pipe%</fc> : %multicpu% %memory% %thermal5% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
+    , template = "%UnsafeStdinReader% }{ <fc=#b4cdcd>%kbd%</fc> : ♫ <fc=#b4cdcd>%vol_pipe%</fc> : %multicpu% %memory% %thermal5% : %battery% : %LGAV% : <fc=#b4cdcd>%date%</fc> "
 }
