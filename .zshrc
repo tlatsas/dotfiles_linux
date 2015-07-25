@@ -110,6 +110,14 @@ source ~/.rvm/scripts/rvm
 # set the terminal title prompt
 #PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
 
+__rvm_ps1() {
+    if [[ `rvm current` != "system" ]]; then
+        echo "[ $(rvm-prompt) ]"
+    else
+        echo ''
+    fi
+}
+
 # set bash prompt function
 _set_prompt() {
     autoload -U zsh/terminfo
@@ -126,8 +134,9 @@ _set_prompt() {
     source /usr/share/git/git-prompt.sh
     setopt prompt_subst
     p_git='$(__git_ps1 "( %s )" )'
+    local p_rvm='$(__rvm_ps1)'
 
-    PS1=" $PR_WHITE¦ $PR_CYAN_B%~$PR_RST $PR_MAGENTA$p_git$PR_RST"
+    PS1=" $PR_WHITE¦ $PR_CYAN_B%~$PR_RST $PR_MAGENTA$p_git$PR_RST $PR_YELLOW$p_rvm$PR_RST"
 
     # ugly indentation for multi-line prompts!
     if [[ $UID -eq 0 ]]; then
