@@ -24,7 +24,7 @@ urxvtd -q -f -o
 xsetroot -cursor_name left_ptr &
 
 # set background
-nitrogen --restore &
+~/bin/randwall.py &
 
 # keyboard layout settings
 setxkbmap -model evdev -layout us,gr -variant extended \
