@@ -84,7 +84,6 @@ alias serve='python -m http.server $@'
 alias serve2='python -m SimpleHTTPServer $@'
 alias last='last -a | head -15'
 alias pac='sudo pacman -Syu'
-alias npm='npm --prefix ~/.node'
 alias svim='sudo vim'
 
 
